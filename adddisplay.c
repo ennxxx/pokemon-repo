@@ -43,10 +43,10 @@ void displayEntries()
 
     for (i = 0; i < 5; i++) // 5 entries per page
     {
-        printf("Details for Entry Number %d\n", i + 1);
+        printf("\nDetails for Entry Number %d\n", i + 1);
         printf("Name: %s\n", pokemon[i].name);
         printf("Type: %s\n", pokemon[i].type);
-        printf("Description: %s", pokemon[i].description);
+        printf("Description: %s\n", pokemon[i].description);
     }
 }
 
