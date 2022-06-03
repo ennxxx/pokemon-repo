@@ -1,5 +1,5 @@
 // This searches for Pokemon based on type and name
-// Needs to be reworked!
+// Needs to be reworked to fit the new main file
 
 #include "pokedex.c"
 
