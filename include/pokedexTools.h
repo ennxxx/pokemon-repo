@@ -13,6 +13,8 @@ typedef struct{
     int lastEntry;
 } Pokedex;
 
+typedef char string[20];
+
 // Initialization
 Pokemon initPokemon();          // This initalizes the Pokemon information
 Pokedex initCollection();       // This is a separate struct that contains all 150 Pokemon  
@@ -21,5 +23,6 @@ Pokedex initCollection();       // This is a separate struct that contains all 1
 int checkDup(Pokedex dex, char name[]);
 int entryExists(Pokedex dex, int entry);
 void displayPokemon(Pokemon p);
+char toUpper(char c);
 
 #endif
