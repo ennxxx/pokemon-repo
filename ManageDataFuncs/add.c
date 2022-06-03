@@ -4,7 +4,7 @@
 
 void addEntry(Pokedex dex)
 {   
-    int back, redo = 0;
+    int back, redo;
     int i = 0;
     
     Pokemon pokemon;
@@ -18,10 +18,19 @@ void addEntry(Pokedex dex)
         
         printf("Inputting Entry %d...\n\n", pokemon.entry);
 
-        printf("Name: ");
-        scanf("%s", pokemon.name); 
-        
-        // Function to check for duplicates
+        do
+        {
+            printf("Name: ");
+            scanf("%s", pokemon.name); 
+
+            redo = checkDup(dex, pokemon);  // Must return 1 for the function to continue
+
+            if (redo == 0)
+            {
+                printf("\nThis entry already exists! Please enter another Pokemon name.\n\n");
+            }
+
+        } while (redo != 1);
         
         printf("\nPlease choose from the following:\n");
         printf("[E]lectric\n");
@@ -54,4 +63,20 @@ void addEntry(Pokedex dex)
     } while (back != 0);
 }
 
-// int checkDuplicate()
+int checkDup(Pokedex entry, Pokemon p)
+{
+    int i, j;
+
+    for (i = 0; i < entry.lastEntry - 1; i++)
+    {
+        for (j = i + 1; j < entry.lastEntry; j++)
+        {
+            if (strcmp(&p.name[i], &p.name[j]) == 0)   
+            {
+                return 0;   // Returns 0 if the entry has already been entered previously
+            }
+        }
+    }
+
+    return 1;
+} 
