@@ -1,6 +1,6 @@
 // Modifies entries in the Pokedex
-
-#include "../main/pokedex.c"
+#include "../include/manageMenu.h"
+#include "../include/pokedexTools.h"
 
 // Display all entries then then ask the user which one to modify
 // Check if the entry number exists in the Pokedex

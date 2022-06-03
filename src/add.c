@@ -1,6 +1,6 @@
 // This adds and checks for duplicate entries in the Pokedex
-
-#include "../main/pokedex.c"
+#include "../include/manageMenu.h"
+#include "../include/pokedexTools.h"
 
 int checkDup(Pokedex dex, char name[20])
 {

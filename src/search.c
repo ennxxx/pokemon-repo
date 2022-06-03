@@ -1,7 +1,7 @@
 // This searches for Pokemon based on type and name
 // Needs to be reworked to fit the new main file
-
-#include "../main/pokedex.c"
+#include "../include/manageMenu.h"
+#include "../include/pokedexTools.h"
 
 char toUpper(char c) // Changes all inputs to uppercase
 {
