@@ -27,6 +27,7 @@ void researchMenu();
 
 // Manage Menu
 void addEntry(Pokedex dex);
+void modifyEntry(Pokedex dex);
 
 int main()
 {   
@@ -118,7 +119,7 @@ void manageMenu(Pokedex dex)
         {
             case 0: mainMenu(); break;
             case 1: addEntry(dex); break;
-            case 2: 
+            case 2: modifyEntry(dex); break;
             case 3: 
             case 4: 
             case 5: 
