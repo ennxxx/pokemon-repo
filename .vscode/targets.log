@@ -1,0 +1,511 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.81
+# Copyright (C) 2006  Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.
+# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+
+# This program built for i386-apple-darwin11.3.0
+ 
+
+# Make data base, printed on Fri Jun  3 18:36:18 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+VSCODE_LOG_NATIVE = false
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# makefile (from `makefile', line 19)
+INCLUDES = -I $(SRC_PATH)/include -I $(SRC_PATH)/src -I $(SRC_PATH)/main
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /Users/paulaenxi/Documents/GitHub/pokemon-repo
+# makefile (from `makefile', line 48)
+SHELL = /bin/bash
+# makefile (from `makefile', line 63)
+V := false
+# environment
+ 
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# environment
+_ = /usr/bin/make
+# makefile (from `makefile', line 1)
+MAKEFILE_LIST :=  makefile
+# makefile (from `makefile', line 52)
+INSTALL = install
+# makefile (from `makefile', line 85)
+SOURCES = $(shell find $(SRC_PATH) -name '*.$(SRC_EXT)' | sort -k 1nr | cut -f2-)
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# makefile (from `makefile', line 109)
+END_TIME = read st < $(TIME_FILE) ; $(RM) $(TIME_FILE) ; st=$$((`$(CUR_TIME)` - $$st)) ; echo $$st
+# environment
+__CFBundleIdentifier = com.microsoft.VSCode
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/mq/j_mymsq55ns8m8bphh351yn00000gn/T/vscode-ipc-51ae152e-08c7-4aea-a726-cd760a8ee1f7.sock
+# environment
+VSCODE_CWD = /
+# environment
+PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+# makefile (from `makefile', line 13)
+COMPILE_FLAGS = -std=c99 -Wall -Wextra -g
+# makefile (from `makefile', line 9)
+SRC_PATH = .
+# environment
+VSCODE_LOG_STACK = false
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# default
+.FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
+# makefile (from `makefile', line 124)
+USE_VERSION := false
+# environment
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.rQQ0lyQYmm/Listeners
+# automatic
+%F = $(notdir $%)
+# makefile (from `makefile', line 39)
+UNAME_S := Darwin
+# makefile (from `makefile', line 106)
+CUR_TIME = awk 'BEGIN{srand(); print srand()}'
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+PWD = /Users/paulaenxi/Documents/GitHub/pokemon-repo
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /Users/paulaenxi
+# default
+MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
+# environment
+VSCODE_CODE_CACHE_PATH = /Users/paulaenxi/Library/Application Support/Code/CachedData/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
+# environment
+LOGNAME = paulaenxi
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# makefile (from `makefile', line 25)
+DLINK_FLAGS = 
+# environment
+XPC_FLAGS = 0x0
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+SHLVL = 1
+# makefile (from `makefile', line 5)
+CC = gcc 
+# default
+MAKE_VERSION := 3.81
+# environment
+USER = paulaenxi
+# makefile
+.DEFAULT_GOAL := release
+# makefile (from `makefile', line 3)
+BIN_NAME := Pokedex
+# makefile (from `makefile', line 27)
+DESTDIR = /
+# makefile (from `makefile', line 7)
+SRC_EXT = c
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# makefile (from `makefile', line 92)
+rwildcard = $(foreach d, $(wildcard $1*), $(call rwildcard,$d/,$2) $(filter $(subst *,%,$2), $d))
+# default
+MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
+# makefile (from `makefile', line 29)
+INSTALL_PREFIX = usr/local
+# default
+.VARIABLES := 
+# environment
+TMPDIR = /var/folders/mq/j_mymsq55ns8m8bphh351yn00000gn/T/
+# automatic
+*F = $(notdir $*)
+# environment
+VSCODE_IPC_HOOK = /Users/paulaenxi/Library/Application Support/Code/1.67.2-main.sock
+# makefile
+MAKEFLAGS = Rrqp
+# environment
+MFLAGS = -Rrqp
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.8030650.8030657
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# automatic
++F = $(notdir $+)
+# makefile (from `makefile', line 23)
+RLINK_FLAGS = 
+# makefile (from `makefile', line 107)
+TIME_FILE = $(dir $@).$(notdir $@)_time
+# environment
+__CF_USER_TEXT_ENCODING = 0x1F5:0x0:0x0
+# environment
+COMMAND_MODE = unix2003
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# makefile (from `makefile', line 64)
+CMD_PREFIX := @
+# makefile (from `makefile', line 17)
+DCOMPILE_FLAGS = -D DEBUG
+# makefile (from `makefile', line 21)
+LINK_FLAGS = 
+# environment
+LC_ALL = C
+# makefile (from `makefile', line 53)
+INSTALL_PROGRAM = $(INSTALL)
+# makefile (from `makefile', line 11)
+LIBS = 
+# automatic
+^F = $(notdir $^)
+# makefile (from `makefile', line 102)
+DEPS = $(OBJECTS:.o=.d)
+# default
+SUFFIXES := 
+# default
+.INCLUDE_DIRS = /usr/local/include
+# makefile (from `makefile', line 54)
+INSTALL_DATA = $(INSTALL) -m 644
+# makefile (from `makefile', line 15)
+RCOMPILE_FLAGS = -D NDEBUG
+# environment
+MAKELEVEL := 0
+# makefile (from `makefile', line 100)
+OBJECTS = $(SOURCES:$(SRC_PATH)/%.$(SRC_EXT)=$(BUILD_PATH)/%.o)
+# makefile (from `makefile', line 108)
+START_TIME = $(CUR_TIME) > $(TIME_FILE)
+# environment
+LANG = C
+# environment
+VSCODE_PID = 992
+# variable set hash-table stats:
+# Load=91/1024=9%, Rehash=0, Collisions=10/196=5%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 16777233, inode 7927355): 13 files, no impossibilities.
+# main (device 16777233, inode 8737857): 3 files, no impossibilities so far.
+
+# 16 files, no impossibilities in 2 directories.
+
+# Implicit Rules
+
+print-%:
+#  commands to execute (from `makefile', line 44):
+	@echo $*=$($*)
+	
+
+/%.o: ./%.c
+#  commands to execute (from `makefile', line 220):
+	@echo "Compiling: $< -> $@"
+	@$(START_TIME)
+	$(CMD_PREFIX)$(CC) $(CFLAGS) $(INCLUDES) -MP -MMD -c $< -o $@
+	@echo -en "\t Compile time: "
+	@$(END_TIME)
+	
+
+# 2 implicit rules, 0 (0.0%) terminal.
+
+# Files
+
+all: /Pokedex
+#  Command-line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/17=0%
+#  commands to execute (from `makefile', line 201):
+	@echo "Making symlink: $(BIN_NAME) -> $<"
+	@$(RM) $(BIN_NAME)
+	@ln -s $(BIN_PATH)/$(BIN_NAME) $(BIN_NAME)
+	
+
+# Not a target:
+/src/modify.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.PHONY: release debug dirs install uninstall clean
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+/main/pokedex.o: main/pokedex.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `main/pokedex'
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := /main/pokedex.o
+# automatic
+# % := 
+# automatic
+# * := main/pokedex
+# automatic
+# + := main/pokedex.c
+# automatic
+# | := 
+# automatic
+# < := main/pokedex.c
+# automatic
+# ^ := main/pokedex.c
+# automatic
+# ? := main/pokedex.c
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=4/35=11%
+#  commands to execute (from `makefile', line 220):
+	@echo "Compiling: $< -> $@"
+	@$(START_TIME)
+	$(CMD_PREFIX)$(CC) $(CFLAGS) $(INCLUDES) -MP -MMD -c $< -o $@
+	@echo -en "\t Compile time: "
+	@$(END_TIME)
+	
+
+# Not a target:
+/src/display.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+uninstall:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `makefile', line 187):
+	@echo "Removing $(DESTDIR)$(INSTALL_PREFIX)/bin/$(BIN_NAME)"
+	@$(RM) $(DESTDIR)$(INSTALL_PREFIX)/bin/$(BIN_NAME)
+	
+
+debug: dirs
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+# makefile (from `makefile', line 72)
+# CFLAGS :=  -std=c99 -Wall -Wextra -g -D DEBUG
+# makefile (from `makefile', line 73)
+# LDFLAGS := $(subst ,,  )
+# makefile (from `makefile', line 79)
+# BIN_PATH := bin/debug
+# makefile (from `makefile', line 78)
+# BUILD_PATH := build/debug
+# variable set hash-table stats:
+# Load=4/32=12%, Rehash=0, Collisions=6/10=60%
+#  commands to execute (from `makefile', line 164):
+	@echo "Beginning debug build"
+	@$(START_TIME)
+	@$(MAKE) all --no-print-directory
+	@echo -n "Total build time: "
+	@$(END_TIME)
+	
+
+# Not a target:
+makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-03 18:35:14
+ 
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+dirs:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `makefile', line 174):
+	@echo "Creating directories"
+	@mkdir -p $(dir $(OBJECTS))
+	@mkdir -p $(BIN_PATH)
+	
+
+/Pokedex: /main/pokedex.o /src/add.o /src/display.o /src/modify.o /src/search.o
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/17=0%
+#  commands to execute (from `makefile', line 207):
+	@echo "Linking: $@"
+	@$(START_TIME)
+	$(CMD_PREFIX)$(CC) $(OBJECTS) $(LDFLAGS) -o $@
+	@echo -en "\t Link time: "
+	@$(END_TIME)
+	
+
+# Not a target:
+main/pokedex.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-03 18:35:14
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+release: dirs
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+# makefile (from `makefile', line 70)
+# CFLAGS :=  -std=c99 -Wall -Wextra -g -D NDEBUG
+# makefile (from `makefile', line 71)
+# LDFLAGS := $(subst ,,  )
+# makefile (from `makefile', line 77)
+# BIN_PATH := bin/release
+# makefile (from `makefile', line 76)
+# BUILD_PATH := build/release
+# variable set hash-table stats:
+# Load=4/32=12%, Rehash=0, Collisions=6/10=60%
+#  commands to execute (from `makefile', line 151):
+	@echo "Beginning release build"
+	@$(START_TIME)
+	@$(MAKE) all --no-print-directory
+	@echo -n "Total build time: "
+	@$(END_TIME)
+	
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `makefile', line 193):
+	@echo "Deleting $(BIN_NAME) symlink"
+	@$(RM) $(BIN_NAME)
+	@echo "Deleting directories"
+	@$(RM) -r build
+	@$(RM) -r bin
+	
+
+# Not a target:
+/src/add.d:
+#  A default, MAKEFILES, or -include/sinclude makefile.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+/src/search.d:
+#  A default, MAKEFILES, or -include/sinclude makefile.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+/src/modify.d:
+#  A default, MAKEFILES, or -include/sinclude makefile.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+/main/pokedex.d:
+#  A default, MAKEFILES, or -include/sinclude makefile.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+/src/display.d:
+#  A default, MAKEFILES, or -include/sinclude makefile.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+/src/add.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+install:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+# makefile (from `makefile', line 80)
+# BIN_PATH := bin/release
+# variable set hash-table stats:
+# Load=1/32=3%, Rehash=0, Collisions=0/1=0%
+#  commands to execute (from `makefile', line 181):
+	@echo "Installing to $(DESTDIR)$(INSTALL_PREFIX)/bin"
+	@$(INSTALL_PROGRAM) $(BIN_PATH)/$(BIN_NAME) $(DESTDIR)$(INSTALL_PREFIX)/bin
+	
+
+# Not a target:
+/src/search.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# files hash-table stats:
+# Load=23/1024=2%, Rehash=0, Collisions=2/76=3%
+# VPATH Search Paths
+
+# No `vpath' search paths.
+
+# No general (`VPATH' variable) search path.
+
+# # of strings in strcache: 6
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4017 / max = 4017 / min = 4017 / avg = 4017
+
+# Finished Make data base on Fri Jun  3 18:36:18 2022
+
+ 
