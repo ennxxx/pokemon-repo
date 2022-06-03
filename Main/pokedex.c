@@ -29,6 +29,11 @@ void researchMenu();
 void addEntry(Pokedex dex);
 void modifyEntry(Pokedex dex);
 
+// Extra
+// int checkDuplicate()
+int entryExists(Pokedex dex, int entry);
+void displayPokemon(Pokemon p);
+
 int main()
 {   
     mainMenu();            // Opens up the main menu of the Pokedex

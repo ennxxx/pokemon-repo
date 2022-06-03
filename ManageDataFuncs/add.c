@@ -53,3 +53,5 @@ void addEntry(Pokedex dex)
         
     } while (back != 0);
 }
+
+// int checkDuplicate()
