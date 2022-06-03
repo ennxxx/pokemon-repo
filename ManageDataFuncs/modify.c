@@ -7,13 +7,16 @@
 // Return the index of the Pokemon's entry if the entry entered exists
 // Return -1 otherwise
 
-int entryExists(Pokedex dex, int entry){
+int entryExists(Pokedex dex, int entry)
+{
     
     int i, exists = 0;  // For all entities in the Pokedex
     int entryIndex;
     
-    for(i = 0; i < 150; i++){
-        if(entry == dex.collection[i].entry){
+    for(i = 0; i < 150; i++)
+    {
+        if(entry == dex.collection[i].entry)
+        {
             exists = 1;
             entryIndex = i;
             i = 150;
@@ -26,24 +29,28 @@ int entryExists(Pokedex dex, int entry){
     return -1;
 }
 
-void displayPokemon(Pokemon p){
+void displayPokemon(Pokemon p)
+{
     printf("\nEntry: %d\n", p.entry);
     printf("Name: %s\n", p.name);
     printf("Type: %s\n", p.type);
     printf("Description: %s\n", p.description);
 }
 
-void modifyEntry(Pokedex dex){
-    
+void modifyEntry(Pokedex dex)
+{
     displayEntries(dex);
 
-    // Ask the user which entry they would like to modify
     int exists, entry, entryIndex;
-
+    char changeOpt;
+    
+    // Ask the user which entry they would like to modify
     // Set default value to negative 1 to indicate errors
+    
     exists = entryIndex = entry = -1;
 
-    while (exists == -1){
+    while (exists == -1)
+    {
         printf("\nWhich entry would you like to modify?\n");
         scanf("%d", &entry);
         exists = entryExists(dex, entry);
@@ -53,15 +60,15 @@ void modifyEntry(Pokedex dex){
 
     // Guard clause to avoid errors
     // Will only set entryIndex to the index of the entry if the entry exists
+
     if(exists != -1)
         entryIndex = exists;
 
     // Modify the entry located at entryIndex
     Pokemon changeMon = dex.collection[entryIndex];
 
-    char changeOpt;
     changeOpt = ' ';
-    do{
+    do {
         system("clear || cls");
         displayPokemon(changeMon);
         printf("What would you like to change\n");
@@ -99,5 +106,5 @@ void modifyEntry(Pokedex dex){
                 printf("\nInvalid input.\n");
                 break;
         }
-    }while(changeOpt != '0');
+    } while(changeOpt != '0');
 }

@@ -1,75 +1,15 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+// This searches for Pokemon based on type and name
+// Needs to be reworked!
 
-typedef char string[20];
-typedef struct {
-    int* entry;
-    int lastEntry;
-    char* name;
-    char* type;
-    char* description;
-}Pokemon;
+#include "pokedex.c"
 
-
-Pokemon InitializePokemon(){
-    Pokemon pokemon;
-    pokemon.entry = (int*)malloc(sizeof(int) * 1);
-    pokemon.name = (char*)malloc(sizeof(char) * 20);
-    pokemon.type = (char*)malloc(sizeof(char) * 10);
-    pokemon.description = (char*)malloc(sizeof(char) * 50);
-   
-    *(pokemon.entry) = 0;
-    strcpy(pokemon.name, "null");
-    strcpy(pokemon.type, "null");
-    strcpy(pokemon.description, "null");
-
-    return pokemon;
-}
-
-Pokemon* initializePokemonArray(){
-
-    int i;
-    Pokemon* pokemonArray = (Pokemon*)malloc(sizeof(Pokemon) * 150);
-    
-    for (i = 0; i < 150; i++)
-    {
-        *(pokemonArray + i) = InitializePokemon();
-    }
-
-    return pokemonArray;
-}
-
-void addEntry(Pokemon* pokemonArray){
-    int i = 0;
-    while((pokemonArray + i)->entry != 0){
-        i++;
-    }
-    // put in values for pokemonArray+i
-}
-
-
-// userWantsPokemon(){
-//     If pokemon.name == null
-//         quit
-// }
-
-// createListOfPokemons(){
-//     Pokemon[10] pokemen
-//     For loop:
-//         Pokemen[i] = initializePokemon();
-
-
-
-// to upper function that returns a char
-// used to make sure all inputs are uppercase
-char 
-toUpper(char c)
+char toUpper(char c) // Changes all inputs to uppercase
 {
     if (c >= 'a' && c <= 'z')
     {
         c = c - 32;
     }
+    
     return c;
 }
 
