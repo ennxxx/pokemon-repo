@@ -27,10 +27,11 @@ void researchMenu();
 
 // Manage Menu
 void addEntry(Pokedex dex);
+void displayEntries(Pokedex dex);
 void modifyEntry(Pokedex dex);
 
 // Extra
-// int checkDuplicate()
+int checkDup(Pokedex dex, Pokemon p);
 int entryExists(Pokedex dex, int entry);
 void displayPokemon(Pokemon p);
 
