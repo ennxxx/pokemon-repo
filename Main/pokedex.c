@@ -22,11 +22,11 @@ Pokedex initCollection();       // This is a separate struct that contains all 1
 
 // Menu Pages
 void mainMenu();
-void manageMenu(Pokedex entry);
+void manageMenu(Pokedex dex);
 void researchMenu();
 
 // Manage Menu
-void addEntry(Pokedex entry);
+void addEntry(Pokedex dex);
 
 int main()
 {   
@@ -52,16 +52,16 @@ Pokemon initPokemon()
 Pokedex initCollection()
 {
     int i;
-    Pokedex entry;
+    Pokedex dex;
 
     for (i = 0; i < 150; i++)
     {
-        entry.collection[i] = initPokemon(); // Access the information of each Pokemon
+        dex.collection[i] = initPokemon(); // Access the information of each Pokemon
     }
 
-    entry.lastEntry = 0;
+    dex.lastEntry = 0;
 
-    return entry;
+    return dex;
 }
 
 // Menu Pages
@@ -70,8 +70,8 @@ void mainMenu()
 {
     int mainOpt;
 
-    Pokedex entry;
-    entry = initCollection();   // Access the entries through this function
+    Pokedex dex;
+    dex = initCollection();   // Access the entries through this function
     
     do
     {
@@ -86,7 +86,7 @@ void mainMenu()
 
         switch(mainOpt)
         {
-            case 1: manageMenu(entry); break;
+            case 1: manageMenu(dex); break;
             case 2: researchMenu(); break;
             case 3: system("clear || cls");
                     printf("Exiting the Pokédex...\n"); break;
@@ -96,7 +96,7 @@ void mainMenu()
     } while (mainOpt!= 3);
 }
 
-void manageMenu(Pokedex entry)
+void manageMenu(Pokedex dex)
 {
     int manOpt;
     
@@ -117,7 +117,7 @@ void manageMenu(Pokedex entry)
         switch(manOpt)
         {
             case 0: mainMenu(); break;
-            case 1: addEntry(entry); break;
+            case 1: addEntry(dex); break;
             case 2: 
             case 3: 
             case 4: 
