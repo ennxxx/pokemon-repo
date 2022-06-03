@@ -1,15 +1,17 @@
-#include "pokedex2.c"
-// display all entries then then ask the user which one to modify
+// Modifies entries in the Pokedex
 
-// function to check if the entry number exists in the pokedex
+#include "pokedex.c"
 
-// this function returns the index of the pokemon's entry if the entry entered exists
-// returns -1 otherwise
+// Display all entries then then ask the user which one to modify
+// Check if the entry number exists in the Pokedex
+// Return the index of the Pokemon's entry if the entry entered exists
+// Return -1 otherwise
+
 int entryExists(Pokedex dex, int entry){
-    // for all entities in dex
-    int i, exists = 0;
-
+    
+    int i, exists = 0;  // For all entities in the Pokedex
     int entryIndex;
+    
     for(i = 0; i < 150; i++){
         if(entry == dex.collection[i].entry){
             exists = 1;
@@ -32,15 +34,16 @@ void displayPokemon(Pokemon p){
 }
 
 void modifyEntry(Pokedex dex){
+    
     displayEntries(dex);
 
-    // ask the user which entry they would like to modify
+    // Ask the user which entry they would like to modify
     int exists, entry, entryIndex;
 
-    // set default value to negative 1 to indicate errors
+    // Set default value to negative 1 to indicate errors
     exists = entryIndex = entry = -1;
 
-    while(exists == -1){
+    while (exists == -1){
         printf("\nWhich entry would you like to modify?\n");
         scanf("%d", &entry);
         exists = entryExists(dex, entry);
@@ -48,12 +51,12 @@ void modifyEntry(Pokedex dex){
             printf("\nThat entry does not exist.\n");
     }
 
-    // guard clause to avoid errors
-    // will only set entryIndex to the index of the entry if the entry exists
+    // Guard clause to avoid errors
+    // Will only set entryIndex to the index of the entry if the entry exists
     if(exists != -1)
         entryIndex = exists;
 
-    // modify the entry located at entryIndex
+    // Modify the entry located at entryIndex
     Pokemon changeMon = dex.collection[entryIndex];
 
     char changeOpt;
@@ -73,7 +76,7 @@ void modifyEntry(Pokedex dex){
         switch(changeOpt){
             case '0':
                 printf("\nSaving changes...\n");
-                // only assign the new pokemon to the dex if the user enters save
+                // Only assign the new Pokemon to the Pokedex if the user enters save
                 dex.collection[entryIndex] = changeMon;
                 break;
             case '1':
