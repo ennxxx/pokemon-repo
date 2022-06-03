@@ -2,7 +2,7 @@
 
 #include "pokedex.c"
 
-void addEntry(Pokedex entry)
+void addEntry(Pokedex dex)
 {   
     int back, redo = 0;
     int i = 0;
@@ -14,7 +14,7 @@ void addEntry(Pokedex entry)
         system("clear");
         printf("---Adding Entries---\n\n");
 
-        pokemon.entry = entry.lastEntry + 1;
+        pokemon.entry = dex.lastEntry + 1;
         
         printf("Inputting Entry %d...\n\n", pokemon.entry);
 
@@ -37,8 +37,8 @@ void addEntry(Pokedex entry)
                 
         printf("\n...done inputting!\n\n");
 
-        entry.collection[i] = pokemon;      // Adds Pokemon to database
-        entry.lastEntry = pokemon.entry;    // Ensures that new entries will be added based on previous index
+        dex.collection[i] = pokemon;      // Adds Pokemon to database
+        dex.lastEntry = pokemon.entry;    // Ensures that new entries will be added based on previous index
         
         i++;
 
@@ -47,7 +47,7 @@ void addEntry(Pokedex entry)
 
         switch(back)
         {
-            case 0: manageMenu(entry); break;
+            case 0: manageMenu(dex); break;
             default: break;
         }
         
