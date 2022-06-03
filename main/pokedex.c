@@ -4,36 +4,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct {
-    int entry;
-    char name[20];
-    char type[10];
-    char description[50];
-} Pokemon; 
-
-typedef struct{
-    Pokemon collection[150];
-    int lastEntry;
-} Pokedex;
-
-// Initialization
-Pokemon initPokemon();          // This initalizes the Pokemon information
-Pokedex initCollection();       // This is a separate struct that contains all 150 Pokemon  
-
-// Menu Pages
-void mainMenu();
-void manageMenu(Pokedex dex);
-void researchMenu();
-
-// Manage Menu
-void addEntry(Pokedex dex);
-void displayEntries(Pokedex dex);
-void modifyEntry(Pokedex dex);
-
-// Extra
-int checkDup(Pokedex dex, char name[]);
-int entryExists(Pokedex dex, int entry);
-void displayPokemon(Pokemon p);
+#include "../include/manageMenu.h"
+#include "../include/pokedexTools.h"
 
 int main()
 {   

@@ -150,33 +150,3 @@ searchByType()
     else
         printf("\n---Found %d %s pokemon(s)---\n", found, typeInput);
 }
-
-
-
-int main()
-{
-    Pokemon* pokemonArray;
-    int ch;
-    
-    pokemonArray = initializePokemonArray();
-    
-    do
-    {
-        printf("\nManage Data\n");
-        printf("[1] Search by Name\n");
-        printf("[2] Search by Type\n");
-        printf("[0] Exit\n");
-
-        printf("\nInput: ");
-        scanf("%d", &ch);
-
-        switch(ch)
-        {
-            case 1: searchByName(pokemonArray); break;
-            case 2: searchByType(pokemonArray); break;
-            default: break;
-        }
-    } while (ch != 0);
-
-    return 0;
-}
