@@ -1,19 +1,16 @@
 // This adds and checks for duplicate entries in the Pokedex
 
-#include "pokedex.c"
+#include "../main/pokedex.c"
 
-int checkDup(Pokedex entry, Pokemon p)
+int checkDup(Pokedex dex, char name[20])
 {
     int i, j;
 
-    for (i = 0; i < entry.lastEntry - 1; i++)
+    for (i = 0; i < dex.lastEntry - 1; i++)
     {
-        for (j = i + 1; j < entry.lastEntry; j++)
+        if (strcmp(name, dex.collection[i].name) == 0)   
         {
-            if (strcmp(&p.name[i], &p.name[j]) == 0)   
-            {
-                return 0;   // Returns 0 if the entry has already been entered previously
-            }
+            return 0;   // Returns 0 if the entry has already been entered previously
         }
     }
 
@@ -41,7 +38,7 @@ void addEntry(Pokedex dex)
             printf("Name: ");
             scanf("%s", pokemon.name); 
 
-            redo = checkDup(dex, pokemon);  // Must return 1 for the function to continue
+            redo = checkDup(dex, pokemon.name);  // Must return 1 for the function to continue
 
             if (redo == 0)
             {

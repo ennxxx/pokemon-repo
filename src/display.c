@@ -1,6 +1,6 @@
 // Display function still in progress 
 
-#include "pokedex.c"
+#include "../main/pokedex.c"
 
 void displayEntries(Pokedex dex)
 {   
