@@ -31,7 +31,7 @@ void displayEntries(Pokedex dex);
 void modifyEntry(Pokedex dex);
 
 // Extra
-int checkDup(Pokedex dex, char name[20]);
+int checkDup(Pokedex dex, char name[]);
 int entryExists(Pokedex dex, int entry);
 void displayPokemon(Pokemon p);
 
