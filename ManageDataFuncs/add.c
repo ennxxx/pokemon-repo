@@ -2,6 +2,24 @@
 
 #include "pokedex.c"
 
+int checkDup(Pokedex entry, Pokemon p)
+{
+    int i, j;
+
+    for (i = 0; i < entry.lastEntry - 1; i++)
+    {
+        for (j = i + 1; j < entry.lastEntry; j++)
+        {
+            if (strcmp(&p.name[i], &p.name[j]) == 0)   
+            {
+                return 0;   // Returns 0 if the entry has already been entered previously
+            }
+        }
+    }
+
+    return 1;
+} 
+
 void addEntry(Pokedex dex)
 {   
     int back, redo;
@@ -62,21 +80,3 @@ void addEntry(Pokedex dex)
         
     } while (back != 0);
 }
-
-int checkDup(Pokedex entry, Pokemon p)
-{
-    int i, j;
-
-    for (i = 0; i < entry.lastEntry - 1; i++)
-    {
-        for (j = i + 1; j < entry.lastEntry; j++)
-        {
-            if (strcmp(&p.name[i], &p.name[j]) == 0)   
-            {
-                return 0;   // Returns 0 if the entry has already been entered previously
-            }
-        }
-    }
-
-    return 1;
-} 
