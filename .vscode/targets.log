@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Fri Jun  3 23:53:00 2022
+# Make data base, printed on Sat Jun  4 10:42:10 2022
 
 # Variables
 
@@ -22,6 +22,7 @@ VSCODE_LOG_NATIVE = false
 ?D = $(patsubst %/,%,$(dir $?))
 # makefile (from `makefile', line 19)
 INCLUDES = -I $(SRC_PATH)/include -I $(SRC_PATH)/src -I $(SRC_PATH)/main
+ 
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # automatic
@@ -49,7 +50,7 @@ END_TIME = read st < $(TIME_FILE) ; $(RM) $(TIME_FILE) ; st=$$((`$(CUR_TIME)` - 
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/mq/j_mymsq55ns8m8bphh351yn00000gn/T/vscode-ipc-fd95de0d-fdfb-4b81-a693-6f343802fc77.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/mq/j_mymsq55ns8m8bphh351yn00000gn/T/vscode-ipc-ab20c23f-045e-4009-9a37-ed02c7924d74.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -67,7 +68,7 @@ ELECTRON_RUN_AS_NODE = 1
 # makefile (from `makefile', line 124)
 USE_VERSION := false
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.rQQ0lyQYmm/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.BKG3TQHeVV/Listeners
 # automatic
 %F = $(notdir $%)
 # makefile (from `makefile', line 39)
@@ -106,6 +107,8 @@ MAKE = $(MAKE_COMMAND)
 MAKECMDGOALS := all
 # environment
 SHLVL = 1
+# environment
+LOCAL_GIT_DIRECTORY = /Applications/GitHub Desktop.app/Contents/Resources/app/git
 # makefile (from `makefile', line 5)
 CC = gcc 
 # default
@@ -193,9 +196,9 @@ START_TIME = $(CUR_TIME) > $(TIME_FILE)
 # environment
 LANG = C
 # environment
-VSCODE_PID = 992
+VSCODE_PID = 1241
 # variable set hash-table stats:
-# Load=91/1024=9%, Rehash=0, Collisions=10/196=5%
+# Load=92/1024=9%, Rehash=0, Collisions=10/197=5%
 
 # Pattern-specific Variable Values
 
@@ -203,10 +206,10 @@ VSCODE_PID = 992
 
 # Directories
 
-# . (device 16777233, inode 7927355): 14 files, no impossibilities.
-# main (device 16777233, inode 8737857): 3 files, no impossibilities so far.
+# . (device 16777230, inode 7927355): 12 files, no impossibilities.
+# main (device 16777230, inode 8737857): 3 files, no impossibilities so far.
 
-# 17 files, no impossibilities in 2 directories.
+# 15 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -227,6 +230,16 @@ print-%:
 # 2 implicit rules, 0 (0.0%) terminal.
 
 # Files
+
+# Not a target:
+/src/searchFuncs.d:
+#  A default, MAKEFILES, or -include/sinclude makefile.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 all: /Pokedex
 #  Command-line target.
@@ -311,8 +324,8 @@ debug: dirs
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-# makefile (from `makefile', line 72)
  
+# makefile (from `makefile', line 72)
 # CFLAGS :=  -std=c99 -Wall -Wextra -g -D DEBUG
 # makefile (from `makefile', line 73)
 # LDFLAGS := $(subst ,,  )
@@ -329,6 +342,12 @@ debug: dirs
 	@echo -n "Total build time: "
 	@$(END_TIME)
 	
+
+# Not a target:
+/src/searchFuncs.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 makefile:
@@ -350,7 +369,7 @@ dirs:
 	@mkdir -p $(BIN_PATH)
 	
 
-/Pokedex: /main/pokedex.o /src/add.o /src/display.o /src/modify.o /src/search.o
+/Pokedex: /main/pokedex.o /src/add.o /src/display.o /src/modify.o /src/searchFuncs.o
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
@@ -368,7 +387,7 @@ dirs:
 # Not a target:
 main/pokedex.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-03 18:35:14
+#  Last modified 2022-06-04 10:41:59
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -427,16 +446,6 @@ clean:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-/src/search.d:
-#  A default, MAKEFILES, or -include/sinclude makefile.
-#  Implicit rule search has been done.
-#  File does not exist.
-#  File has been updated.
-#  Failed to be updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
 /src/modify.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
@@ -486,12 +495,6 @@ install:
 	@$(INSTALL_PROGRAM) $(BIN_PATH)/$(BIN_NAME) $(DESTDIR)$(INSTALL_PREFIX)/bin
 	
 
-# Not a target:
-/src/search.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
 # files hash-table stats:
 # Load=23/1024=2%, Rehash=0, Collisions=2/76=3%
 # VPATH Search Paths
@@ -503,8 +506,8 @@ install:
 # # of strings in strcache: 6
 # # of strcache buffers: 1
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
-# strcache free: total = 4017 / max = 4017 / min = 4017 / avg = 4017
+# strcache free: total = 4012 / max = 4012 / min = 4012 / avg = 4012
 
-# Finished Make data base on Fri Jun  3 23:53:00 2022
+# Finished Make data base on Sat Jun  4 10:42:10 2022
 
  
