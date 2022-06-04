@@ -1,4 +1,6 @@
 // Display function still in progress 
+#include <stdio.h>
+#include "../include/uiElements.h"
 #include "../include/manageMenu.h"
 #include "../include/pokedexTools.h"
 
@@ -10,7 +12,7 @@ void displayEntries(Pokedex dex)
 
     do
     {
-        system("clear || cls");
+        clear_screen();
 
         for (i = 0; i < 3; i++)     // Garbage values are displayed rip
         {

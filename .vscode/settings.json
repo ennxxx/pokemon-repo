@@ -29,6 +29,8 @@
     "**/.vscode/**"
   ],
   "files.associations": {
-    "pokedextools.h": "c"
+    "pokedextools.h": "c",
+    "__config": "c",
+    "cstdlib": "c"
   }
 }

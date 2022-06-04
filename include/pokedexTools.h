@@ -25,6 +25,7 @@ Pokemon initPokemon();          // This initalizes the Pokemon information
 Pokedex initCollection();       // This is a separate struct that contains all 150 Pokemon  
 
 // Utils for the Pokedex
+void clear_screen();
 int checkDup(Pokedex dex, char name[]);
 int entryExists(Pokedex dex, int entry);
 void displayPokemon(Pokemon p);

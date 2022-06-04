@@ -1,6 +1,6 @@
+#include <stdio.h>
+#include <string.h>
 #include "../include/manageMenu.h"
-#include "../include/pokedexTools.h"
-
 #include "../include/pokedexTools.h"
 
 // Changes all inputs to uppercase
@@ -18,7 +18,7 @@ toUpper(char c)
 void 
 searchByName(Pokedex dex)
 {
-    int i, j, k, l;
+    int i, j, k;
     int ctr, found, inputlen, pokemonlen, pokeIndex;
     string input, currentMon;
 

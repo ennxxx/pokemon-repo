@@ -32,7 +32,7 @@ int entryExists(Pokedex dex, int entry)
 
 void displayPokemon(Pokemon p)
 {
-    printf("\nEntry: %d\n", p.entry);
+    printf("Entry: %d\n", p.entry);
     printf("Name: %s\n", p.name);
     printf("Type: %s\n", p.type);
     printf("Description: %s\n", p.description);
@@ -40,8 +40,6 @@ void displayPokemon(Pokemon p)
 
 void modifyEntry(Pokedex dex)
 {
-    // displayEntries(dex); Dont display muna
-
     int exists, entry, entryIndex;
     char changeOpt;
     
@@ -70,7 +68,7 @@ void modifyEntry(Pokedex dex)
 
     changeOpt = ' ';
     do {
-        system("clear || cls");
+        clear_screen();
         displayPokemon(changeMon);
         printf("What would you like to change?\n");
         printf("[0] Save and Exit\n");
