@@ -96,7 +96,7 @@ void modifyEntry(Pokedex dex)
                 break;
             case '3':
                 printf("\nWhat would you like to change the description to?\n");
-                scanf("%s", changeMon.description);
+                scanf("%[^\n]s", changeMon.description);
                 break;
             case '4':
                 printf("\nQuitting...\n");

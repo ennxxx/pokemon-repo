@@ -9,4 +9,8 @@ void displayEntries(Pokedex dex);
 
 void modifyEntry(Pokedex dex);
 
+void searcByName(Pokedex dex);
+
+void searchByType(Pokedex dex);
+
 #endif

@@ -33,12 +33,12 @@ Pokedex initCollection()
     int i;
     Pokedex dex;
 
-    for (i = 0; i < 150; i++)
+    for (i = 0; i < MAX_ENTRIES; i++)
     {
         dex.collection[i] = initPokemon(); // Access the information of each Pokemon
     }
 
-    dex.lastEntry = 0;
+    dex.pokeCount = 0;
 
     return dex;
 }
