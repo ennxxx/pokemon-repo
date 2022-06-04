@@ -19,7 +19,7 @@ void searchByName(Pokedex dex)
         
         found = 0;
 
-        printf("Searching Pokemon...\n\n");
+        printf("Searching Pokemon by Name...\n\n");
         printf("Who are you looking for? ");
         scanf("%s", input);
         
@@ -74,10 +74,14 @@ void searchByName(Pokedex dex)
                 printf("Name: %s\n", dex.collection[i].name);
                 switch(dex.collection[i].type)  // displayType function does not work here :c
                 {
-                    case 'E': printf("Type: Electric\n"); break;
-                    case 'F': printf("Type: Fire\n"); break;
-                    case 'G': printf("Type: Grass\n"); break;
-                    case 'W': printf("Type: Water\n"); break;
+                    case 'E': 
+                    case 'e': printf("Type: Electric\n"); break;
+                    case 'F': 
+                    case 'f': printf("Type: Fire\n"); break;
+                    case 'G': 
+                    case 'g': printf("Type: Grass\n"); break;
+                    case 'W': 
+                    case 'w': printf("Type: Water\n"); break;
                     default: break;
                 }                
                 printf("Description: %s", dex.collection[i].description);
@@ -97,7 +101,92 @@ void searchByName(Pokedex dex)
         printf("\nPress [1] to search again, [0] to RETURN to the manage menu: ");
         scanf("%d", &back);
 
-        switch(back)    // Previous and next pages have not been implemented
+        switch(back)    
+        {
+            case 0: manageMenu(dex);
+            case 1: break;
+            default: printf("Invalid input."); break;
+        }
+    
+    } while (back != 0);
+}
+
+void searchByType(Pokedex dex)
+{
+    int back;
+    int i, found, pokeIndex;
+    char input;
+    string typeInput;
+
+    do
+    {
+        clear_screen();
+        
+        found = 0;
+        pokeIndex = dex.pokeCount;
+
+        printf("Searching Pokemon by Type...\n\n");
+
+        // Asks the user for input
+        printf("Please choose from the following:\n");
+        printf("[E]lectric\n");
+        printf("[F]ire\n");
+        printf("[G]rass\n");
+        printf("[W]ater\n\n");
+        printf("What Pokemon type are you looking for? ");
+        scanf(" %c", &input);
+
+        // Each char is assigned with a corresponding type which will be used as a key
+        switch(toUpper(input))
+        {
+            case 'E': strcpy(typeInput, "Electric");
+                        break;
+            case 'F': strcpy(typeInput, "Fire");
+                        break;
+            case 'G': strcpy(typeInput, "Grass");
+                        break;
+            case 'W': strcpy(typeInput, "Water");
+                        break;
+        }
+
+        // For loop that iterates through the Pokemon array
+        // If a Pokemon's type matches the input, it will be displayed and found increments
+        for(i = 0; i < pokeIndex; i++)
+        {
+            if(toUpper(input) == toUpper(dex.collection[i].type))
+            {
+                printf("\nEntry Number %d\n", dex.collection[i].entry);
+                printf("Name: %s\n", dex.collection[i].name);
+                switch(dex.collection[i].type)  // displayType function does not work here :c
+                {
+                    case 'E':
+                    case 'e': printf("Type: Electric\n"); break;
+                    case 'F': 
+                    case 'f': printf("Type: Fire\n"); break;
+                    case 'G': 
+                    case 'g': printf("Type: Grass\n"); break;
+                    case 'W': 
+                    case 'w': printf("Type: Water\n"); break;
+                    default: break;
+                }  
+                printf("Description: %s", dex.collection[i].description);
+                
+                found++;
+            }
+        }
+
+        //Prompts for the user about the input they entered 
+        if(found == 0)
+            printf("\n---No %s Pokemon found!---\n", typeInput);
+
+        else
+            printf("\n---Found %d %s Pokemon(s)---\n", found, typeInput);
+
+        // Returns to Manage Menu
+        printf("\nPress [1] to search again, [0] to RETURN to the manage menu: ");
+        scanf("%d", &back);
+
+        switch(back)    
         {
             case 0: manageMenu(dex);
             case 1: break;
