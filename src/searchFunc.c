@@ -1,16 +1,10 @@
+// Searches for Pokemon based on name or type
+
 #include <stdio.h>
 #include <string.h>
 #include "../include/uiElements.h"
 #include "../include/manageMenu.h"
 #include "../include/pokedexTools.h"
-
-char toUpper(char c) 
-{
-    if (c >= 'a' && c <= 'z')
-        c = c - 32;
-    
-    return c;
-}
 
 void searchByName(Pokedex dex)
 {

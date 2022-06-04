@@ -6,21 +6,6 @@
 #include "../include/manageMenu.h"
 #include "../include/pokedexTools.h"
 
-int checkDup(Pokedex dex, char name[20])
-{
-    int i;
-
-    for (i = 0; i < dex.pokeCount - 1; i++)
-    {
-        if (strcmp(name, dex.collection[i].name) == 0)   
-        {
-            return 0;   // Returns 0 if the entry has already been entered previously
-        }
-    }
-
-    return 1;
-} 
-
 void addEntry(Pokedex dex)
 {   
     int back, redo;

@@ -9,43 +9,6 @@
 // Return the index of the Pokemon's entry if the entry entered exists
 // Return -1 otherwise
 
-int entryExists(Pokedex dex, int entry)
-{
-    
-    int i, exists = 0;  // For all entities in the Pokedex
-    int entryIndex;
-    
-    for(i = 0; i < 150; i++)
-    {
-        if(entry == dex.collection[i].entry)
-        {
-            exists = 1;
-            entryIndex = i;
-            i = 150;
-        }
-    }
-
-    if(exists)
-        return entryIndex;
-
-    return -1;
-}
-
-void displayPokemon(Pokemon p)
-{
-    printf("Entry: %d\n", p.entry);
-    printf("Name: %s\n", p.name);
-    switch(p.type)
-    {
-        case 'E': printf("Type: Electric\n"); break;
-        case 'F': printf("Type: Fire\n"); break;
-        case 'G': printf("Type: Grass\n"); break;
-        case 'W': printf("Type: Water\n"); break;
-        default: break;
-    }
-    printf("Description: %s\n", p.description);
-}
-
 void modifyEntry(Pokedex dex)
 {
     int redo;
