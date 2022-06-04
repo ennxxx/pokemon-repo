@@ -1,6 +1,7 @@
 // Display function (WIP)
 
 #include <stdio.h>
+#include <string.h>
 #include "../include/uiElements.h"
 #include "../include/manageMenu.h"
 #include "../include/pokedexTools.h"
@@ -14,9 +15,11 @@ void displayEntries(Pokedex dex)
     do
     {
         clear_screen();
+
         for (i = 0; i < 3; i++)     // Garbage values are displayed rip
         {
             pokemon = dex.collection[i];
+            
             printf("Details for Entry Number %d\n", pokemon.entry);
             printf("Name: %s\n", pokemon.name);
             printf("Type: %s\n", pokemon.type);
