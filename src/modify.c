@@ -1,4 +1,5 @@
 // Modifies entries in the Pokedex
+#include <stdio.h>
 #include "../include/manageMenu.h"
 #include "../include/pokedexTools.h"
 
@@ -71,12 +72,12 @@ void modifyEntry(Pokedex dex)
     do {
         system("clear || cls");
         displayPokemon(changeMon);
-        printf("What would you like to change\n");
+        printf("What would you like to change?\n");
         printf("[0] Save and Exit\n");
         printf("[1] Name\n");
         printf("[2] Type\n");
         printf("[3] Description\n");
-        printf("[4] Cancel\n");
+        printf("[4] Cancel\n\n");
         printf("Input: ");
         scanf("%c", &changeOpt);
 
@@ -87,16 +88,22 @@ void modifyEntry(Pokedex dex)
                 dex.collection[entryIndex] = changeMon;
                 break;
             case '1':
-                printf("\nWhat would you like to change the name to?\n");
+                printf("\nChanging name to...");
                 scanf("%s", changeMon.name);
                 break;
             case '2':
-                printf("\nWhat would you like to change the type to?\n");
-                scanf("%s", changeMon.type);
+                printf("\nChanging type to...\n");
+                printf("[E]lectric\n");
+                printf("[F]ire\n");
+                printf("[G]rass\n");
+                printf("[W]ater\n\n");
+                printf("Type: ");
+                scanf(" %c", changeMon.type);
                 break;
             case '3':
-                printf("\nWhat would you like to change the description to?\n");
-                scanf("%[^\n]s", changeMon.description);
+                fflush(stdin); 
+                printf("\nChanging description to... ");
+                fgets(changeMon.description, 50, stdin);
                 break;
             case '4':
                 printf("\nQuitting...\n");
