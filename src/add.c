@@ -57,7 +57,7 @@ void addEntry(Pokedex dex)
         printf("[G]rass\n");
         printf("[W]ater\n\n");
         printf("Type: ");
-        scanf(" %c", pokemon.type);
+        scanf(" %c", &pokemon.type);
 
         fflush(stdin); 
         printf("\nDescription: ");

@@ -3,13 +3,12 @@
 
 #define MAX_ENTRIES 150
 #define MAX_NAME_LEN 20
-#define MAX_TYPE_LEN 10
 #define MAX_DESC_LEN 50
 
 typedef struct {
     int entry;
     char name[MAX_NAME_LEN];
-    char type[MAX_TYPE_LEN];
+    char type;
     char description[MAX_DESC_LEN];
 } Pokemon; 
 
