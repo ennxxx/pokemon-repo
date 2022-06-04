@@ -1,7 +1,7 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/paulaenxi/Documents/GitHub/pokemon-repo'
 echo "Creating directories"
-mkdir -p build/release/main/ build/release/src/ build/release/src/ build/release/src/ build/release/src/
+mkdir -p build/release/main/ build/release/src/ build/release/src/ build/release/src/ build/release/src/ build/release/src/ build/release/src/
 mkdir -p bin/release
 echo "Beginning release build"
 awk 'BEGIN{srand(); print srand()}' > ./.release_time
@@ -22,26 +22,36 @@ awk 'BEGIN{srand(); print srand()}' > build/release/src/.display.o_time
 cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD -c src/display.c -o build/release/src/display.o
 echo -en "\t Compile time: "
 read st < build/release/src/.display.o_time ; rm -f build/release/src/.display.o_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
+echo "Compiling: src/fileFunc.c -> build/release/src/fileFunc.o"
+awk 'BEGIN{srand(); print srand()}' > build/release/src/.fileFunc.o_time
+cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD -c src/fileFunc.c -o build/release/src/fileFunc.o
+echo -en "\t Compile time: "
+read st < build/release/src/.fileFunc.o_time ; rm -f build/release/src/.fileFunc.o_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
 echo "Compiling: src/modify.c -> build/release/src/modify.o"
 awk 'BEGIN{srand(); print srand()}' > build/release/src/.modify.o_time
 cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD -c src/modify.c -o build/release/src/modify.o
 echo -en "\t Compile time: "
 read st < build/release/src/.modify.o_time ; rm -f build/release/src/.modify.o_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
-echo "Compiling: src/searchFuncs.c -> build/release/src/searchFuncs.o"
-awk 'BEGIN{srand(); print srand()}' > build/release/src/.searchFuncs.o_time
-cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD -c src/searchFuncs.c -o build/release/src/searchFuncs.o
+echo "Compiling: src/searchFunc.c -> build/release/src/searchFunc.o"
+awk 'BEGIN{srand(); print srand()}' > build/release/src/.searchFunc.o_time
+cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD -c src/searchFunc.c -o build/release/src/searchFunc.o
 echo -en "\t Compile time: "
-read st < build/release/src/.searchFuncs.o_time ; rm -f build/release/src/.searchFuncs.o_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
+read st < build/release/src/.searchFunc.o_time ; rm -f build/release/src/.searchFunc.o_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
+echo "Compiling: src/util.c -> build/release/src/util.o"
+awk 'BEGIN{srand(); print srand()}' > build/release/src/.util.o_time
+cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD -c src/util.c -o build/release/src/util.o
+echo -en "\t Compile time: "
+read st < build/release/src/.util.o_time ; rm -f build/release/src/.util.o_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
  
 echo "Linking: bin/release/Pokedex"
 awk 'BEGIN{srand(); print srand()}' > bin/release/.Pokedex_time
- 
-cc build/release/main/pokedex.o build/release/src/add.o build/release/src/display.o build/release/src/modify.o build/release/src/searchFuncs.o    -o bin/release/Pokedex
+cc build/release/main/pokedex.o build/release/src/add.o build/release/src/display.o build/release/src/fileFunc.o build/release/src/modify.o build/release/src/searchFunc.o build/release/src/util.o    -o bin/release/Pokedex
 echo -en "\t Link time: "
 read st < bin/release/.Pokedex_time ; rm -f bin/release/.Pokedex_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
 echo "Making symlink: Pokedex -> bin/release/Pokedex"
 rm -f Pokedex
 ln -s bin/release/Pokedex Pokedex
+ 
 echo -n "Total build time: "
 read st < ./.release_time ; rm -f ./.release_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
 make: Leaving directory `/Users/paulaenxi/Documents/GitHub/pokemon-repo'
