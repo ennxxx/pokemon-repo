@@ -1,0 +1,25 @@
+Details for Entry Number 1
+Name: Pikachu
+Type: Electric
+Description: Yellow rat.
+
+Details for Entry Number 2
+Name: Raichu
+Type: Electric
+Description: Fat Pikachu.
+
+Details for Entry Number 3
+Name: Lechonk
+Type: Fire
+Description: Lechon baboy.
+
+Details for Entry Number 4
+Name: Mudkip
+Type: Water
+Description: Frog or something.
+
+Details for Entry Number 5
+Name: Oshawott
+Type: Water
+Description: Blue baby.
+
