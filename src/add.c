@@ -29,7 +29,6 @@ void addEntry(Pokedex dex)
 
     do
     {
-        system("clear || cls");
         printf("---Adding Entries---\n\n");
 
         pokemon.entry = dex.pokeCount + 1;
