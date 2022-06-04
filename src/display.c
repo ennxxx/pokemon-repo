@@ -14,7 +14,6 @@ void displayEntries(Pokedex dex)
     do
     {
         clear_screen();
-
         for (i = 0; i < 3; i++)     // Garbage values are displayed rip
         {
             pokemon = dex.collection[i];

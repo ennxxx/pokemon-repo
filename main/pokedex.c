@@ -100,9 +100,9 @@ void manageMenu(Pokedex dex)
             case 1: addEntry(dex); break;
             case 2: modifyEntry(dex); break;
             case 3: 
-            case 4: 
-            case 5: 
-            case 6: 
+            case 4: displayEntries(dex); break;
+            case 5: searchByName(dex); break;
+            case 6: searchByType(dex); break;
             case 7: 
             case 8: 
             default: break;
