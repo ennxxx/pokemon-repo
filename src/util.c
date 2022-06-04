@@ -55,18 +55,27 @@ int entryExists(Pokedex dex, int entry)
     return -1;
 }
 
+void displayType(Pokemon p)
+{
+    switch(p.type)
+    {
+        case 'E': 
+        case 'e': printf("Type: Electric\n"); break;
+        case 'F': 
+        case 'f': printf("Type: Fire\n"); break;
+        case 'G': 
+        case 'g': printf("Type: Grass\n"); break;
+        case 'W': 
+        case 'w': printf("Type: Water\n"); break;
+        default: break;
+    }
+}
+
 void displayPokemon(Pokemon p)
 {
     printf("Entry: %d\n", p.entry);
     printf("Name: %s\n", p.name);
-    switch(p.type)
-    {
-        case 'E': printf("Type: Electric\n"); break;
-        case 'F': printf("Type: Fire\n"); break;
-        case 'G': printf("Type: Grass\n"); break;
-        case 'W': printf("Type: Water\n"); break;
-        default: break;
-    }
+    displayType(p);
     printf("Description: %s\n", p.description);
 }
 

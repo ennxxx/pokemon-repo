@@ -22,14 +22,7 @@ void displayEntries(Pokedex dex)
 
             printf("Details for Entry Number %d\n", pokemon.entry);
             printf("Name: %s\n", pokemon.name);
-            switch(pokemon.type)
-            {
-                case 'E': printf("Type: Electric\n"); break;
-                case 'F': printf("Type: Fire\n"); break;
-                case 'G': printf("Type: Grass\n"); break;
-                case 'W': printf("Type: Water\n"); break;
-                default: break;
-            }
+            displayType(pokemon);
             printf("Description: %s\n", pokemon.description);
         }
         

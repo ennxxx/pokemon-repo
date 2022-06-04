@@ -72,7 +72,7 @@ void searchByName(Pokedex dex)
             {
                 printf("\nEntry Number %d\n", dex.collection[i].entry);
                 printf("Name: %s\n", dex.collection[i].name);
-                switch(dex.collection[i].type)
+                switch(dex.collection[i].type)  // displayType function does not work here :c
                 {
                     case 'E': printf("Type: Electric\n"); break;
                     case 'F': printf("Type: Fire\n"); break;
