@@ -16,6 +16,8 @@ void displayEntries(Pokedex dex)
     {
         clear_screen();
 
+        printf("Displaying entries...\n\n");
+
         for (i = 0; i < 5; i++)     // Garbage values are displayed rip
         {
             pokemon = dex.collection[i];
