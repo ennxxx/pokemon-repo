@@ -13,4 +13,6 @@ void searchByName(Pokedex dex);
 
 void searchByType(Pokedex dex);
 
+void exportEntries(Pokedex dex);
+
 #endif
