@@ -1,3 +1,5 @@
+// Clear screen function
+
 #include <stdlib.h>
 #include "../include/pokedexTools.h"
 

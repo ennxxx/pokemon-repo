@@ -1,3 +1,5 @@
+// Searches for entries based on type and name
+
 #include <stdio.h>
 #include <string.h>
 #include "../include/manageMenu.h"

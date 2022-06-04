@@ -1,4 +1,5 @@
 // This adds and checks for duplicate entries in the Pokedex
+
 #include <stdio.h>
 #include <string.h>
 #include "../include/uiElements.h"

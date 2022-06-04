@@ -1,4 +1,5 @@
 // Modifies entries in the Pokedex
+
 #include <stdio.h>
 #include "../include/manageMenu.h"
 #include "../include/pokedexTools.h"

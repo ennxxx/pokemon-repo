@@ -1,4 +1,5 @@
-// Display function still in progress 
+// Display function (WIP)
+
 #include <stdio.h>
 #include "../include/uiElements.h"
 #include "../include/manageMenu.h"
