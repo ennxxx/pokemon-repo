@@ -40,7 +40,7 @@ void displayPokemon(Pokemon p)
 
 void modifyEntry(Pokedex dex)
 {
-    displayEntries(dex);
+    // displayEntries(dex); Dont display muna
 
     int exists, entry, entryIndex;
     char changeOpt;

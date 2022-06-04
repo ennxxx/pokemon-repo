@@ -1,11 +1,13 @@
 // This adds and checks for duplicate entries in the Pokedex
 #include <stdio.h>
+#include <string.h>
+#include "../include/uiElements.h"
 #include "../include/manageMenu.h"
 #include "../include/pokedexTools.h"
 
 int checkDup(Pokedex dex, char name[20])
 {
-    int i, j;
+    int i;
 
     for (i = 0; i < dex.pokeCount - 1; i++)
     {
@@ -27,7 +29,7 @@ void addEntry(Pokedex dex)
 
     do
     {
-        system("clear");
+        system("clear || cls");
         printf("---Adding Entries---\n\n");
 
         pokemon.entry = dex.pokeCount + 1;
