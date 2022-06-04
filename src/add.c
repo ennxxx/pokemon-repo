@@ -7,7 +7,7 @@ int checkDup(Pokedex dex, char name[20])
 {
     int i, j;
 
-    for (i = 0; i < dex.lastEntry - 1; i++)
+    for (i = 0; i < dex.pokeCount - 1; i++)
     {
         if (strcmp(name, dex.collection[i].name) == 0)   
         {
@@ -30,7 +30,7 @@ void addEntry(Pokedex dex)
         system("clear");
         printf("---Adding Entries---\n\n");
 
-        pokemon.entry = dex.lastEntry + 1;
+        pokemon.entry = dex.pokeCount + 1;
         
         printf("Inputting Entry %d...\n\n", pokemon.entry);
 
@@ -63,7 +63,7 @@ void addEntry(Pokedex dex)
         printf("\n...done inputting!\n\n");
 
         dex.collection[i] = pokemon;      // Adds Pokemon to database
-        dex.lastEntry = pokemon.entry;    // Ensures that new entries will be added based on previous index
+        dex.pokeCount = pokemon.entry;    // Ensures that new entries will be added based on previous index
         
         i++;
 
