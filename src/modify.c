@@ -35,12 +35,20 @@ void displayPokemon(Pokemon p)
 {
     printf("Entry: %d\n", p.entry);
     printf("Name: %s\n", p.name);
-    printf("Type: %s\n", p.type);
+    switch(p.type)
+    {
+        case 'E': printf("Type: Electric\n"); break;
+        case 'F': printf("Type: Fire\n"); break;
+        case 'G': printf("Type: Grass\n"); break;
+        case 'W': printf("Type: Water\n"); break;
+        default: break;
+    }
     printf("Description: %s\n", p.description);
 }
 
 void modifyEntry(Pokedex dex)
 {
+    int redo;
     int exists, entry, entryIndex;
     char changeOpt;
     
@@ -51,7 +59,7 @@ void modifyEntry(Pokedex dex)
 
     while (exists == -1)
     {
-        printf("\nWhich entry would you like to modify?\n");
+        printf("\nWhich entry would you like to modify?: ");
         scanf("%d", &entry);
         exists = entryExists(dex, entry);
         if(exists == -1)
@@ -87,8 +95,18 @@ void modifyEntry(Pokedex dex)
                 dex.collection[entryIndex] = changeMon;
                 break;
             case '1':
-                printf("\nChanging name to...");
-                scanf("%s", changeMon.name);
+                do
+                {
+                    printf("\nChanging name to... ");
+                    scanf("%s", changeMon.name);
+
+                    redo = checkDup(dex, changeMon.name);  // Must return 1 for the function to continue
+
+                    if (redo == 0)
+                    {
+                        printf("\nThis entry already exists! Please enter another Pokemon name.\n");
+                    }
+                } while (redo != 1);
                 break;
             case '2':
                 printf("\nChanging type to...\n");
@@ -97,7 +115,7 @@ void modifyEntry(Pokedex dex)
                 printf("[G]rass\n");
                 printf("[W]ater\n\n");
                 printf("Type: ");
-                scanf(" %c", changeMon.type);
+                scanf(" %c", &changeMon.type);
                 break;
             case '3':
                 fflush(stdin); 
