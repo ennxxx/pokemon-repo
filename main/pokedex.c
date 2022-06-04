@@ -5,11 +5,15 @@
 #include <string.h>
 
 #include "../include/manageMenu.h"
+#include "../include/uiElements.h"
 #include "../include/pokedexTools.h"
 
 int main()
 {   
-    mainMenu();            // Opens up the main menu of the Pokedex
+    Pokedex dex;
+    dex = initCollection();   // Access the entries through this function
+    
+    mainMenu(dex);            // Opens up the main menu of the Pokedex
 
     return 0;
 }
@@ -45,12 +49,9 @@ Pokedex initCollection()
 
 // Menu Pages
 
-void mainMenu()
+void mainMenu(Pokedex dex)
 {
     int mainOpt;
-
-    Pokedex dex;
-    dex = initCollection();   // Access the entries through this function
     
     do
     {
@@ -66,7 +67,7 @@ void mainMenu()
         switch(mainOpt)
         {
             case 1: manageMenu(dex); break;
-            case 2: researchMenu(); break;
+            case 2: researchMenu(dex); break;
             case 3: system("clear || cls");
                     printf("Exiting the Pokédex...\n"); break;
             default: break;
@@ -95,7 +96,7 @@ void manageMenu(Pokedex dex)
 
         switch(manOpt)
         {
-            case 0: mainMenu(); break;
+            case 0: mainMenu(dex); break;
             case 1: addEntry(dex); break;
             case 2: modifyEntry(dex); break;
             case 3: 
@@ -110,7 +111,7 @@ void manageMenu(Pokedex dex)
     } while (manOpt != 0); 
 }
 
-void researchMenu()
+void researchMenu(Pokedex dex)
 {
     int resOpt;
 
@@ -129,7 +130,7 @@ void researchMenu()
 
         switch(resOpt)
         {
-            case 0: mainMenu(); break;
+            case 0: mainMenu(dex); break;
             case 1: 
             case 2: 
             case 3: 
