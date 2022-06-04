@@ -1,6 +1,7 @@
 #ifndef _POKEDEXTOOLS_H_
 #define _POKEDEXTOOLS_H_
 
+#define FILENAME "pokedex.txt"
 #define MAX_ENTRIES 150
 #define MAX_NAME_LEN 20
 #define MAX_DESC_LEN 50
