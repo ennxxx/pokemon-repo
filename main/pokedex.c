@@ -68,7 +68,7 @@ void mainMenu(Pokedex dex)
         {
             case 1: manageMenu(dex); break;
             case 2: researchMenu(dex); break;
-            case 3: system("clear || cls");
+            case 3: clear_screen();
                     printf("Exiting the Pokédex...\n"); break;
             default: break;
         }
