@@ -11,31 +11,40 @@ void displayEntries(Pokedex dex)
     int i, back, limit;
 
     Pokemon pokemon;
-    limit = 5;
+    
+    limit = 3;
     back = -1;
-    i = 0;
+    i = 1;
 
     do
     {
-        clear_screen();
+        system("clear || cls");
 
         printf("Displaying entries...\n\n");
 
 
-        for (; i < limit; i++)     // Garbage values are displayed rip
+        for (; i <= limit; i++)     // Garbage values are displayed rip
         {
             pokemon = dex.collection[i];
             printf("Details for Entry Number %d\n", pokemon.entry);
             printf("Name: %s\n", pokemon.name);
             displayType(pokemon);
             printf("Description: %s\n", pokemon.description);
+
         }
-        
-        printf("Press [1] for the next page, [0] to RETURN to the manage menu: ");
-        scanf("%d", &back); // put an input handler here
+
+        printf("[0] RETURN\n");
+        printf("[1] NEXT\n");
+        printf("[2] PREV\n\n");
+        printf("Input: ");
+        scanf("%d", &back); // Put an input handler here
 
         if (back == 1)
-            limit += 5 + 1;
+        {
+            limit += 3;
+        }
+
+        // Put previous function here
 
     } while (back != 0);
 }

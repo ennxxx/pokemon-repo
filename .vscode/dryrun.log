@@ -3,6 +3,7 @@ make: Entering directory `/Users/paulaenxi/Documents/GitHub/pokemon-repo'
 echo "Creating directories"
 mkdir -p build/release/main/ build/release/src/ build/release/src/ build/release/src/ build/release/src/ build/release/src/ build/release/src/ build/release/src/
 mkdir -p bin/release
+ 
 echo "Beginning release build"
 awk 'BEGIN{srand(); print srand()}' > ./.release_time
 /Library/Developer/CommandLineTools/usr/bin/make all --no-print-directory
@@ -13,6 +14,7 @@ cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD
 echo -en "\t Compile time: "
 read st < build/release/main/.pokedex.o_time ; rm -f build/release/main/.pokedex.o_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
 echo "Compiling: src/add.c -> build/release/src/add.o"
+ 
 awk 'BEGIN{srand(); print srand()}' > build/release/src/.add.o_time
 cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD -c src/add.c -o build/release/src/add.o
 echo -en "\t Compile time: "
@@ -52,12 +54,11 @@ echo "Linking: bin/release/Pokedex"
 awk 'BEGIN{srand(); print srand()}' > bin/release/.Pokedex_time
 cc build/release/main/pokedex.o build/release/src/add.o build/release/src/display.o build/release/src/fileFunc.o build/release/src/modify.o build/release/src/reviewFuncs.o build/release/src/searchFunc.o build/release/src/util.o    -o bin/release/Pokedex
 echo -en "\t Link time: "
-read st < bin/release/.Pokedex_time ; rm -f bin/release/.Pokedex_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
  
+read st < bin/release/.Pokedex_time ; rm -f bin/release/.Pokedex_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
 echo "Making symlink: Pokedex -> bin/release/Pokedex"
 rm -f Pokedex
 ln -s bin/release/Pokedex Pokedex
- 
 echo -n "Total build time: "
 read st < ./.release_time ; rm -f ./.release_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
 make: Leaving directory `/Users/paulaenxi/Documents/GitHub/pokemon-repo'

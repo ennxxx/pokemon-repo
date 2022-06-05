@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Mon Jun  6 05:18:35 2022
+# Make data base, printed on Mon Jun  6 06:01:34 2022
 
 # Variables
 
@@ -34,6 +34,7 @@ SHELL = /bin/bash
 V := false
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+ 
 # environment
 _ = /usr/bin/make
 # makefile (from `makefile', line 1)
@@ -47,10 +48,9 @@ VSCODE_VERBOSE_LOGGING = true
 # makefile (from `makefile', line 109)
 END_TIME = read st < $(TIME_FILE) ; $(RM) $(TIME_FILE) ; st=$$((`$(CUR_TIME)` - $$st)) ; echo $$st
 # environment
- 
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/mq/j_mymsq55ns8m8bphh351yn00000gn/T/vscode-ipc-4dd95d3f-f335-4af9-896c-f46491bbab81.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/mq/j_mymsq55ns8m8bphh351yn00000gn/T/vscode-ipc-5869006b-8148-42b6-9901-ceccb60bc95b.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -337,6 +337,7 @@ uninstall:
 
 debug: dirs
 #  Phony target (prerequisite of .PHONY).
+ 
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
@@ -351,7 +352,6 @@ debug: dirs
 # variable set hash-table stats:
 # Load=4/32=12%, Rehash=0, Collisions=6/10=60%
 #  commands to execute (from `makefile', line 164):
- 
 	@echo "Beginning debug build"
 	@$(START_TIME)
 	@$(MAKE) all --no-print-directory
@@ -556,6 +556,6 @@ install:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 3966 / max = 3966 / min = 3966 / avg = 3966
 
-# Finished Make data base on Mon Jun  6 05:18:35 2022
+# Finished Make data base on Mon Jun  6 06:01:34 2022
 
  
