@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Sat Jun  4 21:26:43 2022
+# Make data base, printed on Sun Jun  5 16:30:06 2022
 
 # Variables
 
@@ -49,7 +49,7 @@ END_TIME = read st < $(TIME_FILE) ; $(RM) $(TIME_FILE) ; st=$$((`$(CUR_TIME)` - 
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/mq/j_mymsq55ns8m8bphh351yn00000gn/T/vscode-ipc-6f0747b3-3843-45aa-9fab-ccdff93acd12.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/mq/j_mymsq55ns8m8bphh351yn00000gn/T/vscode-ipc-6fc980c4-9ca9-44dd-9531-3da3b6504223.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -67,7 +67,7 @@ ELECTRON_RUN_AS_NODE = 1
 # makefile (from `makefile', line 124)
 USE_VERSION := false
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.pHxrKQXiKE/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.geVL6VNO66/Listeners
 # automatic
 %F = $(notdir $%)
 # makefile (from `makefile', line 39)
@@ -195,7 +195,7 @@ START_TIME = $(CUR_TIME) > $(TIME_FILE)
 # environment
 LANG = C
 # environment
-VSCODE_PID = 1292
+VSCODE_PID = 1946
 # variable set hash-table stats:
 # Load=92/1024=9%, Rehash=0, Collisions=10/197=5%
 
@@ -205,10 +205,10 @@ VSCODE_PID = 1292
 
 # Directories
 
-# . (device 16777234, inode 7927355): 15 files, no impossibilities.
-# main (device 16777234, inode 8737857): 3 files, no impossibilities so far.
+# . (device 16777231, inode 7927355): 16 files, no impossibilities.
+# main (device 16777231, inode 8737857): 3 files, no impossibilities so far.
 
-# 18 files, no impossibilities in 2 directories.
+# 19 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -539,6 +539,6 @@ install:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 3985 / max = 3985 / min = 3985 / avg = 3985
 
-# Finished Make data base on Sat Jun  4 21:26:43 2022
+# Finished Make data base on Sun Jun  5 16:30:06 2022
 
  
