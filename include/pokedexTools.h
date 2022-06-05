@@ -26,7 +26,7 @@ Pokedex initCollection();       // This is a separate struct that contains all 1
 
 // Utils for the Pokedex
 void clear_screen();
-int checkDup(Pokedex dex, char name[]);
+int checkDup(Pokedex dex, char name[20]);
 int entryExists(Pokedex dex, int entry);
 void displayType(Pokemon p);
 void displayPokemon(Pokemon p);
