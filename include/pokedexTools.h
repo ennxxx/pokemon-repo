@@ -6,11 +6,22 @@
 #define MAX_NAME_LEN 20
 #define MAX_DESC_LEN 50
 
+typedef struct{
+    char type;
+    int status;
+} resType;
+
+typedef struct{
+    resType list[10];
+    int taskCount;
+} resTasks;
+
 typedef struct {
     int entry;
     char name[MAX_NAME_LEN];
     char type;
     char description[MAX_DESC_LEN];
+    resTasks tasks;
 } Pokemon; 
 
 typedef struct{

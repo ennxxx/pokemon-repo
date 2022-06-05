@@ -9,7 +9,7 @@
 // Return the index of the Pokemon's entry if the entry entered exists
 // Return -1 otherwise
 
-void modifyEntry(Pokedex dex)
+void modifyEntry(Pokedex* dex)
 {
     int redo;
     int exists, entry, entryIndex;
@@ -25,7 +25,7 @@ void modifyEntry(Pokedex dex)
         // Display all entries here!!!!
         printf("\nWhich entry would you like to modify?: ");
         scanf("%d", &entry);
-        exists = entryExists(dex, entry);
+        exists = entryExists(*dex, entry);
         if(exists == -1)
             printf("\nThat entry does not exist.\n");
     }
@@ -37,7 +37,7 @@ void modifyEntry(Pokedex dex)
         entryIndex = exists;
 
     // Modify the entry located at entryIndex
-    Pokemon changeMon = dex.collection[entryIndex];
+    Pokemon changeMon = dex->collection[entryIndex];
 
     changeOpt = ' ';
     do {
@@ -56,7 +56,7 @@ void modifyEntry(Pokedex dex)
             case '0':
                 printf("\nSaving changes...\n");
                 // Only assign the new Pokemon to the Pokedex if the user enters save
-                dex.collection[entryIndex] = changeMon;
+                dex->collection[entryIndex] = changeMon;
                 break;
             case '1':
                 do
@@ -64,7 +64,7 @@ void modifyEntry(Pokedex dex)
                     printf("\nChanging name to... ");
                     scanf("%s", changeMon.name);
 
-                    redo = checkDup(dex, changeMon.name);  // Must return 1 for the function to continue
+                    redo = checkDup(*dex, changeMon.name);  // Must return 1 for the function to continue
 
                     if (redo == 0)
                     {
@@ -80,10 +80,12 @@ void modifyEntry(Pokedex dex)
                 printf("[W]ater\n\n");
                 printf("Type: ");
                 scanf(" %c", &changeMon.type);
+                changeMon.type = toUpper(changeMon.type);
                 break;
             case '3':
                 fflush(stdin); 
                 printf("\nChanging description to... ");
+                fgetc(stdin);
                 fgets(changeMon.description, 50, stdin);
                 break;
             case '4':

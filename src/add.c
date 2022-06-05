@@ -9,8 +9,7 @@
 void addEntry(Pokedex dex)
 {   
     int back, redo;
-    int i = 0;
-    
+
     Pokemon pokemon;
 
     do
@@ -44,25 +43,18 @@ void addEntry(Pokedex dex)
         printf("Type: ");
         scanf(" %c", &pokemon.type);
 
-        fflush(stdin); 
+        fflush(stdin);
         printf("\nDescription: ");
+        fgetc(stdin);
         fgets(pokemon.description, 50, stdin);
                 
         printf("\n...done inputting!\n\n");
 
-        dex.collection[i] = pokemon;      // Adds Pokemon to database
+        dex.collection[pokemon.entry] = pokemon;      // Adds Pokemon to database
         dex.pokeCount = pokemon.entry;    // Ensures that new entries will be added based on previous index
-        
-        i++;
 
         printf("Press [1] to ADD another entry or [0] to RETURN to the manage menu: ");
         scanf("%d", &back);
-
-        switch(back)
-        {
-            case 0: manageMenu(dex); break;
-            default: break;
-        }
         
     } while (back != 0);
 }

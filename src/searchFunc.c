@@ -70,22 +70,7 @@ void searchByName(Pokedex dex)
             // Prints the found pokemon
             if (ctr == inputlen)
             {
-                printf("\nEntry Number %d\n", dex.collection[i].entry);
-                printf("Name: %s\n", dex.collection[i].name);
-                switch(dex.collection[i].type)  // displayType function does not work here :c
-                {
-                    case 'E': 
-                    case 'e': printf("Type: Electric\n"); break;
-                    case 'F': 
-                    case 'f': printf("Type: Fire\n"); break;
-                    case 'G': 
-                    case 'g': printf("Type: Grass\n"); break;
-                    case 'W': 
-                    case 'w': printf("Type: Water\n"); break;
-                    default: break;
-                }                
-                printf("Description: %s", dex.collection[i].description);
-                
+                displayPokemon(dex.collection[i]);
                 found++;
             }
         }
@@ -100,13 +85,6 @@ void searchByName(Pokedex dex)
         // Returns to Manage Menu
         printf("\nPress [1] to search again, [0] to RETURN to the manage menu: ");
         scanf("%d", &back);
-
-        switch(back)    
-        {
-            case 0: manageMenu(dex);
-            case 1: break;
-            default: printf("Invalid input."); break;
-        }
     
     } while (back != 0);
 }
@@ -153,24 +131,10 @@ void searchByType(Pokedex dex)
         // If a Pokemon's type matches the input, it will be displayed and found increments
         for(i = 0; i < pokeIndex; i++)
         {
+            // Use displayPokemon func here!!!
             if(toUpper(input) == toUpper(dex.collection[i].type))
             {
-                printf("\nEntry Number %d\n", dex.collection[i].entry);
-                printf("Name: %s\n", dex.collection[i].name);
-                switch(dex.collection[i].type)  // displayType function does not work here :c
-                {
-                    case 'E':
-                    case 'e': printf("Type: Electric\n"); break;
-                    case 'F': 
-                    case 'f': printf("Type: Fire\n"); break;
-                    case 'G': 
-                    case 'g': printf("Type: Grass\n"); break;
-                    case 'W': 
-                    case 'w': printf("Type: Water\n"); break;
-                    default: break;
-                }  
-                printf("Description: %s", dex.collection[i].description);
-                
+                displayPokemon(dex.collection[i]);   
                 found++;
             }
         }
@@ -185,13 +149,6 @@ void searchByType(Pokedex dex)
         // Returns to Manage Menu
         printf("\nPress [1] to search again, [0] to RETURN to the manage menu: ");
         scanf("%d", &back);
-
-        switch(back)    
-        {
-            case 0: manageMenu(dex);
-            case 1: break;
-            default: printf("Invalid input."); break;
-        }
     
     } while (back != 0);
 }

@@ -8,9 +8,12 @@
 
 void displayEntries(Pokedex dex)
 {   
-    int i, back;
+    int i, back, limit;
 
     Pokemon pokemon;
+    limit = 5;
+    back = -1;
+    i = 0;
 
     do
     {
@@ -18,10 +21,10 @@ void displayEntries(Pokedex dex)
 
         printf("Displaying entries...\n\n");
 
-        for (i = 0; i < 5; i++)     // Garbage values are displayed rip
+
+        for (; i < limit; i++)     // Garbage values are displayed rip
         {
             pokemon = dex.collection[i];
-
             printf("Details for Entry Number %d\n", pokemon.entry);
             printf("Name: %s\n", pokemon.name);
             displayType(pokemon);
@@ -29,14 +32,10 @@ void displayEntries(Pokedex dex)
         }
         
         printf("Press [1] for the next page, [0] to RETURN to the manage menu: ");
-        scanf("%d", &back);
+        scanf("%d", &back); // put an input handler here
 
-        switch(back)    // Previous and next pages have not been implemented
-        {
-            case 0: manageMenu(dex);
-            case 1: break;
-            default: printf("Invalid option! Please try again.\n\n"); break;
-        }
+        if (back == 1)
+            limit += 5 + 1;
 
     } while (back != 0);
 }
