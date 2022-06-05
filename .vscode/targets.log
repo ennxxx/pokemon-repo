@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Sun Jun  5 16:30:06 2022
+# Make data base, printed on Sun Jun  5 16:54:05 2022
 
 # Variables
 
@@ -21,6 +21,7 @@ VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # makefile (from `makefile', line 19)
+ 
 INCLUDES = -I $(SRC_PATH)/include -I $(SRC_PATH)/src -I $(SRC_PATH)/main
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
@@ -49,7 +50,7 @@ END_TIME = read st < $(TIME_FILE) ; $(RM) $(TIME_FILE) ; st=$$((`$(CUR_TIME)` - 
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/mq/j_mymsq55ns8m8bphh351yn00000gn/T/vscode-ipc-6fc980c4-9ca9-44dd-9531-3da3b6504223.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/mq/j_mymsq55ns8m8bphh351yn00000gn/T/vscode-ipc-8d692807-9d64-43bb-adf5-6dfb80274885.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -205,10 +206,10 @@ VSCODE_PID = 1946
 
 # Directories
 
-# . (device 16777231, inode 7927355): 16 files, no impossibilities.
+# . (device 16777231, inode 7927355): 13 files, no impossibilities.
 # main (device 16777231, inode 8737857): 3 files, no impossibilities so far.
 
-# 19 files, no impossibilities in 2 directories.
+# 16 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -311,7 +312,6 @@ all: /Pokedex
 #  File has been updated.
 #  Failed to be updated.
 # variable set hash-table stats:
- 
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 .SUFFIXES:
@@ -323,6 +323,7 @@ uninstall:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
+ 
 #  File has not been updated.
 #  commands to execute (from `makefile', line 187):
 	@echo "Removing $(DESTDIR)$(INSTALL_PREFIX)/bin/$(BIN_NAME)"
@@ -396,7 +397,7 @@ dirs:
 # Not a target:
 main/pokedex.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-04 17:09:57
+#  Last modified 2022-06-05 16:30:13
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -539,6 +540,6 @@ install:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 3985 / max = 3985 / min = 3985 / avg = 3985
 
-# Finished Make data base on Sun Jun  5 16:30:06 2022
+# Finished Make data base on Sun Jun  5 16:54:05 2022
 
  
