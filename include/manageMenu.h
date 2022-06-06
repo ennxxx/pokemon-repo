@@ -3,7 +3,7 @@
 
 #include "pokedexTools.h"
 
-void addEntry(Pokedex dex);
+void addEntry(Pokedex* dex);
 
 void displayEntries(Pokedex dex);
 

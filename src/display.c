@@ -12,9 +12,9 @@ void displayEntries(Pokedex dex)
 
     Pokemon pokemon;
     
-    limit = 3;
+    limit = 2;
     back = -1;
-    i = 1;
+    i = 0;
 
     do
     {
@@ -37,13 +37,10 @@ void displayEntries(Pokedex dex)
         printf("[1] NEXT\n");
         printf("[2] PREV\n\n");
         printf("Input: ");
-        scanf("%d", &back); // Put an input handler here
+        back = intHandler(0, 2);
 
         if (back == 1)
-        {
             limit += 3;
-        }
-
         // Put previous function here
 
     } while (back != 0);

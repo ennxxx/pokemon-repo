@@ -4,7 +4,7 @@
 #include "../include/manageMenu.h"
 #include "../include/pokedexTools.h"
 
-// Display all entries then then ask the user which one to modify
+// Display all entries then ask the user which one to modify
 // Check if the entry number exists in the Pokedex
 // Return the index of the Pokemon's entry if the entry entered exists
 // Return -1 otherwise

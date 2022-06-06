@@ -6,7 +6,7 @@
 #include "../include/manageMenu.h"
 #include "../include/pokedexTools.h"
 
-void addEntry(Pokedex dex)
+void addEntry(Pokedex* dex)
 {   
     int back, redo;
 
@@ -17,7 +17,7 @@ void addEntry(Pokedex dex)
         clear_screen();
         printf("---Adding Entries---\n\n");
 
-        pokemon.entry = dex.pokeCount + 1;
+        pokemon.entry = dex->pokeCount + 1;
         
         printf("Inputting Entry %d...\n\n", pokemon.entry);
 
@@ -26,7 +26,7 @@ void addEntry(Pokedex dex)
             printf("Name: ");
             scanf("%s", pokemon.name); 
 
-            redo = checkDup(dex, pokemon.name);  // Must return 1 for the function to continue
+            redo = checkDup(*dex, pokemon.name);  // Must return 1 for the function to continue
 
             if (redo == 0)
             {
@@ -41,7 +41,7 @@ void addEntry(Pokedex dex)
         printf("[G]rass\n");
         printf("[W]ater\n\n");
         printf("Type: ");
-        scanf(" %c", &pokemon.type);
+        pokemon.type = charHandler(POKE_TYPES);
 
         fflush(stdin);
         printf("\nDescription: ");
@@ -50,8 +50,8 @@ void addEntry(Pokedex dex)
                 
         printf("\n...done inputting!\n\n");
 
-        dex.collection[pokemon.entry] = pokemon;      // Adds Pokemon to database
-        dex.pokeCount = pokemon.entry;                // Ensures that new entries will be added based on previous index
+        dex->collection[pokemon.entry - 1] = pokemon;      // Adds Pokemon to database
+        dex->pokeCount = pokemon.entry;                // Ensures that new entries will be added based on previous index
 
         printf("Press [1] to ADD another entry or [0] to RETURN to the manage menu: ");
         scanf("%d", &back);

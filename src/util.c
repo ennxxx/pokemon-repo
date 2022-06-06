@@ -82,3 +82,46 @@ char toUpper(char c)
     
     return c;
 }
+
+int intHandler(int min, int max)
+{
+    int input;
+    int valid = 0;
+
+    while(!valid)
+    {
+        scanf("%d", &input);
+        if(input >= min && input <= max)
+            valid = 1;
+        else
+            printf("Invalid input. Please try again: ");
+    }
+
+    return input;
+}
+
+//Still not finished with this don't use yet!
+char charHandler(string chars)
+{
+    char input;
+    int valid = 0, i, types;
+
+    while(!valid)
+    {
+        scanf(" %c", &input);
+
+        input = toUpper(input);
+        types = strlen(chars);
+        
+        for (i = 0; i < types; i++)
+        {
+            if (input == chars[i])
+                valid = 1;
+        }
+        
+        if(valid == 0)
+            printf("Invalid input. Please try again: ");
+    }
+
+    return input;
+}

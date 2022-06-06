@@ -24,7 +24,7 @@ void exportEntries(Pokedex dex)
                 case 'E': fprintf(fp, "Type: Electric\n"); break;
                 case 'F': fprintf(fp, "Type: Fire\n"); break;
                 case 'G': fprintf(fp, "Type: Grass\n"); break;
-                case 'W': printf(fp, "Type: Water\n"); break;
+                case 'W': fprintf(fp, "Type: Water\n"); break;
                 default: break;
             } 
         fprintf(fp, "Description: %s\n", pokemon.description);

@@ -2,6 +2,7 @@
 #define _POKEDEXTOOLS_H_
 
 #define FILENAME "pokedexExport.txt"
+#define POKE_TYPES "EFGW"
 #define MAX_ENTRIES 150
 #define MAX_NAME_LEN 20
 #define MAX_DESC_LEN 50
@@ -33,6 +34,8 @@ typedef char string[20];
 
 // Initialization
 Pokemon initPokemon();          // This initalizes the Pokemon information
+resType initTaskTypes();        // Initializes the individual task types 
+resTasks initTasks();           // Initializes the task list
 Pokedex initCollection();       // This is a separate struct that contains all 150 Pokemon  
 
 // Utils for the Pokedex
@@ -42,5 +45,7 @@ int entryExists(Pokedex dex, int entry);
 void displayType(Pokemon p);
 void displayPokemon(Pokemon p);
 char toUpper(char c);
+int intHandler(int min, int max);
+char charHandler(string chars);
 
 #endif

@@ -20,6 +20,30 @@ int main()
 
 // Initialization
 
+resType initTaskTypes()
+{
+    resType task;
+
+    task.type = '\0';
+    task.status = 0;
+
+    return task;
+}
+
+resTasks initTasks()
+{
+    int i;
+    resTasks tasks;
+
+    for (i = 0; i < 10; i++)
+    {
+        tasks.list[i] = initTaskTypes();
+    }
+    tasks.taskCount = 0;
+
+    return tasks;
+}
+
 Pokemon initPokemon()
 {
     Pokemon p;
@@ -28,6 +52,7 @@ Pokemon initPokemon()
     strcpy(p.name, "");
     p.type = '\0';
     strcpy(p.description, "");
+    p.tasks = initTasks();
 
     return p;
 }
@@ -62,7 +87,7 @@ void mainMenu(Pokedex dex)
         printf("[2] Research Tasks\n");
         printf("[0] Exit\n\n");
         printf("Input: ");
-        scanf("%d", &mainOpt);
+        mainOpt = intHandler(0, 2);
 
         switch(mainOpt)
         {
@@ -90,11 +115,11 @@ void manageMenu(Pokedex dex)
     printf("Press [0] to return to Main Menu\n\n");
 
     printf("Input: ");
-    scanf("%d", &manOpt);
+    manOpt = intHandler(0, 8);
 
     switch(manOpt)
     {
-        case 1: addEntry(dex); break;
+        case 1: addEntry(&dex); break;
         case 2: modifyEntry(&dex); break;
         case 3: 
         case 4: displayEntries(dex); break;
@@ -121,7 +146,7 @@ void researchMenu(Pokedex dex)
     printf("Press [0] to return to Main Menu\n\n");
 
     printf("Input: ");
-    scanf("%d", &resOpt);
+    resOpt = intHandler(0, 3);
 
     switch(resOpt)
     {

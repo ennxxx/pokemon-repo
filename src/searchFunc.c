@@ -84,7 +84,7 @@ void searchByName(Pokedex dex)
 
         // Returns to Manage Menu
         printf("\nPress [1] to search again, [0] to RETURN to the manage menu: ");
-        scanf("%d", &back);
+        back = intHandler(0, 1);
     
     } while (back != 0);
 }
@@ -112,7 +112,9 @@ void searchByType(Pokedex dex)
         printf("[G]rass\n");
         printf("[W]ater\n\n");
         printf("What Pokemon type are you looking for? ");
-        scanf(" %c", &input);
+        input = charHandler(POKE_TYPES);
+
+        // scanf(" %c", &input);
 
         // Each char is assigned with a corresponding type which will be used as a key
         switch(toUpper(input))
@@ -131,7 +133,6 @@ void searchByType(Pokedex dex)
         // If a Pokemon's type matches the input, it will be displayed and found increments
         for(i = 0; i < pokeIndex; i++)
         {
-            // Use displayPokemon func here!!!
             if(toUpper(input) == toUpper(dex.collection[i].type))
             {
                 displayPokemon(dex.collection[i]);   
@@ -148,7 +149,7 @@ void searchByType(Pokedex dex)
 
         // Returns to Manage Menu
         printf("\nPress [1] to search again, [0] to RETURN to the manage menu: ");
-        scanf("%d", &back);
+        back = intHandler(0, 1);
     
     } while (back != 0);
 }
