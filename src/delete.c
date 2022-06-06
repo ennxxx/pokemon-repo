@@ -40,7 +40,7 @@ void deleteEntry(Pokedex* dex)
 
     switch(back)
     {
-        case 0: manageMenu(*dex); break;
+        case 0: break;
         case 1: break;
         default: break;
     }

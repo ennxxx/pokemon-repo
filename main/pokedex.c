@@ -5,8 +5,9 @@
 #include <string.h>
 
 #include "../include/manageMenu.h"
-#include "../include/uiElements.h"
 #include "../include/pokedexTools.h"
+#include "../include/researchTasks.h"
+#include "../include/uiElements.h"
 
 int main()
 {   
@@ -80,7 +81,7 @@ void mainMenu(Pokedex dex)
 
     do
     {
-        system("clear || cls");
+        clear_screen();
         printf("Welcome to your Pokédex!\n\n");
         printf("What would you like to do?\n\n");
         printf("[1] Manage Data\n");
@@ -92,7 +93,7 @@ void mainMenu(Pokedex dex)
         switch(mainOpt)
         {
             case 1: manageMenu(dex); break;
-            case 2: researchMenu(dex); break;
+            case 2: 
             case 3: clear_screen();
                     printf("Exiting the Pokédex...\n"); break;
             default: break;
@@ -132,7 +133,7 @@ void manageMenu(Pokedex dex)
     } while (manOpt != 0);
 }
 
-void researchMenu(Pokedex dex)
+void researchMenu(Pokemon pokemon)
 {
     int resOpt;
 

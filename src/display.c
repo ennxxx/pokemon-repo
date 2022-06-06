@@ -18,7 +18,7 @@ void displayEntries(Pokedex dex)
 
     do
     {
-        system("clear || cls");
+        clear_screen();
 
         printf("Displaying entries...\n\n");
 
