@@ -56,6 +56,7 @@ read st < build/release/src/.util.o_time ; rm -f build/release/src/.util.o_time 
 echo "Linking: bin/release/Pokedex"
 awk 'BEGIN{srand(); print srand()}' > bin/release/.Pokedex_time
 cc build/release/main/pokedex.o build/release/src/add.o build/release/src/delete.o build/release/src/display.o build/release/src/fileFunc.o build/release/src/modify.o build/release/src/reviewFuncs.o build/release/src/searchFunc.o build/release/src/util.o    -o bin/release/Pokedex
+ 
 echo -en "\t Link time: "
 read st < bin/release/.Pokedex_time ; rm -f bin/release/.Pokedex_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
 echo "Making symlink: Pokedex -> bin/release/Pokedex"

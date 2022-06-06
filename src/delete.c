@@ -13,7 +13,7 @@ void deleteEntry(Pokedex* dex)
 
     while (exists == -1)
     {
-        printf("\nWhich index would you like to delete?: ");
+        printf("\nWhich entry would you like to delete?: ");
         scanf("%d", &entry);
         exists = entryExists(*dex, entry);
         if (exists == -1)
@@ -26,8 +26,6 @@ void deleteEntry(Pokedex* dex)
     {
         entryIndex = exists;
     }
-
-    // Deletes based on index
     
     for (i = entry - 1; i < dex->pokeCount - 1; i++)  
     {  
@@ -35,13 +33,12 @@ void deleteEntry(Pokedex* dex)
         dex->collection[i].entry -= 1;  // This updates the entry number
     }  
     
-    printf("\nPokemon Entry %d has been DELETED. Press [0] to return: ", entry + 1);
+    printf("\nPokemon Entry %d has been DELETED. Press [0] to return: ", entry);
     scanf("%d", &back);
 
     switch(back)
     {
-        case 0: break;
-        case 1: break;
+        case 0: manageMenu(*dex); break;
         default: break;
     }
 }

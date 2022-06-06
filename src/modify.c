@@ -79,8 +79,7 @@ void modifyEntry(Pokedex* dex)
                 printf("[G]rass\n");
                 printf("[W]ater\n\n");
                 printf("Type: ");
-                scanf(" %c", &changeMon.type);
-                changeMon.type = toUpper(changeMon.type);
+                changeMon.type = charHandler(POKE_TYPES);
                 break;
             case '3':
                 fflush(stdin); 
