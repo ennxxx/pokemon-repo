@@ -6,10 +6,10 @@
 
 void deleteEntry(Pokedex* dex)
 {
-    int exists, entry, entryIndex;
+    int exists, entry;
     int i, back;
     
-    exists = entryIndex = entry = -1;
+    exists = -1;
 
     while (exists == -1)
     {
@@ -21,16 +21,12 @@ void deleteEntry(Pokedex* dex)
             printf("\nThat entry does not exist.\n"); 
         }
     }
-
-    if (exists != -1)
-    {
-        entryIndex = exists;
-    }
     
-    for (i = entry - 1; i < dex->pokeCount - 1; i++)  
+    for (i = entry - 1; i < dex->pokeCount; i++)  // Deletes based on index
     {  
         dex->collection[i] = dex->collection[i + 1]; 
         dex->collection[i].entry -= 1;  // This updates the entry number
+        dex->pokeCount -= 1; // Number of Pokemon decreases
     }  
     
     printf("\nPokemon Entry %d has been DELETED. Press [0] to return: ", entry);
