@@ -8,25 +8,25 @@
 
 void addEntry(Pokedex* dex)
 {   
-    int back, redo;
-
-    Pokemon pokemon;
+    int back, redo, index;
 
     do
     {
         clear_screen();
         printf("---Adding Entries---\n\n");
 
-        pokemon.entry = dex->pokeCount + 1;
+        index = dex->pokeCount;
         
-        printf("Inputting Entry %d...\n\n", pokemon.entry);
+        dex->collection[index].entry = index + 1;
+        
+        printf("Inputting Entry %d...\n\n", dex->collection[index].entry);
 
         do
         {
             printf("Name: ");
-            scanf("%s", pokemon.name); 
+            scanf("%s", dex->collection[index].name); 
 
-            redo = checkDup(*dex, pokemon.name);  // Must return 1 for the function to continue
+            redo = checkDup(*dex, dex->collection[index].name);  // Must return 1 for the function to continue
 
             if (redo == 0)
             {
@@ -41,17 +41,17 @@ void addEntry(Pokedex* dex)
         printf("[G]rass\n");
         printf("[W]ater\n\n");
         printf("Type: ");
-        pokemon.type = charHandler(POKE_TYPES);
+        dex->collection[index].type = charHandler(POKE_TYPES);
 
         fflush(stdin);
         printf("\nDescription: ");
         fgetc(stdin);
-        fgets(pokemon.description, 50, stdin);
+        fgets(dex->collection[index].description, 50, stdin);
                 
         printf("\n...done inputting!\n\n");
 
-        dex->collection[pokemon.entry - 1] = pokemon;   // Adds Pokemon to database
-        dex->pokeCount = pokemon.entry;                 // Ensures that new entries will be added based on previous index
+        // dex->collection[pokemon.entry - 1] = pokemon;   // Adds Pokemon to database
+        dex->pokeCount = dex->collection[index].entry;                 // Ensures that new entries will be added based on previous index
 
         printf("Press [1] to ADD another entry or [0] to RETURN to the manage menu: ");
         back = intHandler(0, 1);

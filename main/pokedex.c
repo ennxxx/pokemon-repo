@@ -13,7 +13,7 @@ int main()
 {   
     Pokedex dex;
     dex = initCollection();   // Access the entries through this function
-    
+
     mainMenu(dex);            // Opens up the main menu of the Pokedex
 
     return 0;
@@ -27,6 +27,7 @@ resType initTaskTypes()
 
     strcpy(task.type, "DEFAULT_VALUE");
     task.status = 0;
+    task.complete = DEFAULT_COMPLETE;
 
     return task;
 }
@@ -36,17 +37,22 @@ void initTasks(resTasks* tasks)
     int i;
     resType task;
 
+    i = 0;
+
     // Initializes default task types
     strcpy(task.type, "Seen");
     task.status = 0;
+    task.complete = DEFAULT_COMPLETE;
     tasks->list[0] = task;
 
     strcpy(task.type, "Caught");
     task.status = 0;
+    task.complete = DEFAULT_COMPLETE;
     tasks->list[1] = task;
 
     strcpy(task.type, "Defeated");
     task.status = 0;
+    task.complete = DEFAULT_COMPLETE;
     tasks->list[2] = task;
 
     for (i = 3; i < 10; i++)
@@ -126,7 +132,6 @@ void manageMenu(Pokedex* dex)
     printf("[4] Display All Entries\t\t[8] Import\n\n");
 
     printf("Press [0] to return to Main Menu\n\n");
-
     printf("Input: ");
     manOpt = intHandler(0, 8);
 
@@ -157,7 +162,6 @@ void researchMenu(Pokedex* dex)
     printf("[3] Update Research Task\n\n");
 
     printf("Press [0] to return to Main Menu\n\n");
-
     printf("Input: ");
     resOpt = intHandler(0, 3);
 
