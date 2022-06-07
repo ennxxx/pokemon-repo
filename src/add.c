@@ -50,7 +50,6 @@ void addEntry(Pokedex* dex)
                 
         printf("\n...done inputting!\n\n");
 
-        // dex->collection[pokemon.entry - 1] = pokemon;   // Adds Pokemon to database
         dex->pokeCount = dex->collection[index].entry;                 // Ensures that new entries will be added based on previous index
 
         printf("Press [1] to ADD another entry or [0] to RETURN to the manage menu: ");
