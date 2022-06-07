@@ -7,7 +7,7 @@ void addEntry(Pokedex* dex);
 
 void deleteEntry(Pokedex* dex);
 
-void displayEntries(Pokedex dex);
+void displayEntries(Pokedex* dex);
 
 void modifyEntry(Pokedex* dex);
 

@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Mon Jun  6 22:51:31 2022
+# Make data base, printed on Tue Jun  7 13:23:22 2022
 
 # Variables
 
@@ -47,9 +47,10 @@ VSCODE_VERBOSE_LOGGING = true
 # makefile (from `makefile', line 109)
 END_TIME = read st < $(TIME_FILE) ; $(RM) $(TIME_FILE) ; st=$$((`$(CUR_TIME)` - $$st)) ; echo $$st
 # environment
+ 
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/mq/j_mymsq55ns8m8bphh351yn00000gn/T/vscode-ipc-f44575a0-6ce4-4da5-9eed-6af16be7d230.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/mq/j_mymsq55ns8m8bphh351yn00000gn/T/vscode-ipc-47914c7b-eac6-483e-b5da-da5441b876d4.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -67,7 +68,7 @@ ELECTRON_RUN_AS_NODE = 1
 # makefile (from `makefile', line 124)
 USE_VERSION := false
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.WA40zfzSwd/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.ykIlb3kZ8X/Listeners
 # automatic
 %F = $(notdir $%)
 # makefile (from `makefile', line 39)
@@ -106,8 +107,6 @@ MAKE = $(MAKE_COMMAND)
 MAKECMDGOALS := all
 # environment
 SHLVL = 1
-# environment
-LOCAL_GIT_DIRECTORY = /Applications/GitHub Desktop.app/Contents/Resources/app/git
 # makefile (from `makefile', line 5)
 CC = gcc 
 # default
@@ -195,9 +194,9 @@ START_TIME = $(CUR_TIME) > $(TIME_FILE)
 # environment
 LANG = C
 # environment
-VSCODE_PID = 1201
+VSCODE_PID = 1178
 # variable set hash-table stats:
-# Load=92/1024=9%, Rehash=0, Collisions=10/197=5%
+# Load=91/1024=9%, Rehash=0, Collisions=10/196=5%
 
 # Pattern-specific Variable Values
 
@@ -205,8 +204,8 @@ VSCODE_PID = 1201
 
 # Directories
 
-# . (device 16777233, inode 7927355): 15 files, no impossibilities.
-# main (device 16777233, inode 8737857): 3 files, no impossibilities so far.
+# . (device 16777232, inode 7927355): 15 files, no impossibilities.
+# main (device 16777232, inode 8737857): 3 files, no impossibilities so far.
 
 # 18 files, no impossibilities in 2 directories.
 
@@ -312,7 +311,6 @@ all: /Pokedex
 # Not a target:
 /src/searchFunc.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
- 
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
@@ -356,6 +354,7 @@ debug: dirs
 # BUILD_PATH := build/debug
 # variable set hash-table stats:
 # Load=4/32=12%, Rehash=0, Collisions=6/10=60%
+ 
 #  commands to execute (from `makefile', line 164):
 	@echo "Beginning debug build"
 	@$(START_TIME)
@@ -571,6 +570,6 @@ install:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 3952 / max = 3952 / min = 3952 / avg = 3952
 
-# Finished Make data base on Mon Jun  6 22:51:31 2022
+# Finished Make data base on Tue Jun  7 13:23:22 2022
 
  

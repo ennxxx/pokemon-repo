@@ -122,8 +122,8 @@ void manageMenu(Pokedex dex)
     {
         case 1: addEntry(&dex); break;
         case 2: modifyEntry(&dex); break;
-        case 3: 
-        case 4: displayEntries(dex); break;
+        case 3: deleteEntry(&dex); break;
+        case 4: displayEntries(&dex); break;
         case 5: searchByName(dex); break;
         case 6: searchByType(dex); break;
         case 7: exportEntries(dex); break;

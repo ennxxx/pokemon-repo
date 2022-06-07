@@ -22,6 +22,7 @@ void searchByName(Pokedex dex)
         printf("Searching Pokemon by Name...\n\n");
         printf("Who are you looking for? ");
         scanf("%s", input);
+        printf("\n");
         
         inputlen = strlen(input);
         pokeIndex = dex.pokeCount;  // Removed -1 here so it looks at all entries
@@ -77,10 +78,10 @@ void searchByName(Pokedex dex)
         
         // Prompts for user input 
         if (found == 0)
-            printf("\n---Pokemon not found in the list!---\n");
+            printf("---Pokemon not found in the list!---\n");
         
         else
-            printf("\n---Found %d pokemon(s)---\n", found);
+            printf("---Found %d pokemon(s)---\n", found);
 
         // Returns to Manage Menu
         printf("\nPress [1] to search again, [0] to RETURN to the manage menu: ");
@@ -113,6 +114,7 @@ void searchByType(Pokedex dex)
         printf("[W]ater\n\n");
         printf("What Pokemon type are you looking for? ");
         input = charHandler(POKE_TYPES);
+        printf("\n");
 
         // scanf(" %c", &input);
 
@@ -142,10 +144,10 @@ void searchByType(Pokedex dex)
 
         //Prompts for the user about the input they entered 
         if(found == 0)
-            printf("\n---No %s Pokemon found!---\n", typeInput);
+            printf("---No %s Pokemon found!---\n", typeInput);
 
         else
-            printf("\n---Found %d %s Pokemon(s)---\n", found, typeInput);
+            printf("---Found %d %s Pokemon(s)---\n", found, typeInput);
 
         // Returns to Manage Menu
         printf("\nPress [1] to search again, [0] to RETURN to the manage menu: ");

@@ -14,7 +14,6 @@ echo -en "\t Compile time: "
 read st < build/release/main/.pokedex.o_time ; rm -f build/release/main/.pokedex.o_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
 echo "Compiling: src/add.c -> build/release/src/add.o"
 awk 'BEGIN{srand(); print srand()}' > build/release/src/.add.o_time
- 
 cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD -c src/add.c -o build/release/src/add.o
 echo -en "\t Compile time: "
 read st < build/release/src/.add.o_time ; rm -f build/release/src/.add.o_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
