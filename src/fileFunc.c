@@ -8,7 +8,15 @@
 
 void exportEntries(Pokedex* dex)
 {
-    FILE *fp = fopen(FILENAME, "a+");
+    string fileName;
+    char extension[10] = ".txt";
+    
+    printf("\nInput a file name: ");
+    scanf("%s", fileName);
+
+    strcat(fileName, extension);
+    
+    FILE *fp = fopen(fileName, "w");
     
     int i;
     Pokemon pokemon;

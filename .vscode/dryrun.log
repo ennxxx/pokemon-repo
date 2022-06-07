@@ -12,6 +12,7 @@ awk 'BEGIN{srand(); print srand()}' > build/release/main/.pokedex.o_time
 cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD -c main/pokedex.c -o build/release/main/pokedex.o
 echo -en "\t Compile time: "
 read st < build/release/main/.pokedex.o_time ; rm -f build/release/main/.pokedex.o_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
+ 
 echo "Compiling: src/add.c -> build/release/src/add.o"
 awk 'BEGIN{srand(); print srand()}' > build/release/src/.add.o_time
 cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD -c src/add.c -o build/release/src/add.o
@@ -31,11 +32,14 @@ echo "Compiling: src/fileFunc.c -> build/release/src/fileFunc.o"
 awk 'BEGIN{srand(); print srand()}' > build/release/src/.fileFunc.o_time
 cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD -c src/fileFunc.c -o build/release/src/fileFunc.o
 echo -en "\t Compile time: "
+ 
 read st < build/release/src/.fileFunc.o_time ; rm -f build/release/src/.fileFunc.o_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
+ 
 echo "Compiling: src/modify.c -> build/release/src/modify.o"
 awk 'BEGIN{srand(); print srand()}' > build/release/src/.modify.o_time
 cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD -c src/modify.c -o build/release/src/modify.o
 echo -en "\t Compile time: "
+ 
 read st < build/release/src/.modify.o_time ; rm -f build/release/src/.modify.o_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
 echo "Compiling: src/reviewFuncs.c -> build/release/src/reviewFuncs.o"
 awk 'BEGIN{srand(); print srand()}' > build/release/src/.reviewFuncs.o_time

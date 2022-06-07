@@ -30,11 +30,18 @@ void deleteEntry(Pokedex* dex)
     {  
         dex->collection[i] = dex->collection[i + 1]; 
         dex->collection[i].entry -= 1;  // This updates the entry number
-        dex->pokeCount -= 1; // Number of Pokemon decreases
-    }  
+    } 
+
+    if (entry == dex->pokeCount) // Deletes the last entry
+    {
+        initPokemon();
+    }
+
+    dex->pokeCount -= 1; // Number of Pokemon decreases
     
     printf("\nPokemon Entry %d has been DELETED. Press [0] to return: ", entry);
     back = intHandler(0, 1);
     
     } while (back != 0);
 }
+
