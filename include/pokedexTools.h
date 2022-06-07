@@ -1,7 +1,6 @@
 #ifndef _POKEDEXTOOLS_H_
 #define _POKEDEXTOOLS_H_
 
-#define FILENAME "pokedexExport.txt"
 #define POKE_TYPES "EFGW"
 #define MAX_ENTRIES 150
 #define MAX_NAME_LEN 20

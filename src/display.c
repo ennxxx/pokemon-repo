@@ -28,7 +28,7 @@ void displayEntries(Pokedex* dex)
 
         // Displaying buttons
 
-        if (dex->pokeCount <= 3) // No next or prev buttons if Pokedex has less than 3 entries   
+        if (dex->pokeCount <= 3) // No next or previous buttons at first page IF there are less than 3 entries   
         {
             printf("[0] Return\n\n"); 
             printf("Input: ");
