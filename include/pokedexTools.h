@@ -13,6 +13,7 @@ typedef char string[20];
 typedef struct{
     string type;
     int status;
+    int complete;
 } resType;
 
 typedef struct{

@@ -5,20 +5,30 @@
 
 void reviewTasksByPokemon(Pokedex* dex)
 {
-    int input;
+    int input, back;
     Pokemon mon;
     
-    displayEntries(dex);
-    printf("Research Tasks Details: ");
-    input = intHandler(1, dex->pokeCount);
-
-    mon = dex->collection[input - 1];
-
-    if (input != 0)
+    do
     {
-        displayPokemon(mon);
-        printf("-----Research Tasks-----\n");
-        displayTask(mon);
-    }
+        clear_screen();
+        printf("---Reviewing Tasks Per Pokemon---\n\n");
+        displayEntries(dex);
+        printf("Research Tasks Details: ");
+        input = intHandler(1, dex->pokeCount);
+
+        mon = dex->collection[input - 1];
+
+        if (input)
+        {
+            clear_screen();
+            displayPokemon(mon);
+            printf("-----Research Tasks-----\n");
+            displayTask(mon);
+        }
+
+        printf("Look at other Details [1] or RETURN [0]: ");
+        back = intHandler(0, 1);
+
+    } while (back != 0);
 }
 

@@ -81,7 +81,7 @@ void displayTask(Pokemon mon)
     
     for(i = 0; i < mon.tasks.taskCount; i++)
     {
-        printf("%s:", mon.tasks.list[i].type);
+        printf("%s:%10d/%d \n", mon.tasks.list[i].type, mon.tasks.list[i].status, mon.tasks.list[i].complete);
     }
 }
 
@@ -110,7 +110,6 @@ int intHandler(int min, int max)
     return input;
 }
 
-//Still not finished with this don't use yet!
 char charHandler(const char* chars)
 {
     char input;
