@@ -11,7 +11,6 @@ void displayEntries(Pokedex* dex)
     int i, back, limit, count;
 
     Pokemon pokemon;
-    string empty;
     
     limit = 3;  // Displays 3 Pokemon from index 0 to 2
     count = 0;  // Counts the number of pages

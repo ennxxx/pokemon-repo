@@ -1,6 +1,7 @@
 // Deletes entries
 
 #include <stdio.h>
+#include "../include/uiElements.h"
 #include "../include/manageMenu.h"
 #include "../include/pokedexTools.h"
 
