@@ -6,16 +6,16 @@
 #include "../include/manageMenu.h"
 #include "../include/pokedexTools.h"
 
-void exportEntries(Pokedex dex)
+void exportEntries(Pokedex* dex)
 {
     FILE *fp = fopen(FILENAME, "a+");
     
     int i;
     Pokemon pokemon;
     
-    for (i = 0; i < dex.pokeCount; i++)
+    for (i = 0; i < dex->pokeCount; i++)
     {
-        pokemon = dex.collection[i];
+        pokemon = dex->collection[i];
 
         fprintf(fp, "Details for Entry Number %d\n", pokemon.entry);
         fprintf(fp, "Name: %s\n", pokemon.name);

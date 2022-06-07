@@ -25,24 +25,36 @@ resType initTaskTypes()
 {
     resType task;
 
-    task.type = '\0';
+    strcpy(task.type, "DEFAULT_VALUE");
     task.status = 0;
 
     return task;
 }
 
-resTasks initTasks()
+void initTasks(resTasks* tasks)
 {
     int i;
-    resTasks tasks;
+    resType task;
 
-    for (i = 0; i < 10; i++)
+    // Initializes default task types
+    strcpy(task.type, "Seen");
+    task.status = 0;
+    tasks->list[0] = task;
+
+    strcpy(task.type, "Caught");
+    task.status = 0;
+    tasks->list[1] = task;
+
+    strcpy(task.type, "Defeated");
+    task.status = 0;
+    tasks->list[2] = task;
+
+    for (i = 3; i < 10; i++)
     {
-        tasks.list[i] = initTaskTypes();
+        tasks->list[i] = initTaskTypes();
     }
-    tasks.taskCount = 0;
-
-    return tasks;
+    
+    tasks->taskCount = 3;
 }
 
 Pokemon initPokemon()
@@ -53,7 +65,7 @@ Pokemon initPokemon()
     strcpy(p.name, "");
     p.type = '\0';
     strcpy(p.description, "");
-    p.tasks = initTasks();
+    initTasks(&p.tasks);
 
     return p;
 }
@@ -92,8 +104,8 @@ void mainMenu(Pokedex dex)
 
         switch(mainOpt)
         {
-            case 1: manageMenu(dex); break;
-            case 2: 
+            case 1: manageMenu(&dex); break;
+            case 2: researchMenu(&dex); break;
             case 3: clear_screen();
                     printf("Exiting the Pokédex...\n"); break;
             default: break;
@@ -102,7 +114,7 @@ void mainMenu(Pokedex dex)
     } while (mainOpt != 0);
 }
 
-void manageMenu(Pokedex dex)
+void manageMenu(Pokedex* dex)
 {
     int manOpt;
     do{
@@ -120,10 +132,10 @@ void manageMenu(Pokedex dex)
 
     switch(manOpt)
     {
-        case 1: addEntry(&dex); break;
-        case 2: modifyEntry(&dex); break;
-        case 3: deleteEntry(&dex); break;
-        case 4: displayEntries(&dex); break;
+        case 1: addEntry(dex); break;
+        case 2: modifyEntry(dex); break;
+        case 3: deleteEntry(dex); break;
+        case 4: displayEntries(dex); break;
         case 5: searchByName(dex); break;
         case 6: searchByType(dex); break;
         case 7: exportEntries(dex); break;
@@ -133,7 +145,7 @@ void manageMenu(Pokedex dex)
     } while (manOpt != 0);
 }
 
-void researchMenu(Pokemon pokemon)
+void researchMenu(Pokedex* dex)
 {
     int resOpt;
 
@@ -151,7 +163,7 @@ void researchMenu(Pokemon pokemon)
 
     switch(resOpt)
     {
-        case 1: 
+        case 1: reviewTasksByPokemon(dex); break;
         case 2: 
         case 3: 
         default: break;

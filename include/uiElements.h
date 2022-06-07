@@ -5,8 +5,8 @@
 
 void mainMenu(Pokedex dex);
 
-void manageMenu(Pokedex dex);
+void manageMenu(Pokedex* dex);
 
-void researchMenu(Pokemon pokemon);
+void researchMenu(Pokedex* dex);
 
 #endif

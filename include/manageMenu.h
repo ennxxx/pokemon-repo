@@ -11,10 +11,10 @@ void displayEntries(Pokedex* dex);
 
 void modifyEntry(Pokedex* dex);
 
-void searchByName(Pokedex dex);
+void searchByName(Pokedex* dex);
 
-void searchByType(Pokedex dex);
+void searchByType(Pokedex* dex);
 
-void exportEntries(Pokedex dex);
+void exportEntries(Pokedex* dex);
 
 #endif

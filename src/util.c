@@ -75,6 +75,16 @@ void displayPokemon(Pokemon p)
     printf("Description: %s\n", p.description);
 }
 
+void displayTask(Pokemon mon)
+{
+    int i;
+    
+    for(i = 0; i < mon.tasks.taskCount; i++)
+    {
+        printf("%s:", mon.tasks.list[i].type);
+    }
+}
+
 char toUpper(char c) 
 {
     if (c >= 'a' && c <= 'z')
@@ -101,7 +111,7 @@ int intHandler(int min, int max)
 }
 
 //Still not finished with this don't use yet!
-char charHandler(string chars)
+char charHandler(const char* chars)
 {
     char input;
     int valid = 0, i, types;

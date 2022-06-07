@@ -23,6 +23,7 @@ void displayEntries(Pokedex* dex)
         for (i = 3 * count; i < limit && i < dex->pokeCount; i++)
         {
             pokemon = dex->collection[i];
+            //Maybe use the display pokemon func here?
             printf("Details for Entry Number %d\n", pokemon.entry);
             printf("Name: %s\n", pokemon.name);
             displayType(pokemon);

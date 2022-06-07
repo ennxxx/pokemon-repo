@@ -54,7 +54,7 @@ void addEntry(Pokedex* dex)
         dex->pokeCount = pokemon.entry;                 // Ensures that new entries will be added based on previous index
 
         printf("Press [1] to ADD another entry or [0] to RETURN to the manage menu: ");
-        scanf("%d", &back);
+        back = intHandler(0, 1);
         
     } while (back != 0);
 }

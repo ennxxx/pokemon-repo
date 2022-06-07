@@ -12,6 +12,9 @@ void deleteEntry(Pokedex* dex)
     
     exists = -1;
 
+    do
+    {
+    
     while (exists == -1)
     {
         printf("\nWhich entry would you like to delete?: ");
@@ -31,11 +34,7 @@ void deleteEntry(Pokedex* dex)
     }  
     
     printf("\nPokemon Entry %d has been DELETED. Press [0] to return: ", entry);
-    scanf("%d", &back);
-
-    switch(back)
-    {
-        case 0: manageMenu(*dex); break;
-        default: break;
-    }
+    back = intHandler(0, 1);
+    
+    } while (back != 0);
 }
