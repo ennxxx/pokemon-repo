@@ -46,7 +46,7 @@ void addEntry(Pokedex* dex)
         fflush(stdin);
         printf("\nDescription: ");
         fgetc(stdin);
-        fgets(dex->collection[index].description, 50, stdin);
+        fgets(dex->collection[index].description, MAX_DESC_LEN, stdin);
                 
         printf("\n...done inputting!\n\n");
 

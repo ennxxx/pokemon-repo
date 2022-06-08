@@ -66,7 +66,7 @@ void importEntries(Pokedex* dex)
         printf("Loading entry...\n\n");
         fscanf(fp, "%s\n", import.name);
         fscanf(fp, "%c\n", &import.type);
-        fgets(import.description, 50, fp);
+        fgets(import.description, MAX_DESC_LEN, fp);
 
         import.entry = dex->pokeCount + 1; // Notes down entry number based on last pokeCount + 1
         printf("Name: %s\n", import.name);
