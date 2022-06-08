@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Wed Jun  8 20:45:53 2022
+# Make data base, printed on Wed Jun  8 22:57:11 2022
 
 # Variables
 
@@ -49,7 +49,7 @@ END_TIME = read st < $(TIME_FILE) ; $(RM) $(TIME_FILE) ; st=$$((`$(CUR_TIME)` - 
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/mq/j_mymsq55ns8m8bphh351yn00000gn/T/vscode-ipc-286857e8-2e97-41df-b0cf-91d44fcdf309.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/mq/j_mymsq55ns8m8bphh351yn00000gn/T/vscode-ipc-436b9522-feae-43d9-ace4-e40dcb6b3cb3.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -62,6 +62,7 @@ SRC_PATH = .
 VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
+ 
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # makefile (from `makefile', line 124)
@@ -313,7 +314,6 @@ all: /Pokedex
 /src/updateRes.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
 
 # Not a target:
@@ -373,6 +373,7 @@ debug: dirs
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
+ 
 #  Last modified 2022-06-03 18:35:14
 #  File has been updated.
 #  Successfully updated.
@@ -587,6 +588,6 @@ install:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 3935 / max = 3935 / min = 3935 / avg = 3935
 
-# Finished Make data base on Wed Jun  8 20:45:53 2022
+# Finished Make data base on Wed Jun  8 22:57:11 2022
 
  

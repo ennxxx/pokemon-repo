@@ -1,0 +1,11 @@
+Name: Pikachu
+Type: Electric
+Description: Yellow rat.
+
+Name: Oshawott
+Type: Water
+Description: Blue baby.
+
+Name: Lechonk
+Type: Fire
+Description: Lechon kawali.

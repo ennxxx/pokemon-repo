@@ -52,10 +52,10 @@ awk 'BEGIN{srand(); print srand()}' > build/release/src/.updateRes.o_time
 cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD -c src/updateRes.c -o build/release/src/updateRes.o
 echo -en "\t Compile time: "
 read st < build/release/src/.updateRes.o_time ; rm -f build/release/src/.updateRes.o_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
+ 
 echo "Compiling: src/util.c -> build/release/src/util.o"
 awk 'BEGIN{srand(); print srand()}' > build/release/src/.util.o_time
 cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD -c src/util.c -o build/release/src/util.o
- 
 echo -en "\t Compile time: "
 read st < build/release/src/.util.o_time ; rm -f build/release/src/.util.o_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
  
@@ -67,8 +67,8 @@ read st < bin/release/.Pokedex_time ; rm -f bin/release/.Pokedex_time ; st=$((`a
 echo "Making symlink: Pokedex -> bin/release/Pokedex"
 rm -f Pokedex
 ln -s bin/release/Pokedex Pokedex
- 
 echo -n "Total build time: "
 read st < ./.release_time ; rm -f ./.release_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
+ 
 make: Leaving directory `/Users/paulaenxi/Documents/GitHub/pokemon-repo'
  

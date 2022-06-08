@@ -35,7 +35,14 @@ void exportEntries(Pokedex* dex)
             case 'W': fprintf(fp, "Type: Water\n"); break;
             default: break;
         } 
-        fprintf(fp, "Description: %s\n", pokemon.description);
+        if (i == dex->pokeCount - 1) // To prevent another new line at the last entry
+        {
+            fprintf(fp, "Description: %s", pokemon.description);
+        }
+        else
+        {
+            fprintf(fp, "Description: %s\n", pokemon.description);
+        }
     }
 
     fclose(fp);
@@ -46,7 +53,6 @@ void importEntries(Pokedex* dex)
     char fileName[26];
     char extension[5] = ".txt";
     int entryIndex, ch;
-    int count;
     
     printf("\nImporting entries...\n\n");
     printf("Input a file name: ");
@@ -56,7 +62,7 @@ void importEntries(Pokedex* dex)
     
     FILE *fp = fopen(fileName, "r");
 
-    while ((count = fgetc(fp)) != EOF)
+    do 
     {
         clear_screen();
         
@@ -82,7 +88,8 @@ void importEntries(Pokedex* dex)
             case 1: dex->collection[entryIndex] = import; // Import the details into the Pokedex collection
                     dex->pokeCount++; break; // Increase the pokeCount
         }
-    }
+        
+    } while (fgetc(fp) != EOF);
 
     if (feof(fp))
     {
