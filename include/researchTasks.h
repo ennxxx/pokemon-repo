@@ -7,12 +7,12 @@
 void reviewTasksByPokemon(Pokedex* dex);
 
 //Function that displays the the research tasks per type
-void reviewTasksByType(Pokemon pokemon);
+void reviewTasksByType(Pokedex* dex);
 
 //Function that updates the research tasks per pokemon
-void updateTasks(Pokemon pokemon);
+void updateTasks(Pokedex* dex);
 
 //Function that sorts the pokemon according to research tasks completion
-void rankPokemon(Pokemon pokemon);
+void rankPokemon(Pokedex* dex);
 
 #endif
