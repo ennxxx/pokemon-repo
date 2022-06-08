@@ -54,7 +54,7 @@ void updateTasks(Pokedex* dex)
 
         //Display the updated pokemon
         clear_screen();
-        printf("---Update Finished!---\n");
+        printf("Updating tasks...\n\n");
         displayPokemon(*mon);
         printf("-----Research Tasks Progress: %d%%-----\n", mon->tasks.progress);
         displayTaskStatus(*mon);

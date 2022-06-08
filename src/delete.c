@@ -17,7 +17,7 @@ void deleteEntry(Pokedex* dex)
     
         while (exists == -1)
         {
-            displayEntries(dex, "DELETE");
+            displayEntries(*dex, "DELETE");
             printf("\nWhich entry would you like to delete?: ");
             scanf("%d", &entry);
             exists = entryExists(*dex, entry);
