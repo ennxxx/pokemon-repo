@@ -13,7 +13,7 @@ void reviewTasksByPokemon(Pokedex* dex)
     {
         clear_screen();
         printf("---Reviewing Tasks Per Pokemon---\n\n");
-        displayEntries(dex, "CHOOSE ENTRY");
+        displayTaskEntries(dex);
         printf("Which Pokemon would you like to review tasks for? ");
         input = intHandler(1, dex->pokeCount);
 
@@ -27,9 +27,13 @@ void reviewTasksByPokemon(Pokedex* dex)
             displayTask(mon);
         }
 
-        printf("Press [1] to REVIEW other details or [0] to RETURN: ");
+        printf("\nPress [1] to REVIEW other details or [0] to RETURN: ");
         back = intHandler(0, 1);
 
     } while (back != 0);
 }
 
+void reviewByType(Pokedex* dex)
+{
+    //put the func heree!! :>
+}

@@ -48,6 +48,7 @@ int entryExists(Pokedex dex, int entry);
 void displayType(Pokemon p);
 void displayPokemon(Pokemon p);
 void displayTask(Pokemon mon);
+void displayTaskEntries(Pokedex* dex);
 char toUpper(char c);
 int intHandler(int min, int max);
 char charHandler(const char* chars);
