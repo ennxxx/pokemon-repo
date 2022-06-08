@@ -14,6 +14,7 @@ typedef struct{
     string type;
     int status;
     int complete;
+    int progress;
 } resType;
 
 typedef struct{

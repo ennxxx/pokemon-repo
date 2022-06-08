@@ -14,7 +14,7 @@ void reviewTasksByPokemon(Pokedex* dex)
         printf("---Reviewing Tasks Per Pokemon---\n\n");
         displayEntries(dex);
         printf("Research Tasks Details: ");
-        input = intHandler(1, dex->pokeCount);
+        input = intHandler(1, dex->pokeCount - 1);
 
         mon = dex->collection[input - 1];
 
@@ -22,7 +22,7 @@ void reviewTasksByPokemon(Pokedex* dex)
         {
             clear_screen();
             displayPokemon(mon);
-            printf("-----Research Tasks-----\n");
+            printf("-----Research Tasks Progress: %d%%-----\n", mon.tasks.list[input].progress);
             displayTask(mon);
         }
 
