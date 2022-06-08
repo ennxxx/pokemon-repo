@@ -45,8 +45,8 @@ void importEntries(Pokedex* dex)
 {
     char fileName[26];
     char extension[5] = ".txt";
-    char count;
     int entryIndex, ch;
+    int count;
     
     printf("\nImporting entries...\n\n");
     printf("Input a file name: ");
@@ -56,11 +56,11 @@ void importEntries(Pokedex* dex)
     
     FILE *fp = fopen(fileName, "r");
 
-    while (count != EOF)
+    while ((count = fgetc(fp)) != EOF)
     {
         clear_screen();
         
-        entryIndex = dex->pokeCount; // Entry is based on the last pokeCount
+        entryIndex = dex->pokeCount; // Index is based on the last pokeCount
         Pokemon import = dex->collection[entryIndex]; // Importing Pokemon detials to a specific index
 
         printf("Loading entry...\n\n");
@@ -68,6 +68,7 @@ void importEntries(Pokedex* dex)
         fscanf(fp, "%c\n", &import.type);
         fgets(import.description, 50, fp);
 
+        import.entry = dex->pokeCount + 1; // Notes down entry number based on last pokeCount + 1
         printf("Name: %s\n", import.name);
         displayType(import);
         printf("Description: %s\n", import.description);
@@ -81,6 +82,11 @@ void importEntries(Pokedex* dex)
             case 1: dex->collection[entryIndex] = import; // Import the details into the Pokedex collection
                     dex->pokeCount++; break; // Increase the pokeCount
         }
+    }
+
+    if (feof(fp))
+    {
+        manageMenu(dex);
     }
 
     fclose(fp);
