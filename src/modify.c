@@ -22,7 +22,7 @@ void modifyEntry(Pokedex* dex)
 
     while (exists == -1)
     {
-        displayEntries(dex, "START MODIFY");
+        displayEntries(dex, "MODIFY");
         printf("\nWhich entry would you like to modify?: ");
         scanf("%d", &entry);
         exists = entryExists(*dex, entry);
