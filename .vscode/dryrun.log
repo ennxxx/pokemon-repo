@@ -20,6 +20,7 @@ echo -en "\t Compile time: "
 read st < build/release/src/.add.o_time ; rm -f build/release/src/.add.o_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
 echo "Compiling: src/delete.c -> build/release/src/delete.o"
 awk 'BEGIN{srand(); print srand()}' > build/release/src/.delete.o_time
+ 
 cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD -c src/delete.c -o build/release/src/delete.o
 echo -en "\t Compile time: "
 read st < build/release/src/.delete.o_time ; rm -f build/release/src/.delete.o_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
@@ -38,11 +39,13 @@ awk 'BEGIN{srand(); print srand()}' > build/release/src/.modify.o_time
 cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD -c src/modify.c -o build/release/src/modify.o
 echo -en "\t Compile time: "
 read st < build/release/src/.modify.o_time ; rm -f build/release/src/.modify.o_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
+ 
 echo "Compiling: src/reviewFuncs.c -> build/release/src/reviewFuncs.o"
 awk 'BEGIN{srand(); print srand()}' > build/release/src/.reviewFuncs.o_time
 cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD -c src/reviewFuncs.c -o build/release/src/reviewFuncs.o
 echo -en "\t Compile time: "
 read st < build/release/src/.reviewFuncs.o_time ; rm -f build/release/src/.reviewFuncs.o_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
+ 
 echo "Compiling: src/searchFunc.c -> build/release/src/searchFunc.o"
 awk 'BEGIN{srand(); print srand()}' > build/release/src/.searchFunc.o_time
 cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD -c src/searchFunc.c -o build/release/src/searchFunc.o

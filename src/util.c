@@ -18,7 +18,7 @@ void clear_screen()
     #endif
 }
 
-int checkDup(Pokedex dex, char name[20])
+int checkDup(Pokedex dex, char name[MAX_NAME_LEN])
 {
     int i;
 
