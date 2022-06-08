@@ -27,7 +27,7 @@ void reviewTasksByPokemon(Pokedex* dex)
             displayTask(mon);
         }
 
-        printf("\nLook at other Details [1] or RETURN [0]: ");
+        printf("Press [1] to REVIEW other details or [0] to RETURN: ");
         back = intHandler(0, 1);
 
     } while (back != 0);
