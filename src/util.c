@@ -77,11 +77,15 @@ void displayPokemon(Pokemon p)
 
 void displayTask(Pokemon mon)
 {
-    int i;
+    int i, tasklen, width;
     
     for(i = 0; i < mon.tasks.taskCount; i++)
     {
-        printf("%s:%10d/%d \n", mon.tasks.list[i].type, mon.tasks.list[i].status, mon.tasks.list[i].complete);
+        tasklen = strlen(mon.tasks.list[i].type);
+        width = 33 - tasklen;
+        printf("%s:", mon.tasks.list[i].type);
+        printf("%*s", width, " ");
+        printf("%d/%d \n", mon.tasks.list[i].status, mon.tasks.list[i].complete);
     }
 }
 

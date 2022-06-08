@@ -2,6 +2,7 @@
 #include "../include/pokedexTools.h"
 #include "../include/manageMenu.h"
 #include <stdio.h>
+#include <string.h>
 
 void reviewTasksByPokemon(Pokedex* dex)
 {
@@ -14,7 +15,7 @@ void reviewTasksByPokemon(Pokedex* dex)
         printf("---Reviewing Tasks Per Pokemon---\n\n");
         displayEntries(dex);
         printf("Research Tasks Details: ");
-        input = intHandler(1, dex->pokeCount - 1);
+        input = intHandler(1, dex->pokeCount);
 
         mon = dex->collection[input - 1];
 
@@ -26,7 +27,7 @@ void reviewTasksByPokemon(Pokedex* dex)
             displayTask(mon);
         }
 
-        printf("Look at other Details [1] or RETURN [0]: ");
+        printf("\nLook at other Details [1] or RETURN [0]: ");
         back = intHandler(0, 1);
 
     } while (back != 0);
