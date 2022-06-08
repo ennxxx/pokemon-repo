@@ -145,7 +145,7 @@ void manageMenu(Pokedex* dex)
         case 5: searchByName(dex); break;
         case 6: searchByType(dex); break;
         case 7: exportEntries(dex); break;
-        case 8: 
+        case 8: importEntries(dex); break;
         default: break;
     }
     } while (manOpt != 0);

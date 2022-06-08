@@ -11,8 +11,8 @@ echo "Compiling: main/pokedex.c -> build/release/main/pokedex.o"
 awk 'BEGIN{srand(); print srand()}' > build/release/main/.pokedex.o_time
 cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD -c main/pokedex.c -o build/release/main/pokedex.o
 echo -en "\t Compile time: "
-read st < build/release/main/.pokedex.o_time ; rm -f build/release/main/.pokedex.o_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
  
+read st < build/release/main/.pokedex.o_time ; rm -f build/release/main/.pokedex.o_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
 echo "Compiling: src/add.c -> build/release/src/add.o"
 awk 'BEGIN{srand(); print srand()}' > build/release/src/.add.o_time
 cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD -c src/add.c -o build/release/src/add.o
@@ -32,20 +32,18 @@ echo "Compiling: src/fileFunc.c -> build/release/src/fileFunc.o"
 awk 'BEGIN{srand(); print srand()}' > build/release/src/.fileFunc.o_time
 cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD -c src/fileFunc.c -o build/release/src/fileFunc.o
 echo -en "\t Compile time: "
- 
 read st < build/release/src/.fileFunc.o_time ; rm -f build/release/src/.fileFunc.o_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
- 
 echo "Compiling: src/modify.c -> build/release/src/modify.o"
 awk 'BEGIN{srand(); print srand()}' > build/release/src/.modify.o_time
 cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD -c src/modify.c -o build/release/src/modify.o
 echo -en "\t Compile time: "
- 
 read st < build/release/src/.modify.o_time ; rm -f build/release/src/.modify.o_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
 echo "Compiling: src/reviewFuncs.c -> build/release/src/reviewFuncs.o"
 awk 'BEGIN{srand(); print srand()}' > build/release/src/.reviewFuncs.o_time
 cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD -c src/reviewFuncs.c -o build/release/src/reviewFuncs.o
 echo -en "\t Compile time: "
 read st < build/release/src/.reviewFuncs.o_time ; rm -f build/release/src/.reviewFuncs.o_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
+ 
 echo "Compiling: src/searchFunc.c -> build/release/src/searchFunc.o"
 awk 'BEGIN{srand(); print srand()}' > build/release/src/.searchFunc.o_time
 cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD -c src/searchFunc.c -o build/release/src/searchFunc.o
@@ -61,6 +59,7 @@ echo "Linking: bin/release/Pokedex"
 awk 'BEGIN{srand(); print srand()}' > bin/release/.Pokedex_time
 cc build/release/main/pokedex.o build/release/src/add.o build/release/src/delete.o build/release/src/display.o build/release/src/fileFunc.o build/release/src/modify.o build/release/src/reviewFuncs.o build/release/src/searchFunc.o build/release/src/util.o    -o bin/release/Pokedex
 echo -en "\t Link time: "
+ 
 read st < bin/release/.Pokedex_time ; rm -f bin/release/.Pokedex_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
 echo "Making symlink: Pokedex -> bin/release/Pokedex"
 rm -f Pokedex

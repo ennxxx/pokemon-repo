@@ -84,7 +84,7 @@ void searchByName(Pokedex* dex)
             printf("---Found %d pokemon(s)---\n", found);
 
         // Returns to Manage Menu
-        printf("\nPress [1] to search again, [0] to RETURN to the manage menu: ");
+        printf("\nPress [1] to SEARCH again or [0] to RETURN: ");
         back = intHandler(0, 1);
     
     } while (back != 0);
@@ -150,7 +150,7 @@ void searchByType(Pokedex* dex)
             printf("---Found %d %s Pokemon(s)---\n", found, typeInput);
 
         // Returns to Manage Menu
-        printf("\nPress [1] to search again, [0] to RETURN to the manage menu: ");
+        printf("\nPress [1] to SEARCH again or [0] to RETURN: ");
         back = intHandler(0, 1);
     
     } while (back != 0);

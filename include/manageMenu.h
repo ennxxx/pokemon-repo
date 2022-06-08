@@ -17,4 +17,6 @@ void searchByType(Pokedex* dex);
 
 void exportEntries(Pokedex* dex);
 
+void importEntries(Pokedex* dex);
+
 #endif

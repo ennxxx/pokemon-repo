@@ -39,7 +39,7 @@ void deleteEntry(Pokedex* dex)
 
     dex->pokeCount -= 1; // Number of Pokemon decreases
     
-    printf("\nPokemon Entry %d has been DELETED. Press [0] to return: ", entry);
+    printf("\nPokemon Entry %d has been DELETED. Press [0] to RETURN: ", entry);
     back = intHandler(0, 1);
     
     } while (back != 0);

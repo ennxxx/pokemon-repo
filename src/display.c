@@ -26,36 +26,20 @@ void displayEntries(Pokedex* dex)
             displayPokemon(pokemon);
         }
 
-        // Displaying buttons
+        // Display buttons
 
         if (dex->pokeCount <= 3) // No next or previous buttons at first page IF there are less than 3 entries   
         {
-            printf("[0] Return\n\n"); 
+            printf("[0] RETURN\n\n"); 
             printf("Input: ");
             back = intHandler(0, 0);
         }
 
-        else if (count == 0 && dex->pokeCount > 3) // No previous button at first page IF there are more than 3 entries
-        {
-            printf("[0] Return\n");         
-            printf("[1] Next\n\n");
-            printf("Input: ");
-            back = intHandler(0, 1);
-        }
-
-        else if (pokemon.entry == dex->pokeCount) // No next button if at the last page
-        {
-            printf("[0] Return\n");         
-            printf("[2] Previous\n\n");
-            printf("Input: ");
-            back = intHandler(0, 2);
-        }
-
         else    
         {
-            printf("[0] Return\n");         
-            printf("[1] Next\n");
-            printf("[2] Previous\n\n");
+            printf("[0] RETURN\n");         
+            printf("[1] NEXT\n");
+            printf("[2] PREV\n\n");
             printf("Input: ");
             back = intHandler(0, 2);
         }
