@@ -6,7 +6,7 @@
 #include "../include/manageMenu.h"
 #include "../include/pokedexTools.h"
 
-void displayEntries(Pokedex* dex, const char* button)
+void displayEntries(Pokedex dex, const char* button)
 {   
     int i, back, limit, count;
 
@@ -20,15 +20,15 @@ void displayEntries(Pokedex* dex, const char* button)
         clear_screen();
         printf("Displaying entries...\n\n");
 
-        for (i = 3 * count; i < limit && i < dex->pokeCount; i++)
+        for (i = 3 * count; i < limit && i < dex.pokeCount; i++)
         {
-            pokemon = dex->collection[i];
+            pokemon = dex.collection[i];
             displayPokemon(pokemon);
         }
 
         // Display buttons
 
-        if (dex->pokeCount <= 3) // No next or previous buttons at first page IF there are less than 3 entries   
+        if (dex.pokeCount <= 3) // No next or previous buttons at first page IF there are less than 3 entries   
         {
             printf("[0] %s\n\n", button); 
             printf("Input: ");
@@ -65,7 +65,7 @@ void displayEntries(Pokedex* dex, const char* button)
     } while (back != 0);
 }
 
-void displayTaskEntries(Pokedex* dex)
+void displayTaskEntries(Pokedex dex)
 {   
     int i, back, limit, count;
 
@@ -79,9 +79,9 @@ void displayTaskEntries(Pokedex* dex)
         clear_screen();
         printf("Displaying entries...\n\n");
 
-        for (i = 3 * count; i < limit && i < dex->pokeCount; i++)
+        for (i = 3 * count; i < limit && i < dex.pokeCount; i++)
         {
-            pokemon = dex->collection[i];
+            pokemon = dex.collection[i];
             printf("Entry: %d\n", pokemon.entry);
             printf("Name: %s\n", pokemon.name);
             printf("Research Progress: %d%%\n\n", pokemon.tasks.progress);
@@ -89,7 +89,7 @@ void displayTaskEntries(Pokedex* dex)
 
         // Display buttons
 
-        if (dex->pokeCount <= 3) // No next or previous buttons at first page IF there are less than 3 entries   
+        if (dex.pokeCount <= 3) // No next or previous buttons at first page IF there are less than 3 entries   
         {
             printf("[0] CHOOSE ENTRY\n\n"); 
             printf("Input: ");

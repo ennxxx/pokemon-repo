@@ -75,7 +75,17 @@ void displayPokemon(Pokemon p)
     printf("Description: %s\n", p.description);
 }
 
-void displayTask(Pokemon mon)
+void displayAllTasks(Pokedex dex)
+{
+    int i;
+
+    for (i = 0; i < dex.collection[0].tasks.taskCount; i++)
+    {
+        printf("[%d] %s\n", i + 1, dex.collection[0].tasks.list[i].type);
+    }
+}
+
+void displayTaskStatus(Pokemon mon)
 {
     int i, tasklen, width;
     

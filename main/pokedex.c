@@ -141,9 +141,9 @@ void manageMenu(Pokedex* dex)
         case 1: addEntry(dex); break;
         case 2: modifyEntry(dex); break;
         case 3: deleteEntry(dex); break;
-        case 4: displayEntries(dex, "RETURN"); break;
-        case 5: searchByName(dex); break;
-        case 6: searchByType(dex); break;
+        case 4: displayEntries(*dex, "RETURN"); break;
+        case 5: searchByName(*dex); break;
+        case 6: searchByType(*dex); break;
         case 7: exportEntries(dex); break;
         case 8: importEntries(dex); break;
         default: break;
@@ -168,9 +168,9 @@ void researchMenu(Pokedex* dex)
 
     switch(resOpt)
     {
-        case 1: reviewTasksByPokemon(dex); break;
+        case 1: reviewTasksByPokemon(*dex); break;
         case 2: 
-        case 3: 
+        case 3: updateTasks(dex); break;
         default: break;
     }
     } while (resOpt != 0);        

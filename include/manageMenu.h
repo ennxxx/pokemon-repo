@@ -7,13 +7,13 @@ void addEntry(Pokedex* dex);
 
 void deleteEntry(Pokedex* dex);
 
-void displayEntries(Pokedex* dex, const char* button);
+void displayEntries(Pokedex dex, const char* button);
 
 void modifyEntry(Pokedex* dex);
 
-void searchByName(Pokedex* dex);
+void searchByName(Pokedex dex);
 
-void searchByType(Pokedex* dex);
+void searchByType(Pokedex dex);
 
 void exportEntries(Pokedex* dex);
 

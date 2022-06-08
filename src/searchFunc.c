@@ -6,7 +6,7 @@
 #include "../include/manageMenu.h"
 #include "../include/pokedexTools.h"
 
-void searchByName(Pokedex* dex)
+void searchByName(Pokedex dex)
 {
     int back;
     int i, j, k;
@@ -25,13 +25,13 @@ void searchByName(Pokedex* dex)
         printf("\n");
         
         inputlen = strlen(input);
-        pokeIndex = dex->pokeCount;  // Removed -1 here so it looks at all entries
+        pokeIndex = dex.pokeCount;  // Removed -1 here so it looks at all entries
         
         // For loop that iterates through the Pokemon array
         for (i = 0; i < pokeIndex; i++)
         {
             // Assign the Pokemon name string to a variable to avoid multiple array access calls
-            strcpy(currentMon, dex->collection[i].name);
+            strcpy(currentMon, dex.collection[i].name);
             pokemonlen = strlen(currentMon);
             
             ctr = 0;
@@ -71,7 +71,7 @@ void searchByName(Pokedex* dex)
             // Prints the found pokemon
             if (ctr == inputlen)
             {
-                displayPokemon(dex->collection[i]);
+                displayPokemon(dex.collection[i]);
                 found++;
             }
         }
@@ -90,7 +90,7 @@ void searchByName(Pokedex* dex)
     } while (back != 0);
 }
 
-void searchByType(Pokedex* dex)
+void searchByType(Pokedex dex)
 {
     int back;
     int i, found, pokeIndex;
@@ -102,7 +102,7 @@ void searchByType(Pokedex* dex)
         clear_screen();
         
         found = 0;
-        pokeIndex = dex->pokeCount;
+        pokeIndex = dex.pokeCount;
 
         printf("Searching Pokemon by Type...\n\n");
 
@@ -135,9 +135,9 @@ void searchByType(Pokedex* dex)
         // If a Pokemon's type matches the input, it will be displayed and found increments
         for(i = 0; i < pokeIndex; i++)
         {
-            if(toUpper(input) == toUpper(dex->collection[i].type))
+            if(toUpper(input) == toUpper(dex.collection[i].type))
             {
-                displayPokemon(dex->collection[i]);   
+                displayPokemon(dex.collection[i]);   
                 found++;
             }
         }
