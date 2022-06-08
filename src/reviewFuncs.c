@@ -13,8 +13,8 @@ void reviewTasksByPokemon(Pokedex* dex)
     {
         clear_screen();
         printf("---Reviewing Tasks Per Pokemon---\n\n");
-        displayEntries(dex);
-        printf("Research Tasks Details: ");
+        displayEntries(dex, "CHOOSE ENTRY");
+        printf("Which Pokemon would you like to review tasks for? ");
         input = intHandler(1, dex->pokeCount);
 
         mon = dex->collection[input - 1];

@@ -6,7 +6,7 @@
 #include "../include/manageMenu.h"
 #include "../include/pokedexTools.h"
 
-void displayEntries(Pokedex* dex)
+void displayEntries(Pokedex* dex, const char* button)
 {   
     int i, back, limit, count;
 
@@ -30,36 +30,18 @@ void displayEntries(Pokedex* dex)
 
         if (dex->pokeCount <= 3) // No next or previous buttons at first page IF there are less than 3 entries   
         {
-            printf("[0] RETURN\n\n"); 
+            printf("[0] %s\n\n", button); 
             printf("Input: ");
             back = intHandler(0, 0);
         }
 
         else    
         {
-            printf("[0] RETURN\n");         
+            printf("[0] %s\n", button);         
             printf("[1] NEXT\n");
             printf("[2] PREV\n\n");
             printf("Input: ");
             back = intHandler(0, 2);
-        }
-
-        // Button functions
-
-        if (back == 1)
-        {
-            clear_screen();
-            printf("Displaying entries...\n\n");
-            count++;        
-            limit += 3;     
-        }
-
-        else if (back == 2)
-        {
-            clear_screen();
-            printf("Displaying entries...\n\n");
-            count--;         
-            limit -= 3;
         }
 
     } while (back != 0);
