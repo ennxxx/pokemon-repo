@@ -14,12 +14,12 @@ typedef struct{
     string type;
     int status;
     int complete;
-    int progress;
 } resType;
 
 typedef struct{
     resType list[10];
     int taskCount;
+    int progress;
 } resTasks;
 
 typedef struct {

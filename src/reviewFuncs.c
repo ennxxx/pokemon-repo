@@ -23,7 +23,7 @@ void reviewTasksByPokemon(Pokedex* dex)
         {
             clear_screen();
             displayPokemon(mon);
-            printf("-----Research Tasks Progress: %d%%-----\n", mon.tasks.list[input].progress);
+            printf("-----Research Tasks Progress: %d%%-----\n", mon.tasks.progress);
             displayTask(mon);
         }
 

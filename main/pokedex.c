@@ -28,7 +28,6 @@ resType initTaskTypes()
     strcpy(task.type, "DEFAULT_VALUE");
     task.status = 0;
     task.complete = DEFAULT_COMPLETE;
-    task.progress = 0;
 
     return task;
 }
@@ -44,19 +43,16 @@ void initTasks(resTasks* tasks)
     strcpy(task.type, "Seen");
     task.status = 0;
     task.complete = DEFAULT_COMPLETE;
-    task.progress = 0;
     tasks->list[0] = task;
 
     strcpy(task.type, "Caught");
     task.status = 0;
     task.complete = DEFAULT_COMPLETE;
-    task.progress = 0;
     tasks->list[1] = task;
 
     strcpy(task.type, "Defeated");
     task.status = 0;
     task.complete = DEFAULT_COMPLETE;
-    task.progress = 0;
     tasks->list[2] = task;
 
     for (i = 3; i < 10; i++)
@@ -65,6 +61,7 @@ void initTasks(resTasks* tasks)
     }
     
     tasks->taskCount = 3;
+    tasks->progress = 0;
 }
 
 Pokemon initPokemon()
