@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Wed Jun  8 23:52:54 2022
+# Make data base, printed on Thu Jun  9 09:24:12 2022
 
 # Variables
 
@@ -20,9 +20,9 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
+ 
 # makefile (from `makefile', line 19)
 INCLUDES = -I $(SRC_PATH)/include -I $(SRC_PATH)/src -I $(SRC_PATH)/main
- 
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # automatic
@@ -50,7 +50,7 @@ END_TIME = read st < $(TIME_FILE) ; $(RM) $(TIME_FILE) ; st=$$((`$(CUR_TIME)` - 
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/mq/j_mymsq55ns8m8bphh351yn00000gn/T/vscode-ipc-2c2a432b-f7e7-49a3-89b4-c1081c69c960.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/mq/j_mymsq55ns8m8bphh351yn00000gn/T/vscode-ipc-40a7328b-0b64-415a-a5ff-40eab3ab67d7.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -68,7 +68,7 @@ ELECTRON_RUN_AS_NODE = 1
 # makefile (from `makefile', line 124)
 USE_VERSION := false
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.wxbBdVGq7V/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.6taC5d5lZz/Listeners
 # automatic
 %F = $(notdir $%)
 # makefile (from `makefile', line 39)
@@ -107,8 +107,6 @@ MAKE = $(MAKE_COMMAND)
 MAKECMDGOALS := all
 # environment
 SHLVL = 1
-# environment
-LOCAL_GIT_DIRECTORY = /Applications/GitHub Desktop.app/Contents/Resources/app/git
 # makefile (from `makefile', line 5)
 CC = gcc 
 # default
@@ -196,9 +194,9 @@ START_TIME = $(CUR_TIME) > $(TIME_FILE)
 # environment
 LANG = C
 # environment
-VSCODE_PID = 1341
+VSCODE_PID = 1233
 # variable set hash-table stats:
-# Load=92/1024=9%, Rehash=0, Collisions=10/197=5%
+# Load=91/1024=9%, Rehash=0, Collisions=10/196=5%
 
 # Pattern-specific Variable Values
 
@@ -206,10 +204,10 @@ VSCODE_PID = 1341
 
 # Directories
 
-# . (device 16777233, inode 7927355): 17 files, no impossibilities.
-# main (device 16777233, inode 8737857): 3 files, no impossibilities so far.
+# . (device 16777232, inode 7927355): 16 files, no impossibilities.
+# main (device 16777232, inode 8737857): 3 files, no impossibilities so far.
 
-# 20 files, no impossibilities in 2 directories.
+# 19 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -327,8 +325,8 @@ all: /Pokedex
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-/src/delete.o:
  
+/src/delete.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -587,7 +585,8 @@ install:
 # # of strcache buffers: 1
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 3935 / max = 3935 / min = 3935 / avg = 3935
+ 
 
-# Finished Make data base on Wed Jun  8 23:52:54 2022
+# Finished Make data base on Thu Jun  9 09:24:12 2022
 
  

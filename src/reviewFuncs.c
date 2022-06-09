@@ -27,13 +27,61 @@ void reviewTasksByPokemon(Pokedex dex)
             displayTaskStatus(mon);
         }
 
-        printf("\nPress [1] to REVIEW other details or [0] to RETURN: ");
+        printf("\nPress [1] to REVIEW other Pokemon or [0] to RETURN: ");
         back = intHandler(0, 1);
 
     } while (back != 0);
 }
 
-void reviewByType(Pokedex dex)
+void reviewTasksByType(Pokedex dex)
 {
-    //put the func heree!! :>
+    int task, back;
+    int namelen, width;
+    int i = 0, j;
+
+    Pokemon mon;
+    
+    do
+    {
+        clear_screen();
+        printf("---Reviewing Task per Task Type---\n\n");
+
+        displayAllTasks(dex);
+        printf("\nWhich task would you like to review? ");
+        task = intHandler(1, dex.collection[0].tasks.taskCount);
+        j = task - 1;
+        
+        if (task)
+        {
+            clear_screen();
+            printf("---Research Tasks Progress: %s---\n", dex.collection[0].tasks.list[j].type);
+
+            for (i = 0; i < dex.pokeCount; i++)
+            {
+                mon = dex.collection[i]; // Access entries
+                namelen = strlen(mon.name);
+                
+                switch (task) // For the display to align
+                {
+                    case 1: width = 27 - namelen; break; // Seen
+                    case 2: width = 29 - namelen; break; // Caught
+                    case 3: width = 31 - namelen; break; // Defeated
+                }
+
+                if (mon.tasks.list[j].status != 0)
+                {
+                    printf("%s  %s", "⟢", mon.name);
+                    printf("%*s", width, " ");
+                    printf("%d/%d \n", mon.tasks.list[j].status, mon.tasks.list[j].complete);
+                }
+            }
+        }
+
+        printf("\n< END OF LIST >\n\n"); 
+
+        printf("Press [1] to REVIEW other tasks or [0] to RETURN: ");
+        back = intHandler(0, 1);
+
+    } while (back != 0);
+    
 }

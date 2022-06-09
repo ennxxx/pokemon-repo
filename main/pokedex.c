@@ -169,7 +169,7 @@ void researchMenu(Pokedex* dex)
     switch(resOpt)
     {
         case 1: reviewTasksByPokemon(*dex); break;
-        case 2: 
+        case 2: reviewTasksByType(*dex); break;
         case 3: updateTasks(dex); break;
         default: break;
     }

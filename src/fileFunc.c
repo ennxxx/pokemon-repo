@@ -69,11 +69,13 @@ void importEntries(Pokedex* dex)
         entryIndex = dex->pokeCount; // Index is based on the last pokeCount
         Pokemon import = dex->collection[entryIndex]; // Importing Pokemon detials to a specific index
 
+        // Reads the content of the file
         printf("Loading entry...\n\n");
         fscanf(fp, "%s\n", import.name);
         fscanf(fp, "%c\n", &import.type);
         fgets(import.description, MAX_DESC_LEN, fp);
 
+        // Displays the read entries
         import.entry = dex->pokeCount + 1; // Notes down entry number based on last pokeCount + 1
         printf("Name: %s\n", import.name);
         displayType(import);

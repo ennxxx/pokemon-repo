@@ -59,7 +59,6 @@ void updateTasks(Pokedex* dex)
         printf("-----Research Tasks Progress: %d%%-----\n", mon->tasks.progress);
         displayTaskStatus(*mon);
 
-
         printf("\nPress [1] to UPDATE another task or [0] to RETURN: ");
         back = intHandler(0, 1);
 
