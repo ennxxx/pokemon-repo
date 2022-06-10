@@ -64,7 +64,7 @@ reviewTasksByType(Pokedex dex) {
 
       if (mon.tasks.list[j].status != 0) {
         printf("⟢ %s", mon.name); // can't you use the symbol directly?
-        printf("%*s", width - namelen - (6 + mon.tasks.list[j].status/10) , " ");
+        printf("%*s", width - namelen - (8 + mon.tasks.list[j].status/10) , " ");
         printf("%d/%d \n", mon.tasks.list[j].status,
                mon.tasks.list[j].complete);
       }

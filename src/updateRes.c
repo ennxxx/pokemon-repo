@@ -64,3 +64,19 @@ void updateTasks(Pokedex* dex)
 
     } while (back != 0);
 }
+
+void addTaskTypes(Pokedex* dex)
+{
+    int back, i;
+
+    back = -1;
+
+    do {
+        clear_screen();
+
+        //ask user what type they want to add
+        //iterate through the list of types
+        //if the type is already in the list, don't add it
+        //
+    }while (back != 0);
+}

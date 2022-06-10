@@ -91,6 +91,8 @@ exportEntries(Pokedex *dex) {
   }
 
   fclose(fp);
+  // clear stdin
+  while (getchar() != '\n');
 }
 
 void
@@ -143,7 +145,7 @@ importEntries(Pokedex *dex) {
       displayType(import);
       printf("Description: %s\n", import.description);
 
-      printf("Press [1] to IMPORT or [0] to SKIP entry: ");
+      printf("\nPress [1] to IMPORT or [0] to SKIP entry: ");
       ch = intHandler(0, 1);
 
       if (ch == 1 && checkDup(*dex, import.name)) {
@@ -151,11 +153,7 @@ importEntries(Pokedex *dex) {
         dex->pokeCount++;
       }
 
-  } while (fgetc(fp) != EOF);
-
-  if (feof(fp)) {
-    manageMenu(dex);
-  }
+  } while (!feof(fp));
 
   fclose(fp);
 }
