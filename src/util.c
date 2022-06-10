@@ -22,15 +22,17 @@ int checkDup(Pokedex dex, char name[MAX_NAME_LEN])
 {
     int i;
 
+    int returns = 1;
+
     for (i = 0; i < dex.pokeCount; i++)
     {
         if (strcmp(name, dex.collection[i].name) == 0)   
         {
-            return 0;   // Returns 0 if the entry has already been entered previously
+            returns = 0;   // Returns 0 if the entry has already been entered previously
         }
     }
 
-    return 1;
+    return returns;
 } 
 
 int entryExists(Pokedex dex, int entry)
@@ -73,6 +75,8 @@ void displayPokemon(Pokemon p)
     printf("Name: %s\n", p.name);
     displayType(p);
     printf("Description: %s\n", p.description);
+
+    printf("\n");
 }
 
 void displayAllTasks(Pokedex dex)

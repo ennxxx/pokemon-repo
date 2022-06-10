@@ -1,87 +1,79 @@
-#include "../include/researchTasks.h"
-#include "../include/pokedexTools.h"
 #include "../include/manageMenu.h"
+#include "../include/pokedexTools.h"
+#include "../include/researchTasks.h"
 #include <stdio.h>
 #include <string.h>
 
-void reviewTasksByPokemon(Pokedex dex)
-{
-    int input, back;
-    Pokemon mon;
-    
-    do
-    {
-        clear_screen();
-        printf("---Reviewing Tasks Per Pokemon---\n\n");
-        displayTaskEntries(dex);
-        printf("\nWhich Pokemon would you like to review tasks for? ");
-        input = intHandler(1, dex.pokeCount);
+void
+reviewTasksByPokemon(Pokedex dex) {
+  int input, back;
+  Pokemon mon;
 
-        mon = dex.collection[input - 1];
+  do {
+    clear_screen();
+    printf("---Reviewing Tasks Per Pokemon---\n\n");
+    displayTaskEntries(dex);
+    printf("\nWhich Pokemon would you like to review tasks for? ");
+    input = intHandler(1, dex.pokeCount);
 
-        if (input)
-        {
-            clear_screen();
-            displayPokemon(mon);
-            printf("-----Research Tasks Progress: %d%%-----\n", mon.tasks.progress);
-            displayTaskStatus(mon);
-        }
+    mon = dex.collection[input - 1];
 
-        printf("\nPress [1] to REVIEW other Pokemon or [0] to RETURN: ");
-        back = intHandler(0, 1);
+    if (input) {
+      clear_screen();
+      displayPokemon(mon);
+      printf("-----Research Tasks Progress: %d%%-----\n", mon.tasks.progress);
+      displayTaskStatus(mon);
+    }
 
-    } while (back != 0);
+    printf("\nPress [1] to REVIEW other Pokemon or [0] to RETURN: ");
+    back = intHandler(0, 1);
+
+  } while (back != 0);
 }
 
-void reviewTasksByType(Pokedex dex)
-{
-    int task, back;
-    int namelen, width;
-    int i = 0, j;
+void
+reviewTasksByType(Pokedex dex) {
+  int task, back;
+  int width = 33, tasklen;
+  int i = 0, j = 0;
 
-    Pokemon mon;
-    
-    do
-    {
-        clear_screen();
-        printf("---Reviewing Task per Task Type---\n\n");
+  int namelen;
 
-        displayAllTasks(dex);
-        printf("\nWhich task would you like to review? ");
-        task = intHandler(1, dex.collection[0].tasks.taskCount);
-        j = task - 1;
-        
-        if (task)
-        {
-            clear_screen();
-            printf("---Research Tasks Progress: %s---\n", dex.collection[0].tasks.list[j].type);
+  string taskStr;
 
-            for (i = 0; i < dex.pokeCount; i++)
-            {
-                mon = dex.collection[i]; // Access entries
-                namelen = strlen(mon.name);
-                
-                switch (task) // For the display to align
-                {
-                    case 1: width = 27 - namelen; break; // Seen
-                    case 2: width = 29 - namelen; break; // Caught
-                    case 3: width = 31 - namelen; break; // Defeated
-                }
+  Pokemon mon;
 
-                if (mon.tasks.list[j].status != 0)
-                {
-                    printf("%s  %s", "⟢", mon.name);
-                    printf("%*s", width, " ");
-                    printf("%d/%d \n", mon.tasks.list[j].status, mon.tasks.list[j].complete);
-                }
-            }
-        }
+  do {
+    clear_screen();
+    printf("---Reviewing Task per Task Type---\n\n");
 
-        printf("\n< END OF LIST >\n\n"); 
+    displayAllTasks(dex);
+    printf("\nWhich task would you like to review? ");
+    task = intHandler(1, dex.collection[0].tasks.taskCount);
+    strcpy(taskStr, dex.collection[0].tasks.list[task - 1].type);
+    tasklen = strlen(taskStr);
+    width += tasklen;
 
-        printf("Press [1] to REVIEW other tasks or [0] to RETURN: ");
-        back = intHandler(0, 1);
+    clear_screen();
+    printf("---Research Tasks Progress: %s---\n",
+           dex.collection[0].tasks.list[j].type);
 
-    } while (back != 0);
-    
+    for (i = 0; i < dex.pokeCount; i++) {
+      mon = dex.collection[i]; // Access entries
+      namelen = strlen(mon.name);
+
+      if (mon.tasks.list[j].status != 0) {
+        printf("⟢ %s", mon.name); // can't you use the symbol directly?
+        printf("%*s", width - namelen - (6 + mon.tasks.list[j].status/10) , " ");
+        printf("%d/%d \n", mon.tasks.list[j].status,
+               mon.tasks.list[j].complete);
+      }
+    }
+
+    printf("\n< END OF LIST >\n\n");
+
+    printf("Press [1] to REVIEW other tasks or [0] to RETURN: ");
+    back = intHandler(0, 1);
+
+  } while (back != 0);
 }

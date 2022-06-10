@@ -57,6 +57,7 @@ exportEntries(Pokedex *dex) {
   for (i = 0; i < dex->pokeCount; i++) {
     pokemon = dex->collection[i];
 
+    trimString(pokemon.name);
     fprintf(fp, "Name: %s\n", pokemon.name);
     switch (toUpper(pokemon.type)) {
       case 'E':
@@ -75,7 +76,10 @@ exportEntries(Pokedex *dex) {
         break;
     }
     // removed newline filter to make EOF operation universal
+    trimString(pokemon.description);
     fprintf(fp, "Description: %s\n", pokemon.description);
+    if (i != dex->pokeCount - 1)
+      fprintf(fp, "\n");
   }
 
   fclose(fp);
@@ -110,30 +114,34 @@ importEntries(Pokedex *dex) {
 
     fgets(tmp, MAX_NAME_LEN, fp);
     filterString(tmp, NAME);
-    strcpy(import.name, tmp);
+    trimString(tmp);
 
-    fgets(tmp, sizeof(char) * 20, fp);
-    filterString(tmp, TYPE);
-    import.type = tmp[0];
+      strcpy(import.name, tmp);
 
-    fgets(tmp, MAX_DESC_LEN, fp);
-    filterString(tmp, DESCRIPTION);
-    strcpy(import.description, tmp);
+      fgets(tmp, sizeof(char) * 20, fp);
+      filterString(tmp, TYPE);
+      trimString(tmp);
+      import.type = tmp[0];
 
-    // Displays the read entries
-    import.entry = dex->pokeCount +
-                   1; // Notes down entry number based on last pokeCount + 1
-    printf("Name: %s", import.name);
-    displayType(import);
-    printf("Description: %s", import.description);
+      fgets(tmp, MAX_DESC_LEN, fp);
+      filterString(tmp, DESCRIPTION);
+      trimString(tmp);
+      strcpy(import.description, tmp);
 
-    printf("Press [1] to IMPORT or [0] to SKIP entry: ");
-    ch = intHandler(0, 1);
+      // Displays the read entries
+      import.entry = dex->pokeCount +
+                     1; // Notes down entry number based on last pokeCount + 1
+      printf("Name: %s\n", import.name);
+      displayType(import);
+      printf("Description: %s\n", import.description);
 
-    if (ch == 1) {
-      dex->collection[entryIndex] = import;
-      dex->pokeCount++;
-    }
+      printf("Press [1] to IMPORT or [0] to SKIP entry: ");
+      ch = intHandler(0, 1);
+
+      if (ch == 1 && checkDup(*dex, import.name)) {
+        dex->collection[entryIndex] = import;
+        dex->pokeCount++;
+      }
 
   } while (fgetc(fp) != EOF);
 
