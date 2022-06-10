@@ -14,7 +14,14 @@ clear_screen() {
 #endif
 }
 
-// returns 1 if provided string is a duplicate
+/**
+ * @Description  Prints a message to the screen
+ *
+ * @Param taskList The task list to print
+ * @Param taskName The name of the task
+ *
+ * @Returns 1 if the task is a duplate, 0 otherwise
+ */
 int
 checkTaskDup(resTasks taskList, string taskName) {
   int i, retval, cont;
@@ -33,6 +40,14 @@ checkTaskDup(resTasks taskList, string taskName) {
   return retval;
 }
 
+/**
+ * @Description  Checks if a pokemon's name already exists inside dex
+ *
+ * @Param dex
+ * @Param name[MAX_NAME_LEN]
+ *
+ * @Returns   1 if the pokemon is a duplicate, 0 otherwise
+ */
 int
 checkDup(Pokedex dex, char name[MAX_NAME_LEN]) {
   int i;
@@ -48,6 +63,14 @@ checkDup(Pokedex dex, char name[MAX_NAME_LEN]) {
   return returns;
 }
 
+/**
+ * @Description  Checks if a pokemon's entry number already exists inside dex
+ *
+ * @Param dex
+ * @Param entry
+ *
+ * @Returns returns the index of the pokemon if it exists, -1 otherwise
+ */
 int
 entryExists(Pokedex dex, int entry) {
 
