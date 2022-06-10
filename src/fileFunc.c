@@ -40,6 +40,14 @@ trimString(char *str) {
 
 void
 exportEntries(Pokedex *dex) {
+
+  if (dex->pokeCount == 0) {
+    printf("No entries to export");
+    getchar();
+    getchar();
+    return;
+  }
+
   char fileName[26];
   char extension[5] = ".txt";
 
