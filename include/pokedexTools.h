@@ -10,40 +10,42 @@
 
 typedef char string[20];
 
-typedef struct{
-    string type;
-    int status;
-    int complete;
+typedef struct {
+  string type;
+  int status;
+  int complete;
 } resType;
 
-typedef struct{
-    resType list[10];
-    int taskCount;
-    int progress;
+typedef struct {
+  resType list[10];
+  int taskCount;
+  int progress;
 } resTasks;
 
 typedef struct {
-    int entry;
-    char name[MAX_NAME_LEN];
-    char type;
-    char description[MAX_DESC_LEN];
-    resTasks tasks;
-} Pokemon; 
+  int entry;
+  char name[MAX_NAME_LEN];
+  char type;
+  char description[MAX_DESC_LEN];
+  resTasks tasks;
+} Pokemon;
 
-typedef struct{
-    Pokemon collection[MAX_ENTRIES];
-    int pokeCount;
+typedef struct {
+  Pokemon collection[MAX_ENTRIES];
+  int pokeCount;
 } Pokedex;
 
 // Initialization
-Pokemon initPokemon();              // This initalizes the Pokemon information
-resType initTaskTypes();            // Initializes the individual task types 
-void initTasks(resTasks* tasks);    // Initializes the task list
-Pokedex initCollection();           // This is a separate struct that contains all 150 Pokemon  
+Pokemon initPokemon();           // This initalizes the Pokemon information
+resType initTaskTypes();         // Initializes the individual task types
+void initTasks(resTasks *tasks); // Initializes the task list
+Pokedex
+initCollection(); // This is a separate struct that contains all 150 Pokemon
 
 // Utils for the Pokedex
 void clear_screen();
 int checkDup(Pokedex dex, char name[MAX_NAME_LEN]);
+int checkTaskDup(resTasks taskList, string taskName);
 int entryExists(Pokedex dex, int entry);
 void displayType(Pokemon p);
 void displayPokemon(Pokemon p);
@@ -52,6 +54,6 @@ void displayTaskStatus(Pokemon mon);
 void displayTaskEntries(Pokedex dex);
 char toUpper(char c);
 int intHandler(int min, int max);
-char charHandler(const char* chars);
+char charHandler(const char *chars);
 
 #endif
