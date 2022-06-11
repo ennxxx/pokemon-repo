@@ -50,9 +50,11 @@ reviewTasksByType(Pokedex dex) {
     displayAllTasks(dex);
     printf("\nWhich task would you like to review? ");
     task = intHandler(1, dex.collection[0].tasks.taskCount);
+    
     strcpy(taskStr, dex.collection[0].tasks.list[task - 1].type);
     tasklen = strlen(taskStr);
     width += tasklen;
+    j = task - 1;
 
     clear_screen();
     printf("---Research Tasks Progress: %s---\n",

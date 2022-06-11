@@ -123,7 +123,7 @@ void mainMenu(Pokedex dex)
 
 void manageMenu(Pokedex* dex)
 {
-    int manOpt;
+    int manOpt = 0;
     do{
     system("clear || cls");
     printf("Accessing Data Files...\n\n");
@@ -160,17 +160,19 @@ void researchMenu(Pokedex* dex)
     printf("Accessing Research Tasks...\n\n");
     printf("[1] Review Research Task per Pokemon\n");
     printf("[2] Review Research Task per Task Type\n");
-    printf("[3] Update Research Task\n\n");
+    printf("[3] Update Research Task\n");
+    printf("[4] Create Additional Task Types\n\n");
 
     printf("Press [0] to return to Main Menu\n\n");
     printf("Input: ");
-    resOpt = intHandler(0, 3);
+    resOpt = intHandler(0, 4);
 
     switch(resOpt)
     {
         case 1: reviewTasksByPokemon(*dex); break;
         case 2: reviewTasksByType(*dex); break;
         case 3: updateTasks(dex); break;
+        case 4: addTaskTypes(dex); break;
         default: break;
     }
     } while (resOpt != 0);        
