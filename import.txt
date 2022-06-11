@@ -1,51 +1,19 @@
-Pikachu
-e
-Yellow rat.
+Name: Pikachu
+Type: Electric
+Description: Yellow rat.
 
-Raichu
-e
-Fat Pikachu.
+Name: Raichu
+Type: Electric
+Description: Fat Pikachu.
 
-Oshawott
-W
-Blue baby.
+Name: Oshawott
+Type: Water
+Description: Blue baby.
 
-Snivy
-g
-Draco Malfoy.
+Name: Snivy
+Type: Grass
+Description: Draco Malfoy.
 
-Lechonk
-f
-Lechon kawali.
-
-Torchic
-f
-Hot wings.
-
-Tsareena
-g
-Russian leaf.
-
-Mudkip
-W
-Frog or something.
-
-Chimchar
-f
-Fire monkey.
-
-Bulbasaur
-g
-Turtle pokemon.
-
-Squirtle
-w
-Wait, this is the turtle.
-
-Charmander
-f
-Fire-breathing monstrosity.
-
-Mimikyu
-e
-Dead inside.
+Name: Lechonk
+Type: Fire
+Description: Lechon kawali.

@@ -1,15 +1,21 @@
-// Display function (WIP)
-
 #include <stdio.h>
 #include <string.h>
 #include "../include/uiElements.h"
 #include "../include/manageMenu.h"
 #include "../include/pokedexTools.h"
 
-void displayEntries(Pokedex dex, const char* button)
+/**
+ * @Description Displays entries in the Pokedex, shows 3 entries per page
+ *
+ * @Param dex - Struct that holds a collection of Pokemon entries
+ *              and notes the number of Pokemon entered in the Pokedex
+ * @Param button - Displays what a player can do in displayEntries, such as RETURN, MODIFY, or DELETE
+ */
+void 
+displayEntries(Pokedex dex, 
+               const char* button)
 {   
     int i, back, limit, count;
-
     Pokemon pokemon;
     
     limit = 3;  // Displays 3 Pokemon from index 0 to 2
@@ -65,10 +71,15 @@ void displayEntries(Pokedex dex, const char* button)
     } while (back != 0);
 }
 
+/**
+ * @Description Displays entries for Review by Pokemon in Reseach Menu
+ *
+ * @Param dex - Struct that holds a collection of Pokemon entries
+ *              and notes the number of Pokemon entered in the Pokedex
+ */
 void displayTaskEntries(Pokedex dex)
 {   
     int i, back, limit, count;
-
     Pokemon pokemon;
     
     limit = 3;  // Displays 3 Pokemon from index 0 to 2

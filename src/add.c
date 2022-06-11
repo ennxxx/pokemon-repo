@@ -1,12 +1,18 @@
-// This adds and checks for duplicate entries in the Pokedex
-
 #include <stdio.h>
 #include <string.h>
 #include "../include/uiElements.h"
 #include "../include/manageMenu.h"
 #include "../include/pokedexTools.h"
 
-void addEntry(Pokedex* dex)
+
+/**
+ * @Description Adds entries to dex
+ *
+ * @Param dex - Struct that holds a collection of Pokemon entries
+ *              and notes the number of Pokemon entered in the Pokedex
+ */
+void 
+addEntry(Pokedex* dex) 
 {   
     int back, redo, index;
     char tmp[100];
@@ -17,22 +23,19 @@ void addEntry(Pokedex* dex)
         printf("---Adding Entries---\n\n");
 
         index = dex->pokeCount;
-        
         dex->collection[index].entry = index + 1;
-        
         printf("Inputting Entry %d...\n\n", dex->collection[index].entry);
 
         do
         {
             printf("Name: ");
             scanf("%s", dex->collection[index].name); 
-
-            redo = checkDup(*dex, dex->collection[index].name);  // Must return 1 for the function to continue
+            
+            // Must return 1 for the function to continue
+            redo = checkDup(*dex, dex->collection[index].name);
 
             if (redo == 0)
-            {
                 printf("\nThis entry already exists! Please enter another Pokemon name.\n\n");
-            }
 
         } while (redo != 1);
         
@@ -52,8 +55,9 @@ void addEntry(Pokedex* dex)
         strcpy(dex->collection[index].description, tmp);
                 
         printf("\n...done inputting!\n\n");
-
-        dex->pokeCount = dex->collection[index].entry;                 // Ensures that new entries will be added based on previous index
+        
+        // Ensures that new entries will be added based on previous index
+        dex->pokeCount = dex->collection[index].entry;
 
         printf("Press [1] to ADD another entry or [0] to RETURN: ");
         back = intHandler(0, 1);
