@@ -48,19 +48,30 @@ checkTaskDup(resTasks taskList, string taskName) {
  *
  * @Returns   1 if the pokemon is a duplicate, 0 otherwise
  */
-int
+int 
 checkDup(Pokedex dex, char name[MAX_NAME_LEN]) {
-  int i;
+    int i, j;
+    int counter = 0;
 
-  int returns = 1;
-
-  for (i = 0; i < dex.pokeCount; i++) {
-    if (strcmp(name, dex.collection[i].name) == 0) {
-      returns = 0; // Returns 0 if the entry has already been entered previously
+    if (dex.pokeCount < 1) {
+        return 1; // Does not check first entry
     }
-  }
+    
+    for (i = 0; i < dex.pokeCount; i++) {
+        if (strlen(name) != strlen(dex.collection[i].name)) {
+            return 1; // Automatically returns 1 if they are not the same length
+        }
+        for (j = 0; j < strlen(name); j++) {
+            if (toUpper(name[j]) == toUpper(dex.collection[i].name[j])) {
+                counter++; // If the same character is encountered, counter++
+            }
+        }
+        if (counter == strlen(name)) { 
+            return 0; // If it all matches, return 0 and stop loop 
+        }
+    }
 
-  return returns;
+    return 1; // Returns 1 if not a duplicate
 }
 
 /**
