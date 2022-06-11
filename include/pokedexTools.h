@@ -9,6 +9,7 @@
 #define DEFAULT_COMPLETE 15
 
 typedef char string[20];
+typedef enum FILTERTYPE { NAME, DESCRIPTION, TYPE } FT;
 
 typedef struct {
   string type;
@@ -52,6 +53,7 @@ void displayAllTasks(Pokedex dex);
 void displayTaskStatus(Pokemon mon);
 void displayTaskEntries(Pokedex dex);
 void trimString(char *str);
+void filterString(char *str, FT filter);
 char toUpper(char c);
 int intHandler(int min, int max);
 char charHandler(const char *chars);

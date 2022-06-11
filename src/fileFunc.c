@@ -1,12 +1,8 @@
-// This exports and imports entries to and from the Pokedex
-
 #include "../include/manageMenu.h"
 #include "../include/pokedexTools.h"
 #include "../include/uiElements.h"
 #include <stdio.h>
 #include <string.h>
-
-typedef enum FILTERTYPE { NAME, DESCRIPTION, TYPE } FT;
 
 void
 filterString(char *str, FT filter) {
