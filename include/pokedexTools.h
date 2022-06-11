@@ -52,6 +52,7 @@ void displayPokemon(Pokemon p);
 void displayAllTasks(Pokedex dex);
 void displayTaskStatus(Pokemon mon);
 void displayTaskEntries(Pokedex dex);
+void trimString(char *str);
 char toUpper(char c);
 int intHandler(int min, int max);
 char charHandler(const char *chars);

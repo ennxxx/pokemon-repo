@@ -91,8 +91,7 @@ exportEntries(Pokedex *dex) {
   }
 
   fclose(fp);
-  // clear stdin
-  while (getchar() != '\n');
+  
 }
 
 void
@@ -153,7 +152,7 @@ importEntries(Pokedex *dex) {
         dex->pokeCount++;
       }
 
-  } while (!feof(fp));
+  } while (fgetc(fp) != EOF);
 
   fclose(fp);
 }

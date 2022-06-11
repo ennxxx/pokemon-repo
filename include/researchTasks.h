@@ -15,6 +15,8 @@ void updateTasks(Pokedex* dex);
 //Function that sorts the pokemon according to research tasks completion
 void rankPokemon(Pokedex* dex);
 
+void addTaskTypes(Pokedex* dex);
+
 void updateProgress(Pokemon* mon);
 
 #endif

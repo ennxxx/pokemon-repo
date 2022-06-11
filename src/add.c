@@ -9,6 +9,7 @@
 void addEntry(Pokedex* dex)
 {   
     int back, redo, index;
+    char tmp[100];
 
     do
     {
@@ -46,7 +47,9 @@ void addEntry(Pokedex* dex)
         fflush(stdin);
         printf("\nDescription: ");
         fgetc(stdin);
-        fgets(dex->collection[index].description, MAX_DESC_LEN, stdin);
+        fgets(tmp, MAX_DESC_LEN, stdin);
+        trimString(tmp);
+        strcpy(dex->collection[index].description, tmp);
                 
         printf("\n...done inputting!\n\n");
 
