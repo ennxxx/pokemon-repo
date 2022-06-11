@@ -84,7 +84,7 @@ searchByName(Pokedex dex)
             printf("---Pokemon not found in the list!---\n");
         
         else
-            printf("---Found %d pokemon(s)---\n", found);
+            printf("---Found %d Pokemon(s)---\n", found);
 
         // Returns to Manage Menu
         printf("\nPress [1] to SEARCH again or [0] to RETURN: ");
