@@ -4,7 +4,6 @@
 #include "../include/manageMenu.h"
 #include "../include/pokedexTools.h"
 
-
 /**
  * @Description Adds entries to dex
  *
@@ -31,13 +30,13 @@ addEntry(Pokedex* dex)
             printf("Name: ");
             scanf("%s", dex->collection[index].name); 
             
-            // Must return 1 for the function to continue
+            // Must return 0 for the function to continue
             redo = checkDup(*dex, dex->collection[index].name);
 
-            if (redo == 0)
+            if (redo == 1)
                 printf("\nThis entry already exists! Please enter another Pokemon name.\n\n");
 
-        } while (redo != 1);
+        } while (redo != 0);
         
         printf("\nPlease choose from the following:\n");
         printf("[E]lectric\n");

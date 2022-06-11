@@ -47,7 +47,7 @@ checkTaskDup(resTasks taskList, string taskName) {
  *              and notes the number of Pokemon entered in the Pokedex
  * @Param name[MAX_NAME_LEN] - Array under Pokemon struct to hold name of Pokemon
  *
- * @Returns 1 if the Pokemon is not a duplicate, 0 otherwise
+ * @Returns 1 if the Pokemon is a duplicate, 0 otherwise
  */
 int 
 checkDup(Pokedex dex, char name[MAX_NAME_LEN]) 
@@ -56,12 +56,12 @@ checkDup(Pokedex dex, char name[MAX_NAME_LEN])
     unsigned j, counter = 0;
 
     if (dex.pokeCount < 1)
-        return 1; // Does not check first entry
+        return 0; // Does not check first entry
     
     for (i = 0; i < dex.pokeCount; i++) 
     {
         if (strlen(name) != strlen(dex.collection[i].name))
-            return 1; // Automatically returns 1 if they are not the same length
+            return 0; // Automatically returns 0 if they are not the same length
         
         for (j = 0; j < strlen(name); j++) 
         {
@@ -70,10 +70,10 @@ checkDup(Pokedex dex, char name[MAX_NAME_LEN])
         }
         
         if (counter == strlen(name)) 
-            return 0; // If it all matches, return 0 and stop loop 
+            return 1; // If it all matches, return 1 and stop loop 
     }
 
-    return 1; // Returns 1 if not a duplicate
+    return 0; // Returns 0 if not a duplicate
 }
 
 /**

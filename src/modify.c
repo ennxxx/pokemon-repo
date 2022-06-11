@@ -66,11 +66,11 @@ modifyEntry(Pokedex* dex)
                 {
                     printf("\nChanging name to... ");
                     scanf("%s", changeMon.name);
-                    // Must return 1 for the function to continue
+                    // Must return 0 for the function to continue
                     redo = checkDup(*dex, changeMon.name);
-                    if (redo == 0)
+                    if (redo == 1)
                         printf("\nThis entry already exists! Please enter another Pokemon name.\n");
-                } while (redo != 1);
+                } while (redo != 0);
                 break;
             case '2':
                 printf("\nChanging type to...\n");
