@@ -1,32 +1,39 @@
-// Pokedex utility functions
-
 #include "../include/pokedexTools.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * @Description A function thats clears the console depending on the system
+ *
+ */
 void
-clear_screen() {
+clear_screen()
+{
 #ifdef WINDOWS
-  { system("cls"); }
+  {
+    system("cls");
+  }
 #else
-  { system("clear"); }
+  {
+    system("clear");
+  }
 #endif
 }
 
 /**
- * @Description  Prints a message to the screen
+ * @Description Checks if inputted task type exists by returning a value
  *
- * @Param taskList The task list to print
- * @Param taskName The name of the task
- *
- * @Returns 1 if the task is a duplate, 0 otherwise
+ * @param taskList The task list to print
+ * @param taskName The name of the task
+ * @return 1 if the task is a duplate, 0 otherwise
  */
 int
-checkTaskDup(resTasks taskList, string taskName) {
+checkTaskDup(resTasks taskList, string taskName)
+{
   int i, retval, cont;
 
-  // assume provided string is not a duplicate
+  // Assume provided string is not a duplicate
   i = 0, retval = 0;
   cont = 1;
 
@@ -41,52 +48,50 @@ checkTaskDup(resTasks taskList, string taskName) {
 }
 
 /**
- * @Description Checks if a pokemon's name already exists inside dex
+ * @Description Checks if a Pokemon's name already exists inside dex
  *
- * @Param dex - Struct that holds a collection of Pokemon entries
- *              and notes the number of Pokemon entered in the Pokedex
- * @Param name[MAX_NAME_LEN] - Array under Pokemon struct to hold name of Pokemon
- *
- * @Returns 1 if the Pokemon is a duplicate, 0 otherwise
+ * @param dex   Holds a collection of Pokemon entries and notes
+ *              the number of Pokemon entered in the Pokedex
+ * @param name  Array under Pokemon struct to hold name of Pokemon
+ * @return 1 if the Pokemon is a duplicate, 0 otherwise
  */
-int 
-checkDup(Pokedex dex, char name[MAX_NAME_LEN]) 
+int
+checkDup(Pokedex dex, char name[MAX_NAME_LEN])
 {
-    int i;
-    unsigned j, counter = 0;
+  int i;
+  unsigned j, counter = 0;
 
-    if (dex.pokeCount < 1)
-        return 0; // Does not check first entry
-    
-    for (i = 0; i < dex.pokeCount; i++) 
-    {
-        if (strlen(name) != strlen(dex.collection[i].name))
-            return 0; // Automatically returns 0 if they are not the same length
-        
-        for (j = 0; j < strlen(name); j++) 
-        {
-            if (toUpper(name[j]) == toUpper(dex.collection[i].name[j]))
-                counter++; // If the same character is encountered, counter++
-        }
-        
-        if (counter == strlen(name)) 
-            return 1; // If it all matches, return 1 and stop loop 
+  // Does not check first entry
+  if (dex.pokeCount < 1)
+    return 0;
+
+  for (i = 0; i < dex.pokeCount; i++) {
+    if (strlen(name) != strlen(dex.collection[i].name))
+      return 0; // Automatically returns 0 if they are not the same length
+
+    for (j = 0; j < strlen(name); j++) {
+      if (toUpper(name[j]) == toUpper(dex.collection[i].name[j]))
+        counter++; // If the same character is encountered, counter++
     }
 
-    return 0; // Returns 0 if not a duplicate
+    if (counter == strlen(name))
+      return 1; // If it all matches, return 1 and stop loop
+  }
+
+  return 0; // Returns 0 if not a duplicate
 }
 
 /**
- * @Description  Checks if a pokemon's entry number already exists inside dex
+ * @Description Check if an entry exists inside the Pokedex
  *
- * @Param dex
- * @Param entry
- *
- * @Returns returns the index of the pokemon if it exists, -1 otherwise
+ * @param dex   Holds a collection of Pokemon entries and notes
+ *              the number of Pokemon entered in the Pokedex
+ * @param entry Entry number of a Pokemon
+ * @return entryIndex if it exists, -1 otherwise
  */
 int
-entryExists(Pokedex dex, int entry) {
-
+entryExists(Pokedex dex, int entry)
+{
   int i, exists = 0; // For all entities in the Pokedex
   int entryIndex;
 
@@ -104,8 +109,15 @@ entryExists(Pokedex dex, int entry) {
   return -1;
 }
 
+/**
+ * @Description Displays Pokemon type depending on input character
+ *
+ * @param p Holds Pokemon details, such as entry number,
+ *          name, type, description.
+ */
 void
-displayType(Pokemon p) {
+displayType(Pokemon p)
+{
   switch (toUpper(p.type)) {
     case 'E':
       printf("Type: Electric\n");
@@ -124,18 +136,31 @@ displayType(Pokemon p) {
   }
 }
 
+/**
+ * @Description Displays Pokemon's entry number, name, type, and description
+ *
+ * @param p Holds Pokemon details, such as entry number,
+ *          name, type, description.
+ */
 void
-displayPokemon(Pokemon p) {
+displayPokemon(Pokemon p)
+{
   printf("Entry: %d\n", p.entry);
   printf("Name: %s\n", p.name);
   displayType(p);
   printf("Description: %s\n", p.description);
-
   printf("\n");
 }
 
+/**
+ * @Description Displays all existing Pokemon tasks
+ *
+ * @param dex Holds a collection of Pokemon entries and notes
+ *            the number of Pokemon entered in the Pokedex
+ */
 void
-displayAllTasks(Pokedex dex) {
+displayAllTasks(Pokedex dex)
+{
   int i;
 
   for (i = 0; i < dex.collection[0].tasks.taskCount; i++) {
@@ -143,8 +168,14 @@ displayAllTasks(Pokedex dex) {
   }
 }
 
+/**
+ * @Description Displays all existing task status
+ *
+ * @param mon Holds details of a Pokemon regarding their task types and progress
+ */
 void
-displayTaskStatus(Pokemon mon) {
+displayTaskStatus(Pokemon mon)
+{
   int i, tasklen, width;
 
   for (i = 0; i < mon.tasks.taskCount; i++) {
@@ -156,16 +187,74 @@ displayTaskStatus(Pokemon mon) {
   }
 }
 
+/**
+ * @Description
+ *
+ * @param str
+ * @param filter
+ */
+void
+filterString(char *str, FT filter)
+{
+  switch (filter) {
+    case NAME:
+      strcpy(str, str + 6);
+      break;
+    case DESCRIPTION:
+      strcpy(str, str + 13);
+      break;
+    case TYPE:
+      strcpy(str, str + 6);
+      break;
+    default:
+      break;
+  }
+}
+
+/**
+ * @Description
+ *
+ * @param str
+ */
+void
+trimString(char *str)
+{
+  int i = 0;
+
+  while (str[i] != '\0') {
+    if (str[i] == '\n') {
+      str[i] = '\0';
+      break;
+    }
+    i++;
+  }
+}
+
+/**
+ * @Description Changes lowercase characters to uppercase
+ *
+ * @param c A character input or character from a string
+ * @return  Uppercase c
+ */
 char
-toUpper(char c) {
+toUpper(char c)
+{
   if (c >= 'a' && c <= 'z')
     c = c - 32;
 
   return c;
 }
 
+/**
+ * @Description Checks for validity of an integer input
+ *
+ * @param min Minimum value to be inputted
+ * @param max Maximum value to be inputted
+ * @return    Integer input if valid, otherwise inform user to try again
+ */
 int
-intHandler(int min, int max) {
+intHandler(int min, int max)
+{
   int input;
   int valid = 0;
 
@@ -180,8 +269,15 @@ intHandler(int min, int max) {
   return input;
 }
 
+/**
+ * @Description Checks for validity of a character input
+ *
+ * @param chars A string of characters
+ * @return Character input if valid, otherwise inform user to try again
+ */
 char
-charHandler(const char *chars) {
+charHandler(const char *chars)
+{
   char input;
   int valid = 0, i, types;
 

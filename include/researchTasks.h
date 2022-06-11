@@ -4,6 +4,7 @@
 #include "pokedexTools.h"
 
 //Function that displays all Pokemon entries and their research task status
+void displayTaskEntries(Pokedex dex);
 void reviewTasksByPokemon(Pokedex dex);
 
 //Function that displays the the research tasks per type

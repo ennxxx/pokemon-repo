@@ -6,7 +6,6 @@ mkdir -p bin/release
 echo "Beginning release build"
 awk 'BEGIN{srand(); print srand()}' > ./.release_time
 /Library/Developer/CommandLineTools/usr/bin/make all --no-print-directory
- 
 echo "Compiling: main/pokedex.c -> build/release/main/pokedex.o"
 awk 'BEGIN{srand(); print srand()}' > build/release/main/.pokedex.o_time
 cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD -c main/pokedex.c -o build/release/main/pokedex.o
@@ -57,7 +56,6 @@ awk 'BEGIN{srand(); print srand()}' > build/release/src/.util.o_time
 cc  -std=c99 -Wall -Wextra -g -D NDEBUG -I ./include -I ./src -I ./main -MP -MMD -c src/util.c -o build/release/src/util.o
 echo -en "\t Compile time: "
 read st < build/release/src/.util.o_time ; rm -f build/release/src/.util.o_time ; st=$((`awk 'BEGIN{srand(); print srand()}'` - $st)) ; echo $st
- 
 echo "Linking: bin/release/Pokedex"
 awk 'BEGIN{srand(); print srand()}' > bin/release/.Pokedex_time
 cc build/release/main/pokedex.o build/release/src/add.o build/release/src/delete.o build/release/src/display.o build/release/src/fileFunc.o build/release/src/modify.o build/release/src/reviewFuncs.o build/release/src/searchFunc.o build/release/src/updateRes.o build/release/src/util.o    -o bin/release/Pokedex

@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Sat Jun 11 14:26:29 2022
+# Make data base, printed on Sat Jun 11 22:10:18 2022
 
 # Variables
 
@@ -34,7 +34,6 @@ SHELL = /bin/bash
 V := false
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
- 
 # environment
 _ = /usr/bin/make
 # makefile (from `makefile', line 1)
@@ -50,7 +49,7 @@ END_TIME = read st < $(TIME_FILE) ; $(RM) $(TIME_FILE) ; st=$$((`$(CUR_TIME)` - 
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/mq/j_mymsq55ns8m8bphh351yn00000gn/T/vscode-ipc-8a066de3-3c27-4579-9330-a149d8e7f87e.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/mq/j_mymsq55ns8m8bphh351yn00000gn/T/vscode-ipc-5ff08a77-97a7-428f-99f5-9a57aeed4e3b.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -102,6 +101,7 @@ DLINK_FLAGS =
 # environment
 XPC_FLAGS = 0x0
 # default
+ 
 MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
@@ -341,7 +341,6 @@ uninstall:
 #  File does not exist.
 #  File has not been updated.
 #  commands to execute (from `makefile', line 187):
- 
 	@echo "Removing $(DESTDIR)$(INSTALL_PREFIX)/bin/$(BIN_NAME)"
 	@$(RM) $(DESTDIR)$(INSTALL_PREFIX)/bin/$(BIN_NAME)
 	
@@ -414,10 +413,10 @@ dirs:
 main/pokedex.c:
 #  Implicit rule search has been done.
 #  Last modified 2022-06-11 14:16:06
- 
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
+ 
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
@@ -466,7 +465,6 @@ release: dirs
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 clean:
- 
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
@@ -588,6 +586,6 @@ install:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 3935 / max = 3935 / min = 3935 / avg = 3935
 
-# Finished Make data base on Sat Jun 11 14:26:29 2022
+# Finished Make data base on Sat Jun 11 22:10:18 2022
 
  

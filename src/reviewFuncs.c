@@ -4,8 +4,15 @@
 #include <stdio.h>
 #include <string.h>
 
+/**
+ * @Description Reviews Pokemon tasks based on chosen Pokemon
+ *
+ * @param dex Holds a collection of Pokemon entries and notes
+ *            the number of Pokemon entered in the Pokedex
+ */
 void
-reviewTasksByPokemon(Pokedex dex) {
+reviewTasksByPokemon(Pokedex dex)
+{
   int input, back;
   Pokemon mon;
 
@@ -31,16 +38,20 @@ reviewTasksByPokemon(Pokedex dex) {
   } while (back != 0);
 }
 
+/**
+ * @Description Reviews Pokemon tasks based on chosen task type
+ *
+ * @param dex Holds a collection of Pokemon entries and notes
+ *            the number of Pokemon entered in the Pokedex
+ */
 void
-reviewTasksByType(Pokedex dex) {
+reviewTasksByType(Pokedex dex)
+{
   int task, back;
   int width = 33, tasklen;
   int i = 0, j = 0;
-
   int namelen;
-
   string taskStr;
-
   Pokemon mon;
 
   do {
@@ -50,7 +61,7 @@ reviewTasksByType(Pokedex dex) {
     displayAllTasks(dex);
     printf("\nWhich task would you like to review? ");
     task = intHandler(1, dex.collection[0].tasks.taskCount);
-    
+
     strcpy(taskStr, dex.collection[0].tasks.list[task - 1].type);
     tasklen = strlen(taskStr);
     width += tasklen;
@@ -65,8 +76,9 @@ reviewTasksByType(Pokedex dex) {
       namelen = strlen(mon.name);
 
       if (mon.tasks.list[j].status != 0) {
-        printf("⟢ %s", mon.name); // can't you use the symbol directly?
-        printf("%*s", width - namelen - (8 + mon.tasks.list[j].status/10) , " ");
+        printf("⟢ %s", mon.name);
+        printf("%*s", width - namelen - (8 + mon.tasks.list[j].status / 10),
+               " ");
         printf("%d/%d \n", mon.tasks.list[j].status,
                mon.tasks.list[j].complete);
       }

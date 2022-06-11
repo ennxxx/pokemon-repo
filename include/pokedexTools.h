@@ -37,10 +37,11 @@ typedef struct {
 } Pokedex;
 
 // Initialization
-Pokemon initPokemon();            // This initalizes the Pokemon information
-resType initTaskTypes();          // Initializes the individual task types
-void initTasks(resTasks *tasks);  // Initializes the task list
-Pokedex initCollection();         // This is a separate struct that contains all 150 Pokemon
+Pokemon initPokemon();           // This initalizes the Pokemon information
+resType initTaskTypes();         // Initializes the individual task types
+void initTasks(resTasks *tasks); // Initializes the task list
+Pokedex
+initCollection(); // This is a separate struct that contains all 150 Pokemon
 
 // Utils for the Pokedex
 void clear_screen();
@@ -51,7 +52,6 @@ void displayType(Pokemon p);
 void displayPokemon(Pokemon p);
 void displayAllTasks(Pokedex dex);
 void displayTaskStatus(Pokemon mon);
-void displayTaskEntries(Pokedex dex);
 void trimString(char *str);
 void filterString(char *str, FT filter);
 char toUpper(char c);

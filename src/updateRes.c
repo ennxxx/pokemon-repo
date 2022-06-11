@@ -4,8 +4,16 @@
 #include <stdio.h>
 #include <string.h>
 
+/**
+ * @Description Calculates and checks the total progress of research tasks
+ *              per Pokemon
+ *
+ * @param mon Holds Pokemon details, such as entry number,
+ *            name, type, description.
+ */
 void
-updateProgress(Pokemon *mon) {
+updateProgress(Pokemon *mon)
+{
   int i, total, average;
 
   total = 0;
@@ -16,11 +24,18 @@ updateProgress(Pokemon *mon) {
 
   average = (float)total / (mon->tasks.taskCount * DEFAULT_COMPLETE) * 100;
 
-  mon->tasks.progress = average;
+  mon->tasks.progress = average; // Progress is updated from here
 }
 
+/**
+ * @Description Updates the research tasks per Pokemon
+ *
+ * @param dex Holds a collection of Pokemon entries and notes
+ *            the number of Pokemon entered in the Pokedex
+ */
 void
-updateTasks(Pokedex *dex) {
+updateTasks(Pokedex *dex)
+{
   int task, pokemon, back, complete;
   Pokemon *mon;
 
@@ -35,21 +50,20 @@ updateTasks(Pokedex *dex) {
     printf("\nWhich task would you like to update? ");
     task = intHandler(1, dex->collection[0].tasks.taskCount);
 
-    // Display all pokemon entries
+    // Display all Pokemon entries
     displayTaskEntries(*dex);
     printf("\nWhich Pokemon would you like to update? ");
     pokemon = intHandler(1, dex->pokeCount);
 
     mon = &dex->collection[pokemon - 1];
 
-    if (mon->tasks.list[task - 1].status == DEFAULT_COMPLETE)
-     {
+    if (mon->tasks.list[task - 1].status == DEFAULT_COMPLETE) {
       printf("\nThis task is already complete!\n");
       printf("\nPress [1] to UPDATE another task or [0] to RETURN: ");
       back = intHandler(0, 1);
-    } 
+    }
+
     else {
-      // How many times did the user complete the task
       printf("\nHow many times did you complete this task? ");
       complete = intHandler(1, DEFAULT_COMPLETE);
 
@@ -71,18 +85,27 @@ updateTasks(Pokedex *dex) {
   } while (back != 0);
 }
 
+/**
+ * @Description Allows a user to add more task types
+ *
+ * @param dex Holds a collection of Pokemon entries and notes
+ *            the number of Pokemon entered in the Pokedex
+ *
+ * @Pre-condition: taskList.taskCount must be less than 10
+ */
 void
-addTaskTypes(Pokedex *dex) {
+addTaskTypes(Pokedex *dex)
+{
   int back, isDup, taskcount, i, j;
   string input;
   resTasks taskList;
   Pokemon mon;
+
   back = -1;
 
   do {
     clear_screen();
     isDup = 1;
-    // strcpy(input, " ");
     taskList = dex->collection[0].tasks;
     taskcount = taskList.taskCount;
 
@@ -91,21 +114,21 @@ addTaskTypes(Pokedex *dex) {
       back = 0;
     }
 
-    // display all currently available task types
+    // Display all existing task types
     displayAllTasks(*dex);
 
+    // If task list is not full, ask user to input their new task type
     while (isDup && back != 0) {
-      // ask user what type they want to add
       printf("\nWhat type of task would you like to add? ");
       scanf("%s", input);
 
-      // iterate through the list of types
-      // if the type is already in the list, don't add it
-      // use taskcount to determine the index of the new type
+      // Iterate through the list of types
+      // If the type is already in the list, don't add it
+      // Use taskcount to determine the index of the new type
       isDup = checkTaskDup(taskList, input);
     }
 
-    // add the new type to the list
+    // Add the new type to the list
     for (i = 0; i < MAX_ENTRIES; i++) {
       j = taskcount;
 
@@ -115,7 +138,7 @@ addTaskTypes(Pokedex *dex) {
       dex->collection[i] = mon;
     }
 
-    // display the updated list
+    // Display the updated list
     clear_screen();
     printf("Adding task...\n\n");
     displayAllTasks(*dex);

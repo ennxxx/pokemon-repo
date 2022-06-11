@@ -9,122 +9,166 @@
 #include "../include/researchTasks.h"
 #include "../include/uiElements.h"
 
-int main()
-{   
-    Pokedex dex;
-    dex = initCollection();   // Access the entries through this function
+int
+main()
+{
+  Pokedex dex;
+  dex = initCollection(); // Access the entries through this function
 
-    mainMenu(dex);            // Opens up the main menu of the Pokedex
+  mainMenu(dex); // Opens up the main menu of the Pokedex
 
-    return 0;
+  return 0;
 }
 
 // Initialization
 
-resType initTaskTypes()
+/**
+ * @Description Initializes task types with its default values
+ *
+ * @return resType
+ */
+resType
+initTaskTypes()
 {
-    resType task;
+  resType task;
 
-    strcpy(task.type, "DEFAULT_VALUE");
-    task.status = 0;
-    task.complete = DEFAULT_COMPLETE;
+  strcpy(task.type, "DEFAULT_VALUE");
+  task.status = 0;
+  task.complete = DEFAULT_COMPLETE;
 
-    return task;
+  return task;
 }
 
-void initTasks(resTasks* tasks)
+/**
+ * @Description Initializes tasks used in the Pokedex
+ *
+ * @param tasks Holds details regarding research types, progress of
+ *              tasks, and research progress.
+ */
+void
+initTasks(resTasks *tasks)
 {
-    int i;
-    resType task;
+  int i;
+  resType task;
 
-    i = 0;
+  i = 0;
 
-    // Initializes default task types
-    strcpy(task.type, "Seen");
-    task.status = 0;
-    task.complete = DEFAULT_COMPLETE;
-    tasks->list[0] = task;
+  // Initializes default task types
+  strcpy(task.type, "Seen");
+  task.status = 0;
+  task.complete = DEFAULT_COMPLETE;
+  tasks->list[0] = task;
 
-    strcpy(task.type, "Caught");
-    task.status = 0;
-    task.complete = DEFAULT_COMPLETE;
-    tasks->list[1] = task;
+  strcpy(task.type, "Caught");
+  task.status = 0;
+  task.complete = DEFAULT_COMPLETE;
+  tasks->list[1] = task;
 
-    strcpy(task.type, "Defeated");
-    task.status = 0;
-    task.complete = DEFAULT_COMPLETE;
-    tasks->list[2] = task;
+  strcpy(task.type, "Defeated");
+  task.status = 0;
+  task.complete = DEFAULT_COMPLETE;
+  tasks->list[2] = task;
 
-    for (i = 3; i < 10; i++)
-    {
-        tasks->list[i] = initTaskTypes();
-    }
-    
-    tasks->taskCount = 3;
-    tasks->progress = 0;
+  for (i = 3; i < 10; i++) {
+    tasks->list[i] = initTaskTypes();
+  }
+
+  tasks->taskCount = 3;
+  tasks->progress = 0;
 }
 
-Pokemon initPokemon()
+/**
+ * @Description Initializes Pokemon information with default values
+ *
+ * @return Pokemon, which holds all the Pokemon information
+ */
+Pokemon
+initPokemon()
 {
-    Pokemon p;
+  Pokemon p;
 
-    p.entry = 0;
-    strcpy(p.name, "");
-    p.type = '\0';
-    strcpy(p.description, "");
-    initTasks(&p.tasks);
+  p.entry = 0;
+  strcpy(p.name, "");
+  p.type = '\0';
+  strcpy(p.description, "");
+  initTasks(&p.tasks);
 
-    return p;
+  return p;
 }
 
-Pokedex initCollection()
+/**
+ * @Description Initialize collection of Pokedex entries and the starting
+ *              count of entries in the Pokedex
+ *
+ * @return Pokedex, which holds the collection of Pokemon entries and pokeCount
+ */
+Pokedex
+initCollection()
 {
-    int i;
-    Pokedex dex;
+  int i;
+  Pokedex dex;
 
-    for (i = 0; i < MAX_ENTRIES; i++)
-    {
-        dex.collection[i] = initPokemon(); // Access the information of each Pokemon
-    }
+  for (i = 0; i < MAX_ENTRIES; i++) {
+    dex.collection[i] = initPokemon(); // Access the information of each Pokemon
+  }
 
-    dex.pokeCount = 0;
+  dex.pokeCount = 0;
 
-    return dex;
+  return dex;
 }
 
 // Menu Pages
 
-void mainMenu(Pokedex dex)
+/**
+ * @Description Displays the Main Menu of the Pokedex
+ *
+ * @param dex Holds a collection of Pokemon entries and notes
+ *            the number of Pokemon entered in the Pokedex
+ */
+void
+mainMenu(Pokedex dex)
 {
-    int mainOpt;
+  int mainOpt;
 
-    do
-    {
+  do {
+    clear_screen();
+    printf("Welcome to your Pokédex!\n\n");
+    printf("What would you like to do?\n\n");
+    printf("[1] Manage Data\n");
+    printf("[2] Research Tasks\n");
+    printf("[0] Exit\n\n");
+    printf("Input: ");
+    mainOpt = intHandler(0, 2);
+
+    switch (mainOpt) {
+      case 1:
+        manageMenu(&dex);
+        break;
+      case 2:
+        researchMenu(&dex);
+        break;
+      case 3:
         clear_screen();
-        printf("Welcome to your Pokédex!\n\n");
-        printf("What would you like to do?\n\n");
-        printf("[1] Manage Data\n");
-        printf("[2] Research Tasks\n");
-        printf("[0] Exit\n\n");
-        printf("Input: ");
-        mainOpt = intHandler(0, 2);
+        printf("Exiting the Pokédex...\n");
+        break;
+      default:
+        break;
+    }
 
-        switch(mainOpt)
-        {
-            case 1: manageMenu(&dex); break;
-            case 2: researchMenu(&dex); break;
-            case 3: clear_screen();
-                    printf("Exiting the Pokédex...\n"); break;
-            default: break;
-        }
-
-    } while (mainOpt != 0);
+  } while (mainOpt != 0);
 }
 
-void manageMenu(Pokedex* dex)
+/**
+ * @Description Displays the Manage Menu of the Pokedex
+ *
+ * @param dex Holds a collection of Pokemon entries and notes
+ *            the number of Pokemon entered in the Pokedex
+ */
+void
+manageMenu(Pokedex *dex)
 {
-    int manOpt = 0;
-    do{
+  int manOpt = 0;
+  do {
     system("clear || cls");
     printf("Accessing Data Files...\n\n");
     printf("[1] Add Entry\t\t\t[5] Search Pokemon by Name\n");
@@ -136,26 +180,49 @@ void manageMenu(Pokedex* dex)
     printf("Input: ");
     manOpt = intHandler(0, 8);
 
-    switch(manOpt)
-    {
-        case 1: addEntry(dex); break;
-        case 2: modifyEntry(dex); break;
-        case 3: deleteEntry(dex); break;
-        case 4: displayEntries(*dex, "RETURN"); break;
-        case 5: searchByName(*dex); break;
-        case 6: searchByType(*dex); break;
-        case 7: exportEntries(dex); break;
-        case 8: importEntries(dex); break;
-        default: break;
+    switch (manOpt) {
+      case 1:
+        addEntry(dex);
+        break;
+      case 2:
+        modifyEntry(dex);
+        break;
+      case 3:
+        deleteEntry(dex);
+        break;
+      case 4:
+        displayEntries(*dex, "RETURN");
+        break;
+      case 5:
+        searchByName(*dex);
+        break;
+      case 6:
+        searchByType(*dex);
+        break;
+      case 7:
+        exportEntries(dex);
+        break;
+      case 8:
+        importEntries(dex);
+        break;
+      default:
+        break;
     }
-    } while (manOpt != 0);
+  } while (manOpt != 0);
 }
 
-void researchMenu(Pokedex* dex)
+/**
+ * @Description Displays the Manage Menu of the Pokedex
+ *
+ * @param dex Holds a collection of Pokemon entries and notes
+ *            the number of Pokemon entered in the Pokedex
+ */
+void
+researchMenu(Pokedex *dex)
 {
-    int resOpt;
+  int resOpt;
 
-    do{
+  do {
     system("clear || cls");
     printf("Accessing Research Tasks...\n\n");
     printf("[1] Review Research Task per Pokemon\n");
@@ -167,13 +234,21 @@ void researchMenu(Pokedex* dex)
     printf("Input: ");
     resOpt = intHandler(0, 4);
 
-    switch(resOpt)
-    {
-        case 1: reviewTasksByPokemon(*dex); break;
-        case 2: reviewTasksByType(*dex); break;
-        case 3: updateTasks(dex); break;
-        case 4: addTaskTypes(dex); break;
-        default: break;
+    switch (resOpt) {
+      case 1:
+        reviewTasksByPokemon(*dex);
+        break;
+      case 2:
+        reviewTasksByType(*dex);
+        break;
+      case 3:
+        updateTasks(dex);
+        break;
+      case 4:
+        addTaskTypes(dex);
+        break;
+      default:
+        break;
     }
-    } while (resOpt != 0);        
+  } while (resOpt != 0);
 }
