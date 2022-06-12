@@ -87,6 +87,7 @@ modifyEntry(Pokedex *dex)
         printf("\nChanging description to... ");
         fgetc(stdin);
         fgets(changeMon.description, MAX_DESC_LEN, stdin);
+        trimString(changeMon.description);
         break;
       case '4':
         printf("\nQuitting...\n");
