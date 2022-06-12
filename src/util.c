@@ -22,6 +22,22 @@ clear_screen()
 }
 
 /**
+ * @Description : Capitalizes all characters in a string
+ *
+ * @param str The string to capitalize
+ * @return The capitalized string
+ */
+char *
+capitalize(char *str)
+{
+  int i;
+  for (i = 0; str[i]; i++)
+    str[i] = toUpper(str[i]);
+
+  return str;
+}
+
+/**
  * @Description Checks if inputted task type exists by returning a value
  *
  * @param taskList The task list to print
@@ -37,10 +53,8 @@ checkTaskDup(resTasks taskList, string taskName)
   i = 0, retval = 0;
   cont = 1;
 
-  for (i = 0; i < taskList.taskCount && cont; i++)
-  {
-    if (strcmp(taskList.list[i].type, taskName) == 0)
-    {
+  for (i = 0; i < taskList.taskCount && cont; i++) {
+    if (strcmp(taskList.list[i].type, taskName) == 0) {
       retval = 1;
       cont = 0;
     }
@@ -60,29 +74,20 @@ checkTaskDup(resTasks taskList, string taskName)
 int
 checkDup(Pokedex dex, char name[MAX_NAME_LEN])
 {
-  int i;
-  unsigned j, counter = 0;
+  int i, isDup = 1;
 
-  // Does not check first entry
-  if (dex.pokeCount < 1)
-    return 0;
+  if (dex.pokeCount == 0)
+    isDup = 0;
 
-  for (i = 0; i < dex.pokeCount; i++)
-  {
-    if (strlen(name) != strlen(dex.collection[i].name))
-      return 0; // Automatically returns 0 if they are not the same length
-
-    for (j = 0; j < strlen(name); j++)
-    {
-      if (toUpper(name[j]) == toUpper(dex.collection[i].name[j]))
-        counter++; // If the same character is encountered, counter++
+  else {
+    for (i = 0; i < dex.pokeCount && isDup; i++) {
+      if (strcmp(capitalize(dex.collection[i].name), (name)) != 0) {
+        isDup = 0;
+      }
     }
-
-    if (counter == strlen(name))
-      return 1; // If it all matches, return 1 and stop loop
   }
 
-  return 0; // Returns 0 if not a duplicate
+  return isDup; // Returns 0 if not a duplicate
 }
 
 /**
@@ -99,10 +104,8 @@ entryExists(Pokedex dex, int entry)
   int i, exists = 0; // For all entities in the Pokedex
   int entryIndex;
 
-  for (i = 0; i < 150; i++)
-  {
-    if (entry == dex.collection[i].entry)
-    {
+  for (i = 0; i < 150; i++) {
+    if (entry == dex.collection[i].entry) {
       exists = 1;
       entryIndex = i;
       i = 150;
@@ -124,8 +127,7 @@ entryExists(Pokedex dex, int entry)
 void
 displayType(Pokemon p)
 {
-  switch (toUpper(p.type))
-  {
+  switch (toUpper(p.type)) {
     case 'E':
       printf("Type: Electric\n");
       break;
@@ -170,8 +172,7 @@ displayAllTasks(Pokedex dex)
 {
   int i;
 
-  for (i = 0; i < dex.collection[0].tasks.taskCount; i++)
-  {
+  for (i = 0; i < dex.collection[0].tasks.taskCount; i++) {
     printf("[%d] %s\n", i + 1, dex.collection[0].tasks.list[i].type);
   }
 }
@@ -186,8 +187,7 @@ displayTaskStatus(Pokemon mon)
 {
   int i, tasklen, width;
 
-  for (i = 0; i < mon.tasks.taskCount; i++)
-  {
+  for (i = 0; i < mon.tasks.taskCount; i++) {
     tasklen = strlen(mon.tasks.list[i].type);
     width = 33 - tasklen;
     printf("%s:", mon.tasks.list[i].type);
@@ -206,8 +206,7 @@ displayTaskStatus(Pokemon mon)
 void
 filterString(char *str, FT filter)
 {
-  switch (filter)
-  {
+  switch (filter) {
     case NAME:
       strcpy(str, str + 6);
       break;
@@ -232,10 +231,8 @@ trimString(char *str)
 {
   int i = 0;
 
-  while (str[i] != '\0')
-  {
-    if (str[i] == '\n')
-    {
+  while (str[i] != '\0') {
+    if (str[i] == '\n') {
       str[i] = '\0';
       break;
     }
@@ -271,8 +268,7 @@ intHandler(int min, int max)
   int input;
   int valid = 0;
 
-  while (!valid)
-  {
+  while (!valid) {
     scanf("%d", &input);
     if (input >= min && input <= max)
       valid = 1;
@@ -295,15 +291,13 @@ charHandler(const char *chars)
   char input;
   int valid = 0, i, types;
 
-  while (!valid)
-  {
+  while (!valid) {
     scanf(" %c", &input);
 
     input = toUpper(input);
     types = strlen(chars);
 
-    for (i = 0; i < types; i++)
-    {
+    for (i = 0; i < types; i++) {
       if (input == chars[i])
         valid = 1;
     }
