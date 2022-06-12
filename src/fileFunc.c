@@ -117,8 +117,8 @@ importEntries(Pokedex *dex)
     strcpy(import.description, tmp);
 
     // Displays the read entries
-    import.entry = dex->pokeCount +
-                   1; // Notes down entry number based on last pokeCount + 1
+    // Notes down entry number based on last pokeCount + 1
+    import.entry = dex->pokeCount + 1;
     printf("Name: %s\n", import.name);
     displayType(import);
     printf("Description: %s\n", import.description);
