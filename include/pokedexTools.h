@@ -11,22 +11,19 @@
 typedef char string[20];
 typedef enum FILTERTYPE { NAME, DESCRIPTION, TYPE } FT;
 
-typedef struct
-{
+typedef struct {
   string type;
   int status;
   int complete;
 } resType;
 
-typedef struct
-{
+typedef struct {
   resType list[10];
   int taskCount;
   int progress;
 } resTasks;
 
-typedef struct
-{
+typedef struct {
   int entry;
   char name[MAX_NAME_LEN];
   char type;
@@ -34,8 +31,7 @@ typedef struct
   resTasks tasks;
 } Pokemon;
 
-typedef struct
-{
+typedef struct {
   Pokemon collection[MAX_ENTRIES];
   int pokeCount;
 } Pokedex;
@@ -61,5 +57,6 @@ void filterString(char *str, FT filter);
 char toUpper(char c);
 int intHandler(int min, int max);
 char charHandler(const char *chars);
+int pokeRank(Pokedex dex, int *sortedEntries);
 
 #endif

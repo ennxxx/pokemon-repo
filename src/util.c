@@ -21,6 +21,50 @@ clear_screen()
 #endif
 }
 
+int
+pokeRank(Pokedex dex, int *sortedEntries)
+{
+  int i, j, k, done;
+  int sortedCount = 0;
+
+  if (dex.pokeCount <= 1) {
+    return 0;
+  }
+
+  // get the first pokemon
+  Pokemon mon = dex.collection[0];
+  int rank = mon.tasks.progress;
+
+  sortedEntries[0] = mon.entry;
+  sortedCount++;
+
+  // loop through the entire pokedex
+  for (i = 1; i < dex.pokeCount; i++) {
+    mon = dex.collection[i];
+    rank = mon.tasks.progress;
+    done = 0;
+    for (j = 0; j < sortedCount && !done; j++) {
+      if (rank > dex.collection[sortedEntries[j] - 1].tasks.progress) {
+        for (k = sortedCount; k > j; k--) {
+          sortedEntries[k] = sortedEntries[k - 1];
+        }
+        sortedEntries[j] = mon.entry;
+        sortedCount++;
+        done = 1;
+      }
+      else if (rank < dex.collection[sortedEntries[j] - 1].tasks.progress) {
+        if (j == sortedCount - 1) {
+          sortedEntries[j + 1] = mon.entry;
+          sortedCount++;
+          done = 1;
+        }
+      }
+    }
+  }
+
+  return sortedCount;
+}
+
 /**
  * @Description : Capitalizes all characters in a string
  *

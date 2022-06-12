@@ -91,3 +91,28 @@ reviewTasksByType(Pokedex dex)
 
   } while (back != 0);
 }
+
+void
+rankPokemon(Pokedex dex)
+{
+  int sortedEntries[dex.pokeCount], sortedCount, back;
+
+  int i;
+
+  Pokemon mon;
+
+  do {
+    clear_screen();
+    printf("---Reviewing Top Progress---\n\n");
+    sortedCount = pokeRank(dex, sortedEntries);
+
+    // printing all entries
+    for (i = 0; i < sortedCount && i < 5; i++) {
+      mon = dex.collection[sortedEntries[i] - 1];
+      printf("%d. %s [%d%%]\n", i + 1, mon.name, mon.tasks.progress);
+    }
+    printf("Press [0] to RETURN: ");
+    back = intHandler(0, 0);
+
+  } while (back != 0);
+}
