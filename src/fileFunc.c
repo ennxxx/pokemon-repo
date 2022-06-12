@@ -18,7 +18,8 @@ exportEntries(Pokedex *dex)
   int i;
   Pokemon pokemon;
 
-  if (dex->pokeCount == 0) {
+  if (dex->pokeCount == 0)
+  {
     printf("No entries to export");
     getchar();
     getchar();
@@ -32,13 +33,15 @@ exportEntries(Pokedex *dex)
   strcat(fileName, extension);
   FILE *fp = fopen(fileName, "w");
 
-  for (i = 0; i < dex->pokeCount; i++) {
+  for (i = 0; i < dex->pokeCount; i++)
+  {
     pokemon = dex->collection[i];
 
     trimString(pokemon.name);
     fprintf(fp, "Name: %s\n", pokemon.name);
 
-    switch (toUpper(pokemon.type)) {
+    switch (toUpper(pokemon.type))
+    {
       case 'E':
         fprintf(fp, "Type: Electric\n");
         break;
@@ -89,7 +92,8 @@ importEntries(Pokedex *dex)
 
   Pokemon import;
 
-  do {
+  do
+  {
     clear_screen();
 
     // Pokemon is imported to index based on the last pokeCount
@@ -126,7 +130,8 @@ importEntries(Pokedex *dex)
     printf("\nPress [1] to IMPORT or [0] to SKIP entry: ");
     ch = intHandler(0, 1);
 
-    if (ch == 1 && checkDup(*dex, import.name)) {
+    if (ch == 1 && checkDup(*dex, import.name))
+    {
       dex->collection[entryIndex] = import;
       dex->pokeCount++;
     }

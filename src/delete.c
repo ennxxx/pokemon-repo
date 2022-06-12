@@ -19,9 +19,11 @@ deleteEntry(Pokedex *dex)
 
   exists = -1;
 
-  do {
+  do
+  {
     // Checks if entry exists in the Pokedex
-    while (exists == -1) {
+    while (exists == -1)
+    {
       displayEntries(*dex, "DELETE");
       printf("\nWhich entry would you like to delete?: ");
       scanf("%d", &entry);
@@ -34,10 +36,11 @@ deleteEntry(Pokedex *dex)
       entryIndex = exists;
 
     // If it exists, delete entry based on its index
-    for (i = entryIndex; i < dex->pokeCount; i++) {
+    for (i = entryIndex; i < dex->pokeCount; i++)
+    {
       dex->collection[i] = dex->collection[i + 1];
       dex->collection[i].entry -= 1; // Since we are just passing information
-                                     // backwards, this updates the entry number
+                                     // backwards the entry number this updates
     }
 
     // If deleting last entry

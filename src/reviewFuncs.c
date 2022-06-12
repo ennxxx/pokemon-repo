@@ -16,7 +16,8 @@ reviewTasksByPokemon(Pokedex dex)
   int input, back;
   Pokemon mon;
 
-  do {
+  do
+  {
     clear_screen();
     printf("---Reviewing Tasks Per Pokemon---\n\n");
     displayTaskEntries(dex);
@@ -25,7 +26,8 @@ reviewTasksByPokemon(Pokedex dex)
 
     mon = dex.collection[input - 1];
 
-    if (input) {
+    if (input)
+    {
       clear_screen();
       displayPokemon(mon);
       printf("-----Research Tasks Progress: %d%%-----\n", mon.tasks.progress);
@@ -54,7 +56,8 @@ reviewTasksByType(Pokedex dex)
   string taskStr;
   Pokemon mon;
 
-  do {
+  do
+  {
     clear_screen();
     printf("---Reviewing Task per Task Type---\n\n");
 
@@ -71,11 +74,13 @@ reviewTasksByType(Pokedex dex)
     printf("---Research Tasks Progress: %s---\n",
            dex.collection[0].tasks.list[j].type);
 
-    for (i = 0; i < dex.pokeCount; i++) {
+    for (i = 0; i < dex.pokeCount; i++)
+    {
       mon = dex.collection[i]; // Access entries
       namelen = strlen(mon.name);
 
-      if (mon.tasks.list[j].status != 0) {
+      if (mon.tasks.list[j].status != 0)
+      {
         printf("⟢ %s", mon.name);
         printf("%*s", width - namelen - (8 + mon.tasks.list[j].status / 10),
                " ");

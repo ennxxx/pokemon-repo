@@ -37,8 +37,10 @@ checkTaskDup(resTasks taskList, string taskName)
   i = 0, retval = 0;
   cont = 1;
 
-  for (i = 0; i < taskList.taskCount && cont; i++) {
-    if (strcmp(taskList.list[i].type, taskName) == 0) {
+  for (i = 0; i < taskList.taskCount && cont; i++)
+  {
+    if (strcmp(taskList.list[i].type, taskName) == 0)
+    {
       retval = 1;
       cont = 0;
     }
@@ -65,11 +67,13 @@ checkDup(Pokedex dex, char name[MAX_NAME_LEN])
   if (dex.pokeCount < 1)
     return 0;
 
-  for (i = 0; i < dex.pokeCount; i++) {
+  for (i = 0; i < dex.pokeCount; i++)
+  {
     if (strlen(name) != strlen(dex.collection[i].name))
       return 0; // Automatically returns 0 if they are not the same length
 
-    for (j = 0; j < strlen(name); j++) {
+    for (j = 0; j < strlen(name); j++)
+    {
       if (toUpper(name[j]) == toUpper(dex.collection[i].name[j]))
         counter++; // If the same character is encountered, counter++
     }
@@ -95,8 +99,10 @@ entryExists(Pokedex dex, int entry)
   int i, exists = 0; // For all entities in the Pokedex
   int entryIndex;
 
-  for (i = 0; i < 150; i++) {
-    if (entry == dex.collection[i].entry) {
+  for (i = 0; i < 150; i++)
+  {
+    if (entry == dex.collection[i].entry)
+    {
       exists = 1;
       entryIndex = i;
       i = 150;
@@ -118,7 +124,8 @@ entryExists(Pokedex dex, int entry)
 void
 displayType(Pokemon p)
 {
-  switch (toUpper(p.type)) {
+  switch (toUpper(p.type))
+  {
     case 'E':
       printf("Type: Electric\n");
       break;
@@ -163,7 +170,8 @@ displayAllTasks(Pokedex dex)
 {
   int i;
 
-  for (i = 0; i < dex.collection[0].tasks.taskCount; i++) {
+  for (i = 0; i < dex.collection[0].tasks.taskCount; i++)
+  {
     printf("[%d] %s\n", i + 1, dex.collection[0].tasks.list[i].type);
   }
 }
@@ -178,7 +186,8 @@ displayTaskStatus(Pokemon mon)
 {
   int i, tasklen, width;
 
-  for (i = 0; i < mon.tasks.taskCount; i++) {
+  for (i = 0; i < mon.tasks.taskCount; i++)
+  {
     tasklen = strlen(mon.tasks.list[i].type);
     width = 33 - tasklen;
     printf("%s:", mon.tasks.list[i].type);
@@ -196,7 +205,8 @@ displayTaskStatus(Pokemon mon)
 void
 filterString(char *str, FT filter)
 {
-  switch (filter) {
+  switch (filter)
+  {
     case NAME:
       strcpy(str, str + 6);
       break;
@@ -221,8 +231,10 @@ trimString(char *str)
 {
   int i = 0;
 
-  while (str[i] != '\0') {
-    if (str[i] == '\n') {
+  while (str[i] != '\0')
+  {
+    if (str[i] == '\n')
+    {
       str[i] = '\0';
       break;
     }
@@ -258,7 +270,8 @@ intHandler(int min, int max)
   int input;
   int valid = 0;
 
-  while (!valid) {
+  while (!valid)
+  {
     scanf("%d", &input);
     if (input >= min && input <= max)
       valid = 1;
@@ -281,13 +294,15 @@ charHandler(const char *chars)
   char input;
   int valid = 0, i, types;
 
-  while (!valid) {
+  while (!valid)
+  {
     scanf(" %c", &input);
 
     input = toUpper(input);
     types = strlen(chars);
 
-    for (i = 0; i < types; i++) {
+    for (i = 0; i < types; i++)
+    {
       if (input == chars[i])
         valid = 1;
     }

@@ -22,11 +22,13 @@ displayEntries(Pokedex dex, const char *button)
   limit = 3; // Displays 3 Pokemon from index 0 to 2
   count = 0; // Counts the number of pages
 
-  do {
+  do
+  {
     clear_screen();
     printf("Displaying entries...\n\n");
 
-    for (i = 3 * count; i < limit && i < dex.pokeCount; i++) {
+    for (i = 3 * count; i < limit && i < dex.pokeCount; i++)
+    {
       pokemon = dex.collection[i];
       displayPokemon(pokemon);
     }
@@ -41,7 +43,8 @@ displayEntries(Pokedex dex, const char *button)
       back = intHandler(0, 0);
     }
 
-    else {
+    else // Else, all button options are displayed
+    {
       printf("[0] %s\n", button);
       printf("[1] NEXT\n");
       printf("[2] PREV\n\n");
@@ -51,14 +54,16 @@ displayEntries(Pokedex dex, const char *button)
 
     // Button functions
 
-    if (back == 1) {
+    if (back == 1)
+    {
       clear_screen();
       printf("Displaying entries...\n\n");
       count++;
       limit += 3;
     }
 
-    else if (back == 2) {
+    else if (back == 2)
+    {
       clear_screen();
       printf("Displaying entries...\n\n");
       count--;
@@ -83,11 +88,13 @@ displayTaskEntries(Pokedex dex)
   limit = 3; // Displays 3 Pokemon from index 0 to 2
   count = 0; // Counts the number of pages
 
-  do {
+  do
+  {
     clear_screen();
     printf("Displaying entries...\n\n");
 
-    for (i = 3 * count; i < limit && i < dex.pokeCount; i++) {
+    for (i = 3 * count; i < limit && i < dex.pokeCount; i++)
+    {
       pokemon = dex.collection[i];
       printf("Entry: %d\n", pokemon.entry);
       printf("Name: %s\n", pokemon.name);
@@ -104,7 +111,8 @@ displayTaskEntries(Pokedex dex)
       back = intHandler(0, 0);
     }
 
-    else {
+    else
+    {
       printf("[0] CHOOSE ENTRY\n");
       printf("[1] NEXT\n");
       printf("[2] PREV\n\n");
@@ -114,14 +122,16 @@ displayTaskEntries(Pokedex dex)
 
     // Button functions
 
-    if (back == 1) {
+    if (back == 1)
+    {
       clear_screen();
       printf("Displaying entries...\n\n");
       count++;
       limit += 3;
     }
 
-    else if (back == 2) {
+    else if (back == 2)
+    {
       clear_screen();
       printf("Displaying entries...\n\n");
       count--;

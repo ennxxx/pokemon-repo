@@ -69,7 +69,8 @@ initTasks(resTasks *tasks)
   task.complete = DEFAULT_COMPLETE;
   tasks->list[2] = task;
 
-  for (i = 3; i < 10; i++) {
+  for (i = 3; i < 10; i++)
+  {
     tasks->list[i] = initTaskTypes();
   }
 
@@ -108,7 +109,8 @@ initCollection()
   int i;
   Pokedex dex;
 
-  for (i = 0; i < MAX_ENTRIES; i++) {
+  for (i = 0; i < MAX_ENTRIES; i++)
+  {
     dex.collection[i] = initPokemon(); // Access the information of each Pokemon
   }
 
@@ -130,7 +132,8 @@ mainMenu(Pokedex dex)
 {
   int mainOpt;
 
-  do {
+  do
+  {
     clear_screen();
     printf("Welcome to your Pokédex!\n\n");
     printf("What would you like to do?\n\n");
@@ -140,7 +143,8 @@ mainMenu(Pokedex dex)
     printf("Input: ");
     mainOpt = intHandler(0, 2);
 
-    switch (mainOpt) {
+    switch (mainOpt)
+    {
       case 1:
         manageMenu(&dex);
         break;
@@ -168,7 +172,8 @@ void
 manageMenu(Pokedex *dex)
 {
   int manOpt = 0;
-  do {
+  do
+  {
     system("clear || cls");
     printf("Accessing Data Files...\n\n");
     printf("[1] Add Entry\t\t\t[5] Search Pokemon by Name\n");
@@ -180,7 +185,8 @@ manageMenu(Pokedex *dex)
     printf("Input: ");
     manOpt = intHandler(0, 8);
 
-    switch (manOpt) {
+    switch (manOpt)
+    {
       case 1:
         addEntry(dex);
         break;
@@ -222,7 +228,8 @@ researchMenu(Pokedex *dex)
 {
   int resOpt;
 
-  do {
+  do
+  {
     system("clear || cls");
     printf("Accessing Research Tasks...\n\n");
     printf("[1] Review Research Task per Pokemon\n");
@@ -234,7 +241,8 @@ researchMenu(Pokedex *dex)
     printf("Input: ");
     resOpt = intHandler(0, 4);
 
-    switch (resOpt) {
+    switch (resOpt)
+    {
       case 1:
         reviewTasksByPokemon(*dex);
         break;

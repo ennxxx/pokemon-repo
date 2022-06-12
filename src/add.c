@@ -16,7 +16,8 @@ addEntry(Pokedex *dex)
   int back, redo, index;
   char tmp[100];
 
-  do {
+  do
+  {
     clear_screen();
     printf("---Adding Entries---\n\n");
 
@@ -24,7 +25,8 @@ addEntry(Pokedex *dex)
     dex->collection[index].entry = index + 1;
     printf("Inputting Entry %d...\n\n", dex->collection[index].entry);
 
-    do {
+    do
+    {
       printf("Name: ");
       scanf("%s", dex->collection[index].name);
 
@@ -34,7 +36,6 @@ addEntry(Pokedex *dex)
       if (redo == 1)
         printf("\nThis entry already exists! Please enter another Pokemon "
                "name.\n\n");
-
     } while (redo != 0);
 
     printf("\nPlease choose from the following:\n");
@@ -59,6 +60,5 @@ addEntry(Pokedex *dex)
 
     printf("Press [1] to ADD another entry or [0] to RETURN: ");
     back = intHandler(0, 1);
-
   } while (back != 0);
 }

@@ -18,7 +18,8 @@ updateProgress(Pokemon *mon)
 
   total = 0;
 
-  for (i = 0; i < mon->tasks.taskCount; i++) {
+  for (i = 0; i < mon->tasks.taskCount; i++)
+  {
     total += mon->tasks.list[i].status;
   }
 
@@ -41,7 +42,8 @@ updateTasks(Pokedex *dex)
 
   back = -1;
 
-  do {
+  do
+  {
     clear_screen();
     printf("---Updating Research Tasks---\n\n");
 
@@ -57,13 +59,15 @@ updateTasks(Pokedex *dex)
 
     mon = &dex->collection[pokemon - 1];
 
-    if (mon->tasks.list[task - 1].status == DEFAULT_COMPLETE) {
+    if (mon->tasks.list[task - 1].status == DEFAULT_COMPLETE)
+    {
       printf("\nThis task is already complete!\n");
       printf("\nPress [1] to UPDATE another task or [0] to RETURN: ");
       back = intHandler(0, 1);
     }
 
-    else {
+    else
+    {
       printf("\nHow many times did you complete this task? ");
       complete = intHandler(1, DEFAULT_COMPLETE);
 
@@ -103,13 +107,15 @@ addTaskTypes(Pokedex *dex)
 
   back = -1;
 
-  do {
+  do
+  {
     clear_screen();
     isDup = 1;
     taskList = dex->collection[0].tasks;
     taskcount = taskList.taskCount;
 
-    if (taskcount == 10) {
+    if (taskcount == 10)
+    {
       printf("Task list is already full.\n");
       back = 0;
     }
@@ -118,7 +124,8 @@ addTaskTypes(Pokedex *dex)
     displayAllTasks(*dex);
 
     // If task list is not full, ask user to input their new task type
-    while (isDup && back != 0) {
+    while (isDup && back != 0)
+    {
       printf("\nWhat type of task would you like to add? ");
       scanf("%s", input);
 
@@ -129,7 +136,8 @@ addTaskTypes(Pokedex *dex)
     }
 
     // Add the new type to the list
-    for (i = 0; i < MAX_ENTRIES; i++) {
+    for (i = 0; i < MAX_ENTRIES; i++)
+    {
       j = taskcount;
 
       mon = dex->collection[i];

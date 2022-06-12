@@ -23,7 +23,8 @@ modifyEntry(Pokedex *dex)
   exists = entryIndex = entry = -1;
 
   // Checks if entry exists
-  while (exists == -1) {
+  while (exists == -1)
+  {
     displayEntries(*dex, "MODIFY");
     printf("\nWhich entry would you like to modify?: ");
     scanf("%d", &entry);
@@ -40,7 +41,8 @@ modifyEntry(Pokedex *dex)
   // Modify the entry located at entryIndex
   changeMon = dex->collection[entryIndex];
 
-  do {
+  do
+  {
     clear_screen();
     displayPokemon(changeMon);
     printf("What would you like to change?\n");
@@ -52,14 +54,16 @@ modifyEntry(Pokedex *dex)
     printf("Input: ");
     scanf("%c", &changeOpt);
 
-    switch (changeOpt) {
+    switch (changeOpt)
+    {
       case '0':
         printf("\nSaving changes...\n");
         // Only assign the new Pokemon to the Pokedex if the user enters save
         dex->collection[entryIndex] = changeMon;
         break;
       case '1':
-        do {
+        do
+        {
           printf("\nChanging name to... ");
           scanf("%s", changeMon.name);
           // Must return 0 for the function to continue
