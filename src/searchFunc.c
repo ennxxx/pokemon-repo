@@ -1,3 +1,5 @@
+// Searches for Pokemon based on name or type
+
 #include "../include/manageMenu.h"
 #include "../include/pokedexTools.h"
 #include "../include/uiElements.h"
@@ -18,8 +20,7 @@ searchByName(Pokedex dex)
   int ctr, found, inputlen, pokemonlen;
   string input, currentMon;
 
-  do
-  {
+  do {
     clear_screen();
 
     found = 0;
@@ -31,8 +32,7 @@ searchByName(Pokedex dex)
     inputlen = strlen(input);
 
     // For loop that iterates through the Pokemon array
-    for (i = 0; i < dex.pokeCount; i++)
-    {
+    for (i = 0; i < dex.pokeCount; i++) {
       // Assign the Pokemon name string to a variable to avoid multiple
       // array access calls
       strcpy(currentMon, dex.collection[i].name);
@@ -42,22 +42,18 @@ searchByName(Pokedex dex)
       k = 0;
 
       // Loop through all the characters in currentMon
-      for (j = 0; j < pokemonlen; j++)
-      {
+      for (j = 0; j < pokemonlen; j++) {
         // Only enters if the first character matches
         // There is no need to check unless the first character matches
-        if (toUpper(input[0]) == toUpper(currentMon[j]))
-        {
+        if (toUpper(input[0]) == toUpper(currentMon[j])) {
           ctr = 1; // First match
 
-          for (k = 1; k < inputlen;)
-          {
-            if (toUpper(input[k] == currentMon[j + k]))
-            {
+          for (k = 1; k < inputlen;) {
+            if (toUpper(input[k] == currentMon[j + k])) {
               ctr++;
               k++;
-            } else
-            {
+            }
+            else {
               // If it does not match even once, exit the loop
               ctr = 0;
               k = inputlen;
@@ -72,8 +68,7 @@ searchByName(Pokedex dex)
       }
 
       // Prints the found pokemon
-      if (ctr == inputlen)
-      {
+      if (ctr == inputlen) {
         displayPokemon(dex.collection[i]);
         found++;
       }
@@ -107,8 +102,7 @@ searchByType(Pokedex dex)
   char input;
   string typeInput;
 
-  do
-  {
+  do {
     clear_screen();
 
     found = 0;
@@ -126,8 +120,7 @@ searchByType(Pokedex dex)
     printf("\n");
 
     // Each character is assigned with a corresponding type to be displayed
-    switch (toUpper(input))
-    {
+    switch (toUpper(input)) {
       case 'E':
         strcpy(typeInput, "Electric");
         break;
@@ -145,10 +138,8 @@ searchByType(Pokedex dex)
     // For loop that iterates through the Pokemon array
     // If a Pokemon's type matches the input, it will be displayed
     // and found increments
-    for (i = 0; i < dex.pokeCount; i++)
-    {
-      if (toUpper(input) == toUpper(dex.collection[i].type))
-      {
+    for (i = 0; i < dex.pokeCount; i++) {
+      if (toUpper(input) == toUpper(dex.collection[i].type)) {
         displayPokemon(dex.collection[i]);
         found++;
       }

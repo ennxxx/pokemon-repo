@@ -1,3 +1,5 @@
+// This adds and checks for duplicate entries in the Pokedex
+
 #include "../include/manageMenu.h"
 #include "../include/pokedexTools.h"
 #include "../include/uiElements.h"
@@ -16,8 +18,7 @@ addEntry(Pokedex *dex)
   int back, redo, index;
   char tmp[100];
 
-  do
-  {
+  do {
     clear_screen();
     printf("---Adding Entries---\n\n");
 
@@ -25,8 +26,7 @@ addEntry(Pokedex *dex)
     dex->collection[index].entry = index + 1;
     printf("Inputting Entry %d...\n\n", dex->collection[index].entry);
 
-    do
-    {
+    do {
       printf("Name: ");
       scanf("%s", dex->collection[index].name);
 
