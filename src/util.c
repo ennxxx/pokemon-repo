@@ -197,10 +197,11 @@ displayTaskStatus(Pokemon mon)
 }
 
 /**
- * @Description
+ * @Description   Remove a certain number of characters from a string
  *
- * @param str
- * @param filter
+ * @param str     A string of words
+ * @param filter  An enum of three integers defined as NAME,
+ *                DESCRIPTION, and TYPE
  */
 void
 filterString(char *str, FT filter)
@@ -222,9 +223,9 @@ filterString(char *str, FT filter)
 }
 
 /**
- * @Description
+ * @Description Removes all newlines from a string
  *
- * @param str
+ * @param str A string of words
  */
 void
 trimString(char *str)
