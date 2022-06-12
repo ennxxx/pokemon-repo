@@ -74,16 +74,15 @@ checkTaskDup(resTasks taskList, string taskName)
 int
 checkDup(Pokedex dex, char name[MAX_NAME_LEN])
 {
-  int i, isDup = 1;
+  int i, isDup = 0;
 
-  if (dex.pokeCount == 0)
-    isDup = 0;
-
-  else {
-    for (i = 0; i < dex.pokeCount && isDup; i++) {
-      if (strcmp(capitalize(dex.collection[i].name), (name)) != 0) {
-        isDup = 0;
-      }
+  if (dex.pokeCount != 0) {
+    string incoming, basename;
+    strcpy(incoming, name);
+    for (i = 0; i < dex.pokeCount && !isDup; i++) {
+      strcpy(basename, dex.collection[i].name);
+      if (strcmp(capitalize(incoming), capitalize(basename)) == 0)
+        isDup = 1;
     }
   }
 
