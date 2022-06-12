@@ -3,20 +3,21 @@
 
 #include "pokedexTools.h"
 
-void addEntry(Pokedex* dex);
+void addEntry(Pokedex *dex);
 
-void deleteEntry(Pokedex* dex);
+void deleteEntry(Pokedex *dex);
 
-void displayEntries(Pokedex dex, const char* button);
+void displayEntries(Pokedex dex, const char *button);
 
-void modifyEntry(Pokedex* dex);
+void modifyEntry(Pokedex *dex);
 
 void searchByName(Pokedex dex);
 
 void searchByType(Pokedex dex);
 
-void exportEntries(Pokedex* dex);
+void exportEntries(Pokedex *dex);
 
-void importEntries(Pokedex* dex);
+void importEntries(Pokedex *dex);
 
+int fileExists(const char *fileName);
 #endif

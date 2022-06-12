@@ -18,8 +18,7 @@ exportEntries(Pokedex *dex)
   int i;
   Pokemon pokemon;
 
-  if (dex->pokeCount == 0)
-  {
+  if (dex->pokeCount == 0) {
     printf("No entries to export");
     getchar();
     getchar();
@@ -27,21 +26,20 @@ exportEntries(Pokedex *dex)
   }
 
   printf("\nExporting entries...\n\n");
+
   printf("Input a file name: ");
   scanf("%s", fileName);
 
   strcat(fileName, extension);
   FILE *fp = fopen(fileName, "w");
 
-  for (i = 0; i < dex->pokeCount; i++)
-  {
+  for (i = 0; i < dex->pokeCount; i++) {
     pokemon = dex->collection[i];
 
     trimString(pokemon.name);
     fprintf(fp, "Name: %s\n", pokemon.name);
 
-    switch (toUpper(pokemon.type))
-    {
+    switch (toUpper(pokemon.type)) {
       case 'E':
         fprintf(fp, "Type: Electric\n");
         break;
@@ -69,6 +67,27 @@ exportEntries(Pokedex *dex)
 }
 
 /**
+ * @Description checks if a file exists in directory
+ *
+ * @param fileName the file to be checked
+ *
+ * @returns 1 if file exists, 0 if file does not exist
+ */
+
+int
+fileExists(const char *fileName)
+{
+  FILE *fp;
+  fp = fopen(fileName, "r");
+  if (fp == NULL)
+    return 0;
+  else {
+    fclose(fp);
+    return 1;
+  }
+}
+
+/**
  * @Description Import entries from a text file to the Pokedex
  *
  * @param dex Holds a collection of Pokemon entries and notes
@@ -79,21 +98,27 @@ importEntries(Pokedex *dex)
 {
   char fileName[26];
   char extension[5] = ".txt";
-  int entryIndex, ch;
+  int entryIndex, ch, exists = 0;
 
   printf("\nImporting entries...\n\n");
-  printf("Input a file name: ");
-  scanf("%s", fileName);
+  do {
 
-  strcat(fileName, extension);
+    printf("Input a file name: ");
+    scanf("%s", fileName);
+    strcat(fileName, extension);
+    exists = fileExists(fileName);
+
+    if (!exists)
+      printf("File does not exist. Try again\n");
+
+  } while (!exists);
 
   FILE *fp = fopen(fileName, "r");
   char tmp[100];
 
   Pokemon import;
 
-  do
-  {
+  do {
     clear_screen();
 
     // Pokemon is imported to index based on the last pokeCount
@@ -130,10 +155,10 @@ importEntries(Pokedex *dex)
     printf("\nPress [1] to IMPORT or [0] to SKIP entry: ");
     ch = intHandler(0, 1);
 
-    if (ch == 1 && checkDup(*dex, import.name))
-    {
+    if (ch == 1 && !checkDup(*dex, import.name)) {
       dex->collection[entryIndex] = import;
       dex->pokeCount++;
+      printf("Entry successfully imported!\n\n");
     }
 
   } while (fgetc(fp) != EOF);
