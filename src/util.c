@@ -252,7 +252,8 @@ fileExists(const char *fileName)
 }
 
 /**
- * @Description
+ * @Description Stores Pokemon entries with research progress in an array
+ *              and ranks them from highest to lowest progress.
  *
  * @param dex Holds a collection of Pokemon entries and notes
               the number of Pokemon entered in the Pokedex
