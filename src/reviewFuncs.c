@@ -1,7 +1,9 @@
 #include "../include/manageMenu.h"
 #include "../include/pokedexTools.h"
 #include "../include/researchTasks.h"
+#include "../include/uiElements.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 /**
@@ -92,11 +94,16 @@ reviewTasksByType(Pokedex dex)
   } while (back != 0);
 }
 
+/**
+ * @Description Ranks the top 5 Pokemon based on their research progress
+ *
+ * @param dex Holds a collection of Pokemon entries and notes
+ *            the number of Pokemon entered in the Pokedex
+ */
 void
 rankPokemon(Pokedex dex)
 {
   int sortedEntries[dex.pokeCount], sortedCount, back;
-
   int i;
 
   Pokemon mon;
@@ -106,12 +113,12 @@ rankPokemon(Pokedex dex)
     printf("---Reviewing Top Progress---\n\n");
     sortedCount = pokeRank(dex, sortedEntries);
 
-    // printing all entries
+    // Prints all entries
     for (i = 0; i < sortedCount && i < 5; i++) {
       mon = dex.collection[sortedEntries[i] - 1];
       printf("%d. %s [%d%%]\n", i + 1, mon.name, mon.tasks.progress);
     }
-    printf("Press [0] to RETURN: ");
+    printf("\nPress [0] to RETURN: ");
     back = intHandler(0, 0);
 
   } while (back != 0);

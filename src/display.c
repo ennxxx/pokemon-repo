@@ -3,6 +3,7 @@
 #include "../include/researchTasks.h"
 #include "../include/uiElements.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 /**

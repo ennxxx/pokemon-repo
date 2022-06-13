@@ -1,13 +1,10 @@
-// Main program of the Pokedex
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 #include "../include/manageMenu.h"
 #include "../include/pokedexTools.h"
 #include "../include/researchTasks.h"
 #include "../include/uiElements.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 int
 main()
@@ -23,20 +20,43 @@ main()
 // Initialization
 
 /**
- * @Description Initializes task types with its default values
+ * @Description Initializes Pokemon information with default values
  *
- * @return resType
+ * @return Pokemon, which holds all the Pokemon information
  */
-resType
-initTaskTypes()
+Pokemon
+initPokemon()
 {
-  resType task;
+  Pokemon p;
 
-  strcpy(task.type, "DEFAULT_VALUE");
-  task.status = 0;
-  task.complete = DEFAULT_COMPLETE;
+  p.entry = 0;
+  strcpy(p.name, "");
+  p.type = '\0';
+  strcpy(p.description, "");
+  initTasks(&p.tasks);
 
-  return task;
+  return p;
+}
+
+/**
+ * @Description Initialize collection of Pokedex entries and the starting
+ *              count of entries in the Pokedex
+ *
+ * @return Pokedex, which holds the collection of Pokemon entries and pokeCount
+ */
+Pokedex
+initCollection()
+{
+  int i;
+  Pokedex dex;
+
+  for (i = 0; i < MAX_ENTRIES; i++) {
+    dex.collection[i] = initPokemon(); // Access the information of each Pokemon
+  }
+
+  dex.pokeCount = 0;
+
+  return dex;
 }
 
 /**
@@ -78,43 +98,20 @@ initTasks(resTasks *tasks)
 }
 
 /**
- * @Description Initializes Pokemon information with default values
+ * @Description Initializes task types with its default values
  *
- * @return Pokemon, which holds all the Pokemon information
+ * @return resType, which holds the progress and name of a Pokemon task type
  */
-Pokemon
-initPokemon()
+resType
+initTaskTypes()
 {
-  Pokemon p;
+  resType task;
 
-  p.entry = 0;
-  strcpy(p.name, "");
-  p.type = '\0';
-  strcpy(p.description, "");
-  initTasks(&p.tasks);
+  strcpy(task.type, "DEFAULT_VALUE");
+  task.status = 0;
+  task.complete = DEFAULT_COMPLETE;
 
-  return p;
-}
-
-/**
- * @Description Initialize collection of Pokedex entries and the starting
- *              count of entries in the Pokedex
- *
- * @return Pokedex, which holds the collection of Pokemon entries and pokeCount
- */
-Pokedex
-initCollection()
-{
-  int i;
-  Pokedex dex;
-
-  for (i = 0; i < MAX_ENTRIES; i++) {
-    dex.collection[i] = initPokemon(); // Access the information of each Pokemon
-  }
-
-  dex.pokeCount = 0;
-
-  return dex;
+  return task;
 }
 
 // Menu Pages
@@ -228,7 +225,7 @@ researchMenu(Pokedex *dex)
     printf("[1] Review Research Task per Pokemon\n");
     printf("[2] Review Research Task per Task Type\n");
     printf("[3] Update Research Task\n");
-    printf("[4] Create Additional Task Types\n\n");
+    printf("[4] Create Additional Task Types\n");
     printf("[5] Show Top 5 Pokemon\n\n");
 
     printf("Press [0] to return to Main Menu\n\n");

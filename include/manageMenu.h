@@ -5,11 +5,11 @@
 
 void addEntry(Pokedex *dex);
 
+void modifyEntry(Pokedex *dex);
+
 void deleteEntry(Pokedex *dex);
 
 void displayEntries(Pokedex dex, const char *button);
-
-void modifyEntry(Pokedex *dex);
 
 void searchByName(Pokedex dex);
 
@@ -19,5 +19,4 @@ void exportEntries(Pokedex *dex);
 
 void importEntries(Pokedex *dex);
 
-int fileExists(const char *fileName);
 #endif

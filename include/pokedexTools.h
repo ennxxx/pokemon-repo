@@ -45,18 +45,20 @@ Pokedex initCollection();        // Holds the 150 Pokemon and initializes
 
 // Utils for the Pokedex
 void clear_screen();
-int checkDup(Pokedex dex, char name[MAX_NAME_LEN]);
-int checkTaskDup(resTasks taskList, string taskName);
-int entryExists(Pokedex dex, int entry);
 void displayType(Pokemon p);
 void displayPokemon(Pokemon p);
 void displayAllTasks(Pokedex dex);
 void displayTaskStatus(Pokemon mon);
 void trimString(char *str);
 void filterString(char *str, FT filter);
-char toUpper(char c);
+int checkDup(Pokedex dex, char name[MAX_NAME_LEN]);
+int checkTaskDup(resTasks taskList, string taskName);
+int entryExists(Pokedex dex, int entry);
+int fileExists(const char *fileName);
+int pokeRank(Pokedex dex, int *sortedEntries);
 int intHandler(int min, int max);
 char charHandler(const char *chars);
-int pokeRank(Pokedex dex, int *sortedEntries);
+char toUpper(char c);
+char *allCaps(char *str);
 
 #endif

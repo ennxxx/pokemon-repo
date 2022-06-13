@@ -1,9 +1,9 @@
-// This adds and checks for duplicate entries in the Pokedex
-
 #include "../include/manageMenu.h"
 #include "../include/pokedexTools.h"
+#include "../include/researchTasks.h"
 #include "../include/uiElements.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 /**

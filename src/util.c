@@ -1,4 +1,7 @@
+#include "../include/manageMenu.h"
 #include "../include/pokedexTools.h"
+#include "../include/researchTasks.h"
+#include "../include/uiElements.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -19,146 +22,6 @@ clear_screen()
     system("clear");
   }
 #endif
-}
-
-int
-pokeRank(Pokedex dex, int *sortedEntries)
-{
-  int i, j, k, done;
-  int sortedCount = 0;
-
-  if (dex.pokeCount <= 1) {
-    return 0;
-  }
-
-  // get the first pokemon
-  Pokemon mon = dex.collection[0];
-  int rank = mon.tasks.progress;
-
-  sortedEntries[0] = mon.entry;
-  sortedCount++;
-
-  // loop through the entire pokedex
-  for (i = 1; i < dex.pokeCount; i++) {
-    mon = dex.collection[i];
-    rank = mon.tasks.progress;
-    done = 0;
-    for (j = 0; j < sortedCount && !done; j++) {
-      if (rank > dex.collection[sortedEntries[j] - 1].tasks.progress) {
-        for (k = sortedCount; k > j; k--) {
-          sortedEntries[k] = sortedEntries[k - 1];
-        }
-        sortedEntries[j] = mon.entry;
-        sortedCount++;
-        done = 1;
-      }
-      else if (rank < dex.collection[sortedEntries[j] - 1].tasks.progress) {
-        if (j == sortedCount - 1) {
-          sortedEntries[j + 1] = mon.entry;
-          sortedCount++;
-          done = 1;
-        }
-      }
-    }
-  }
-
-  return sortedCount;
-}
-
-/**
- * @Description : Capitalizes all characters in a string
- *
- * @param str The string to capitalize
- * @return The capitalized string
- */
-char *
-capitalize(char *str)
-{
-  int i;
-  for (i = 0; str[i]; i++)
-    str[i] = toUpper(str[i]);
-
-  return str;
-}
-
-/**
- * @Description Checks if inputted task type exists by returning a value
- *
- * @param taskList The task list to print
- * @param taskName The name of the task
- * @return 1 if the task is a duplate, 0 otherwise
- */
-int
-checkTaskDup(resTasks taskList, string taskName)
-{
-  int i, retval, cont;
-
-  // Assume provided string is not a duplicate
-  i = 0, retval = 0;
-  cont = 1;
-
-  for (i = 0; i < taskList.taskCount && cont; i++) {
-    if (strcmp(taskList.list[i].type, taskName) == 0) {
-      retval = 1;
-      cont = 0;
-    }
-  }
-
-  return retval;
-}
-
-/**
- * @Description Checks if a Pokemon's name already exists inside dex
- *
- * @param dex   Holds a collection of Pokemon entries and notes
- *              the number of Pokemon entered in the Pokedex
- * @param name  Array under Pokemon struct to hold name of Pokemon
- * @return 1 if the Pokemon is a duplicate, 0 otherwise
- */
-int
-checkDup(Pokedex dex, char name[MAX_NAME_LEN])
-{
-  int i, isDup = 0;
-
-  if (dex.pokeCount != 0) {
-    string incoming, basename;
-    strcpy(incoming, name);
-    for (i = 0; i < dex.pokeCount && !isDup; i++) {
-      strcpy(basename, dex.collection[i].name);
-      if (strcmp(capitalize(incoming), capitalize(basename)) == 0)
-        isDup = 1;
-    }
-  }
-
-  return isDup; // Returns 0 if not a duplicate
-}
-
-/**
- * @Description Check if an entry exists inside the Pokedex
- *
- * @param dex   Holds a collection of Pokemon entries and notes
- *              the number of Pokemon entered in the Pokedex
- * @param entry Entry number of a Pokemon
- * @return entryIndex if it exists, -1 otherwise
- */
-int
-entryExists(Pokedex dex, int entry)
-{
-  int i, exists = 0; // For all entities in the Pokedex
-  int entryIndex;
-
-  for (i = 0; i < 150; i++) {
-    if (entry == dex.collection[i].entry) {
-      exists = 1;
-      entryIndex = i;
-      i = 150;
-    }
-  }
-
-  if (exists)
-    return entryIndex;
-
-  return -1;
 }
 
 /**
@@ -240,11 +103,30 @@ displayTaskStatus(Pokemon mon)
 }
 
 /**
- * @Description   Remove a certain number of characters from a string
+ * @Description Removes all newlines from a string
  *
- * @param str     A string of words
- * @param filter  An enum of three integers defined as NAME,
- *                DESCRIPTION, and TYPE
+ * @param str A string of words
+ */
+void
+trimString(char *str)
+{
+  int i = 0;
+
+  while (str[i] != '\0') {
+    if (str[i] == '\n') {
+      str[i] = '\0';
+      break;
+    }
+    i++;
+  }
+}
+
+/**
+ * @Description Remove a certain number of characters from a string
+ *
+ * @param str A string of words
+ * @param filter An enum of three integers defined as NAME,
+ *               DESCRIPTION, and TYPE
  */
 void
 filterString(char *str, FT filter)
@@ -265,37 +147,161 @@ filterString(char *str, FT filter)
 }
 
 /**
- * @Description Removes all newlines from a string
+ * @Description Checks if a Pokemon's name already exists inside dex
  *
- * @param str A string of words
+ * @param dex Holds a collection of Pokemon entries and notes
+ *            the number of Pokemon entered in the Pokedex
+ * @param name Array under Pokemon struct to hold name of Pokemon
+ *
+ * @return 1 if the Pokemon is a duplicate, 0 otherwise
  */
-void
-trimString(char *str)
+int
+checkDup(Pokedex dex, char name[MAX_NAME_LEN])
 {
-  int i = 0;
+  // Assume provided string is not a duplicate
+  int i, isDup = 0;
+  string incoming, basename;
 
-  while (str[i] != '\0') {
-    if (str[i] == '\n') {
-      str[i] = '\0';
-      break;
+  if (dex.pokeCount != 0) {
+    strcpy(incoming, name);
+    for (i = 0; i < dex.pokeCount && !isDup; i++) {
+      strcpy(basename, dex.collection[i].name);
+      if (strcmp(allCaps(incoming), allCaps(basename)) == 0)
+        isDup = 1;
     }
-    i++;
+  }
+
+  return isDup;
+}
+
+/**
+ * @Description Checks if inputted task type exists by returning a value
+ *
+ * @param taskList The task list to print
+ * @param taskName The name of the task
+ *
+ * @return 1 if the task is a duplate, 0 otherwise
+ */
+int
+checkTaskDup(resTasks taskList, string taskName)
+{
+  // Assume provided string is not a duplicate
+  int i, isDup = 0, cont = 1;
+  string incoming, basename;
+
+  strcpy(incoming, taskName);
+
+  for (i = 0; i < taskList.taskCount && cont; i++) {
+    strcpy(basename, taskList.list[i].type);
+    if (strcmp(allCaps(incoming), allCaps(basename)) == 0) {
+      isDup = 1;
+      cont = 0;
+    }
+  }
+
+  return isDup;
+}
+
+/**
+ * @Description Check if an entry exists inside the Pokedex
+ *
+ * @param dex Holds a collection of Pokemon entries and notes
+ *            the number of Pokemon entered in the Pokedex
+ * @param entry Entry number of a Pokemon
+ *
+ * @return entryIndex if it exists, -1 otherwise
+ */
+int
+entryExists(Pokedex dex, int entry)
+{
+  int i, exists = 0; // For all entities in the Pokedex
+  int entryIndex;
+
+  for (i = 0; i < 150; i++) {
+    if (entry == dex.collection[i].entry) {
+      exists = 1;
+      entryIndex = i;
+      i = 150;
+    }
+  }
+
+  if (exists)
+    return entryIndex;
+
+  return -1;
+}
+
+/**
+ * @Description Checks if a file exists in directory
+ *
+ * @param fileName The file to be checked
+ *
+ * @return 1 if file exists, 0 otherwise
+ */
+int
+fileExists(const char *fileName)
+{
+  FILE *fp;
+  fp = fopen(fileName, "r");
+  if (fp == NULL)
+    return 0;
+  else {
+    fclose(fp);
+    return 1;
   }
 }
 
 /**
- * @Description Changes lowercase characters to uppercase
+ * @Description
  *
- * @param c A character input or character from a string
- * @return  Uppercase c
+ * @param dex Holds a collection of Pokemon entries and notes
+              the number of Pokemon entered in the Pokedex
+ * @param sortedEntries Sorted entries of existing Pokemon
+ *
+ * @return Number of sorted Pokemon
  */
-char
-toUpper(char c)
+int
+pokeRank(Pokedex dex, int *sortedEntries)
 {
-  if (c >= 'a' && c <= 'z')
-    c = c - 32;
+  int i, j, k, done;
+  int sortedCount = 0;
 
-  return c;
+  if (dex.pokeCount <= 1) {
+    return 0;
+  }
+
+  // Get the first Pokemon
+  Pokemon mon = dex.collection[0];
+  int rank = mon.tasks.progress;
+
+  sortedEntries[0] = mon.entry;
+  sortedCount++;
+
+  // Loop through the entire Pokedex
+  for (i = 1; i < dex.pokeCount; i++) {
+    mon = dex.collection[i];
+    rank = mon.tasks.progress;
+    done = 0;
+    for (j = 0; j < sortedCount && !done; j++) {
+      if (rank > dex.collection[sortedEntries[j] - 1].tasks.progress) {
+        for (k = sortedCount; k > j; k--) {
+          sortedEntries[k] = sortedEntries[k - 1];
+        }
+        sortedEntries[j] = mon.entry;
+        sortedCount++;
+        done = 1;
+      }
+      else if (rank < dex.collection[sortedEntries[j] - 1].tasks.progress) {
+        if (j == sortedCount - 1) {
+          sortedEntries[j + 1] = mon.entry;
+          sortedCount++;
+          done = 1;
+        }
+      }
+    }
+  }
+
+  return sortedCount;
 }
 
 /**
@@ -303,7 +309,8 @@ toUpper(char c)
  *
  * @param min Minimum value to be inputted
  * @param max Maximum value to be inputted
- * @return    Integer input if valid, otherwise inform user to try again
+ *
+ * @return Integer input if valid, otherwise inform user to try again
  */
 int
 intHandler(int min, int max)
@@ -326,6 +333,7 @@ intHandler(int min, int max)
  * @Description Checks for validity of a character input
  *
  * @param chars A string of characters
+ *
  * @return Character input if valid, otherwise inform user to try again
  */
 char
@@ -350,4 +358,37 @@ charHandler(const char *chars)
   }
 
   return input;
+}
+
+/**
+ * @Description Changes lowercase characters to uppercase
+ *
+ * @param c A character input or character from a string
+ *
+ * @return  Uppercase c
+ */
+char
+toUpper(char c)
+{
+  if (c >= 'a' && c <= 'z')
+    c = c - 32;
+
+  return c;
+}
+
+/**
+ * @Description : Capitalizes all characters in a string
+ *
+ * @param str The string to capitalize
+ *
+ * @return The capitalized string
+ */
+char *
+allCaps(char *str)
+{
+  int i;
+  for (i = 0; str[i]; i++)
+    str[i] = toUpper(str[i]);
+
+  return str;
 }

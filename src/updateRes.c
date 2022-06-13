@@ -1,7 +1,9 @@
 #include "../include/manageMenu.h"
 #include "../include/pokedexTools.h"
 #include "../include/researchTasks.h"
+#include "../include/uiElements.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 /**
@@ -102,7 +104,7 @@ updateTasks(Pokedex *dex)
 void
 addTaskTypes(Pokedex *dex)
 {
-  int back, isDup, taskcount, i, j;
+  int back, redo, taskcount, i, j;
   string input;
   resTasks taskList;
   Pokemon mon;
@@ -111,46 +113,52 @@ addTaskTypes(Pokedex *dex)
 
   do {
     clear_screen();
-    isDup = 1;
     taskList = dex->collection[0].tasks;
     taskcount = taskList.taskCount;
 
-    if (taskcount == 10) {
-      printf("Task list is already full.\n");
-      back = 0;
-    }
-
     // Display all existing task types
-    displayAllTasks(*dex);
-
-    // If task list is not full, ask user to input their new task type
-    while (isDup && back != 0) {
-      printf("\nWhat type of task would you like to add? ");
-      scanf("%s", input);
-
-      // Iterate through the list of types
-      // If the type is already in the list, don't add it
-      // Use taskcount to determine the index of the new type
-      isDup = checkTaskDup(taskList, input);
-    }
-
-    // Add the new type to the list
-    for (i = 0; i < MAX_ENTRIES; i++) {
-      j = taskcount;
-
-      mon = dex->collection[i];
-      strcpy(mon.tasks.list[j].type, input);
-      mon.tasks.taskCount++;
-      dex->collection[i] = mon;
-    }
-
-    // Display the updated list
-    clear_screen();
     printf("Adding task...\n\n");
     displayAllTasks(*dex);
 
-    printf("\nPress [1] to ADD another task or [0] to RETURN: ");
-    back = intHandler(0, 1);
+    // If task count is already 10, force user to stop adding
+    if (taskcount == 10) {
+      printf("\nTask list is already full!\n");
+      printf("\nPress [0] to RETURN: ");
+      back = intHandler(0, 1);
+    }
+
+    // If task list is not full, ask user to input their new task type
+    else {
+      do {
+        printf("\nWhat type of task would you like to add? ");
+        scanf("%s", input);
+
+        // Must return 0 for the function to continue
+        redo = checkTaskDup(taskList, input);
+
+        if (redo == 1)
+          printf(
+              "\nThis tasks already exists! Please enter another task type.\n");
+      } while (redo != 0);
+
+      // Add the new type to the list
+      for (i = 0; i < MAX_ENTRIES; i++) {
+        j = taskcount;
+
+        mon = dex->collection[i];
+        strcpy(mon.tasks.list[j].type, input);
+        mon.tasks.taskCount++;
+        dex->collection[i] = mon;
+      }
+
+      // Display the updated list
+      clear_screen();
+      printf("Adding task...\n\n");
+      displayAllTasks(*dex);
+
+      printf("\nPress [1] to ADD another task or [0] to RETURN: ");
+      back = intHandler(0, 1);
+    }
 
   } while (back != 0);
 }

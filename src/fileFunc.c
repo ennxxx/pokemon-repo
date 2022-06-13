@@ -1,7 +1,9 @@
 #include "../include/manageMenu.h"
 #include "../include/pokedexTools.h"
+#include "../include/researchTasks.h"
 #include "../include/uiElements.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 /**
@@ -64,27 +66,6 @@ exportEntries(Pokedex *dex)
   }
 
   fclose(fp);
-}
-
-/**
- * @Description checks if a file exists in directory
- *
- * @param fileName the file to be checked
- *
- * @returns 1 if file exists, 0 if file does not exist
- */
-
-int
-fileExists(const char *fileName)
-{
-  FILE *fp;
-  fp = fopen(fileName, "r");
-  if (fp == NULL)
-    return 0;
-  else {
-    fclose(fp);
-    return 1;
-  }
 }
 
 /**
