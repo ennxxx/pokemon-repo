@@ -80,6 +80,8 @@ importEntries(Pokedex *dex)
   char fileName[26];
   char extension[5] = ".txt";
   int entryIndex, ch, exists = 0;
+  char tmp[100];
+  Pokemon import;
 
   printf("\nImporting entries...\n\n");
   do {
@@ -95,9 +97,6 @@ importEntries(Pokedex *dex)
   } while (!exists);
 
   FILE *fp = fopen(fileName, "r");
-  char tmp[100];
-
-  Pokemon import;
 
   do {
     clear_screen();

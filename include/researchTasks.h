@@ -9,12 +9,12 @@ void reviewTasksByPokemon(Pokedex dex);
 
 void reviewTasksByType(Pokedex dex);
 
+void rankPokemon(Pokedex dex);
+
 void updateProgress(Pokemon *mon);
 
 void updateTasks(Pokedex *dex);
 
 void addTaskTypes(Pokedex *dex);
-
-void rankPokemon(Pokedex dex);
 
 #endif
