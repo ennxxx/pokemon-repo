@@ -44,10 +44,11 @@ updateTasks(Pokedex *dex)
     return;
   }
 
-  int task, pokemon, back, complete;
+  int task, pokemon, back, complete, limit;
   Pokemon *mon;
 
   back = -1;
+  limit = 0;
 
   do {
     clear_screen();
@@ -72,8 +73,9 @@ updateTasks(Pokedex *dex)
     }
 
     else {
+      limit = DEFAULT_COMPLETE - mon->tasks.list[task - 1].status;
       printf("\nHow many times did you complete this task? ");
-      complete = intHandler(1, DEFAULT_COMPLETE);
+      complete = intHandler(1, limit);
 
       // Update the task
       mon->tasks.list[task - 1].status += complete;
