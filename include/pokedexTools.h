@@ -3,12 +3,12 @@
 
 #define POKE_TYPES "EFGW"
 #define MAX_ENTRIES 150
-#define MAX_NAME_LEN 20
-#define MAX_DESC_LEN 50
+#define MAX_NAME_LEN 21
+#define MAX_DESC_LEN 51
 #define MAX_TASKS 10
 #define DEFAULT_COMPLETE 15
 
-typedef char string[20];
+typedef char string[21];
 typedef enum FILTERTYPE { NAME, DESCRIPTION, TYPE } FT;
 
 typedef struct {
