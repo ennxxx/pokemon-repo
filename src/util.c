@@ -323,8 +323,12 @@ intHandler(int min, int max)
     scanf("%d", &input);
     if (input >= min && input <= max)
       valid = 1;
-    else
+    else {
+      // clear the input buffer
+      while (getchar() != '\n')
+        ;
       printf("Invalid input. Please try again: ");
+    }
   }
 
   return input;
